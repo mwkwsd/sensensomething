@@ -1,4 +1,4 @@
-import {List, ListItemButton, ListItemText} from '@mui/material';
+import {List, ListItemButton, ListItemText, ListSubheader} from '@mui/material';
 
 const NavList: React.FC = (props) => {
   return (
@@ -6,7 +6,7 @@ const NavList: React.FC = (props) => {
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
       component="nav"
     >
-      {/* <ListItemButton selected={route === 0}> */}
+      {/* TODO: routing on click */}
       <ListItemButton>
         <ListItemText primary="Recent Work" />
       </ListItemButton>
@@ -16,27 +16,31 @@ const NavList: React.FC = (props) => {
       <ListItemButton>
         <ListItemText primary="Contact" />
       </ListItemButton>
-      <h1>ROLE</h1>
       
-      
-      <List component="div" disablePadding>
-        <ListItemButton sx={{ pl: 4 }}>
+      {/* WIP style sub items */}
+      <List component="div" >
+        <ListSubheader component="div">
+          ROLES
+        </ListSubheader>
+        <ListItemButton>
           <ListItemText primary="Director & Producer" />
         </ListItemButton>
-        <ListItemButton sx={{ pl: 4 }}>
+        <ListItemButton>
           <ListItemText primary="Camera Operator" />
         </ListItemButton>
       </List>
 
-      <h1>GENRE</h1>
-      <List component="div" disablePadding>
-        <ListItemButton sx={{ pl: 4 }}>
+      <List component="div" >
+      <ListSubheader component="div">
+          GENRE
+        </ListSubheader>
+        <ListItemButton>
           <ListItemText primary="Documentary" />
         </ListItemButton>
-        <ListItemButton sx={{ pl: 4 }}>
+        <ListItemButton>
           <ListItemText primary="Animation" />
         </ListItemButton>
-        <ListItemButton sx={{ pl: 4 }}>
+        <ListItemButton>
           <ListItemText primary="Series" />
         </ListItemButton>
       </List>
