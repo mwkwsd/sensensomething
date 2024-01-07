@@ -1,12 +1,12 @@
 import {List, ListItemButton, ListItemText, ListSubheader} from '@mui/material';
 
-const NavList: React.FC = (props) => {
+function NavList (){
   return (
     <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
       component="nav"
     >
-      {/* TODO: routing on click */}
+      {/* TODO: routing on click and show current selection*/}
       <ListItemButton>
         <ListItemText primary="Recent Work" />
       </ListItemButton>
