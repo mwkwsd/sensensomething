@@ -1,32 +1,35 @@
 import { Card, CardContent, CardMedia } from "@mui/material";
 import { useMemo } from "react";
 import { Video } from "../../atoms/video/Video";
+import { VideoTitle } from "../../atoms/videoTitle/VideoTitle";
+import { VideoInfo } from "../../atoms/videoInfo/VideoInfo";
+import { IVideoCard } from "../../../common/interfaces/IVideoCard";
+import { convertFromEnumToText } from "../../../common/utils/utils";
 
-const roles = ["director_producer", "camera_operator"] as const;
-export type Role = (typeof roles)[number];
-const genres = ["documentary", "animation", "series"] as const;
-export type Genre = (typeof genres)[number];
+type VideoCardProps = Omit<IVideoCard, "isRecentWork" | "genre">;
 
-// Should this interface live here? Do we want to have a separate file for this type of interface?
-export interface IVideoCard {
-  url: string; // The URL of the video
-  title: string; // The title of the video
-  clientName: string; // The name of the client
-  roles: Role[]; // The roles Kurt was for this video
-  genre: Genre; // The genre of the video
-  isRecentWork?: boolean; // If this video should be on the recent work section
-}
-
-type VideoCardProps = IVideoCard;
-export function VideoCard(props: VideoCardProps) {
-  const video = useMemo(() => <Video url={props.url} />, [props.url]);
+// TODO: Video needs to take full width of Card
+export function VideoCard({ url, title, clientName, roles }: VideoCardProps) {
+  const video = useMemo(() => <Video url={url} />, [url]);
+  const videoTitle = useMemo(() => <VideoTitle title={title} />, [title]);
+  const clientComponent = useMemo(
+    () => <VideoInfo label="Client" text={clientName} />,
+    [clientName]
+  );
+  const rolesComponent = useMemo(() => {
+    const rolesText = roles.map(convertFromEnumToText).join(", ");
+    return <VideoInfo label="Roles" text={rolesText} />;
+  }, [roles]);
 
   return (
     // maxWidth taken from Figma, likely not finalized
     <Card sx={{ maxWidth: 343 }}>
-      <CardMedia component={'video'}
-      />
-
+      {video}
+      <CardContent>
+        {videoTitle}
+        {clientComponent}
+        {rolesComponent}
+      </CardContent>
     </Card>
   );
 }

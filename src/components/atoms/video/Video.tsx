@@ -1,13 +1,10 @@
+import { CardMedia } from "@mui/material";
+
 type VideoProps = {
   url: string;
 };
 
-
 // WIP
-export function Video(props: VideoProps) {
-  return (
-    <video controls>
-      <source src={props.url} />
-    </video>
-  );
+export function Video({ url }: VideoProps) {
+  return <CardMedia src={url} component={"iframe"} />;
 }

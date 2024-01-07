@@ -1,4 +1,5 @@
-import { IVideoCard } from "../../components/molecules/videoCard/VideoCard";
+import { IVideoCard } from "../../common/interfaces/IVideoCard";
+
 
 const videos: IVideoCard[] = [
   {
