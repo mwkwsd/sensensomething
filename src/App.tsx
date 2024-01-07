@@ -1,6 +1,14 @@
+import React from 'react';
 import "./App.css";
 import { IVideoCard } from "./common/interfaces/IVideoCard";
 import { VideoCard } from "./components/molecules/videoCard/VideoCard";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from "./components/organisms/Home";
+import Contact from "./components/organisms/Contact";
+import VideoListPage from "./components/organisms/VideoListPage";
+import SeriesPage from "./components/organisms/SeriesPage";
+import AnimationPage from "./components/organisms/AnimationPage";
+
 
 function App() {
   const video: IVideoCard = {
@@ -12,11 +20,15 @@ function App() {
     roles: ["director_producer"],
   };
   return (
-    <div className="App">
-      <header className="App-header">
-        <VideoCard {...video} />
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="videoListPage" element={<VideoListPage />} />
+        <Route path="series" element={<SeriesPage />} />
+        <Route path="animation" element={<AnimationPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
