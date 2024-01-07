@@ -1,6 +1,7 @@
 import "./App.css";
 import { IVideoCard } from "./common/interfaces/IVideoCard";
 import { VideoCard } from "./components/molecules/videoCard/VideoCard";
+import NavBar from "./components/templates/NavBar";
 
 function App() {
   const video: IVideoCard = {
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <NavBar />
         <VideoCard {...video} />
       </header>
     </div>

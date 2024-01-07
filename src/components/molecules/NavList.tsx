@@ -1,4 +1,3 @@
-import React from "react"
 import {List, ListItemButton, ListItemText} from '@mui/material';
 
 const NavList: React.FC = (props) => {
