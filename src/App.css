@@ -1,4 +1,4 @@
-.App-header {
+/* .App-header {
   background-color: #2D2D2D;
   min-height: 20vh;
   display: flex;
@@ -29,7 +29,6 @@
 
 .firstname {
   font-size: 65px;
-  /* margin-bottom: -10px; */
 }
 
 .lastname {
@@ -37,7 +36,6 @@
   margin-top: -15px;
 }
 
-/* Media Query for Desktop */
 @media (min-width: 768px) {
   .firstname {
     font-size: 65px;
@@ -47,4 +45,4 @@
     font-size: 20px;
     margin-top: -5px; 
   }
-}
+} */
