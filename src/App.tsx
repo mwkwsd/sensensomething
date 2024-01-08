@@ -1,6 +1,7 @@
 import "./App.css";
 import { IVideoCard } from "./common/interfaces/IVideoCard";
 import { VideoCard } from "./components/molecules/videoCard/VideoCard";
+import Header from "./components/atoms/headers/Header";
 
 function App() {
   const video: IVideoCard = {
@@ -11,11 +12,13 @@ function App() {
     genre: "documentary",
     roles: ["director_producer"],
   };
+  
   return (
     <div className="App">
       <header className="App-header">
-        <VideoCard {...video} />
+        <Header />
       </header>
+        <VideoCard {...video} />
     </div>
   );
 }
