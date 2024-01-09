@@ -10,7 +10,6 @@ function NavBar (){
     setMenuOpen(!menuOpen);
   };
 
-
   return (
     <Box sx={{ display: 'flex' }}>
       {/* styles WIP */}
