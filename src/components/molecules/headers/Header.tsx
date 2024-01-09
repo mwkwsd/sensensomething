@@ -1,4 +1,6 @@
 import styled from '@mui/system/styled';
+import { FirstName } from '../../atoms/firstName/FirstName';
+import { LastName } from '../../atoms/lastName/LastName';
 
 const HeaderContainer = styled('div')({
   margin: '20px',
@@ -15,29 +17,12 @@ const TitleContainer = styled('div')({
   alignItems: 'flex-start',
 });
 
-const FirstName = styled('p')(({ theme }) => ({
-  margin: 0,
-  fontSize: '50px',
-  [theme.breakpoints.up('lg')]: {
-    fontSize: '65px', 
-  },
-}));
-
-const LastName = styled('p')(({ theme }) => ({
-  margin: 0,
-  fontSize: '15px',
-  marginTop: '-10px',
-  [theme.breakpoints.up('lg')]: {
-    fontSize: '20px', 
-  },
-}));
-
-const Header = () => {
+function Header() {
   return (
     <HeaderContainer>
       <TitleContainer>
-        <FirstName>KURT</FirstName>
-        <LastName>SENSENBRENNER</LastName>
+        <FirstName firstName='KURT' />
+        <LastName lastName="SENSENBRENNER" />
       </TitleContainer>
     </HeaderContainer>
   );
