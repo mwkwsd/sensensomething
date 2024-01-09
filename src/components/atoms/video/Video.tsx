@@ -1,3 +1,4 @@
+import React from 'react'
 import { CardMedia } from "@mui/material";
 
 type VideoProps = {
