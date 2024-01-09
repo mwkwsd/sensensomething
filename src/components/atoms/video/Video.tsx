@@ -1,10 +1,18 @@
 import { CardMedia } from "@mui/material";
-
-type VideoProps = {
+import { PlayButton } from "../buttons/PlayButton";
+interface VideoProps {
   url: string;
-};
-
-// WIP
-export function Video({ url }: VideoProps) {
-  return <CardMedia src={url} component={"iframe"} />;
 }
+
+export function Video({ url }: VideoProps) {
+
+  return (
+    <CardMedia>
+      <iframe src={`${url}?controls=0`} title="Video" />
+
+      {PlayButton()}
+    </CardMedia>
+  );
+}
+
+
