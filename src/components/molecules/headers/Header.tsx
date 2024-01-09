@@ -1,6 +1,16 @@
+import React from 'react';
 import styled from '@mui/system/styled';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { FirstName } from '../../atoms/firstName/FirstName';
 import { LastName } from '../../atoms/lastName/LastName';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#2196f3',
+    },
+  },
+});
 
 const HeaderContainer = styled('div')({
   margin: '20px',
@@ -8,7 +18,7 @@ const HeaderContainer = styled('div')({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  color: 'white'
+  color: 'white',
 });
 
 const TitleContainer = styled('div')({
@@ -19,13 +29,15 @@ const TitleContainer = styled('div')({
 
 function Header() {
   return (
-    <HeaderContainer>
-      <TitleContainer>
-        <FirstName firstName='KURT' />
-        <LastName lastName="SENSENBRENNER" />
-      </TitleContainer>
-    </HeaderContainer>
+    <ThemeProvider theme={theme}>
+      <HeaderContainer>
+        <TitleContainer>
+          <FirstName firstName='KURT' />
+          <LastName lastName="SENSENBRENNER" />
+        </TitleContainer>
+      </HeaderContainer>
+    </ThemeProvider>
   );
-};
+}
 
 export default Header;
