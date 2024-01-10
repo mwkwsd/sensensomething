@@ -1,7 +1,7 @@
 import "./App.css";
 import { IVideoCard } from "./common/interfaces/IVideoCard";
 import { VideoCard } from "./components/molecules/videoCard/VideoCard";
-import Header from "./components/molecules/headers/Header";
+import { Header } from "./components/molecules/headers/Header";
 
 function App() {
   const video: IVideoCard = {

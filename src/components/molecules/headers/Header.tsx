@@ -27,7 +27,7 @@ const TitleContainer = styled('div')({
   alignItems: 'flex-start',
 });
 
-function Header() {
+export function Header() {
   return (
     <ThemeProvider theme={theme}>
       <HeaderContainer>
@@ -40,4 +40,3 @@ function Header() {
   );
 }
 
-export default Header;
