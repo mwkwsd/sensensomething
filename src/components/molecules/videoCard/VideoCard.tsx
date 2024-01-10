@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { Card, CardContent, CardMedia } from "@mui/material";
 import { useMemo } from "react";
 import { Video } from "../../atoms/video/Video";
@@ -11,21 +11,22 @@ type VideoCardProps = Omit<IVideoCard, "isRecentWork" | "genre">;
 
 // TODO: Video needs to take full width of Card
 export function VideoCard({ url, title, clientName, roles }: VideoCardProps) {
-  const video = useMemo(() => <Video url={url} />, [url]);
+  const mediaCardVideo = useMemo(() => <Video url={url} />, [url]);
   const videoTitle = useMemo(() => <VideoTitle title={title} />, [title]);
+
   const clientComponent = useMemo(
     () => <VideoInfo label="Client" text={clientName} />,
     [clientName]
   );
+
   const rolesComponent = useMemo(() => {
     const rolesText = roles.map(convertFromEnumToText).join(", ");
     return <VideoInfo label="Roles" text={rolesText} />;
   }, [roles]);
 
   return (
-    // maxWidth taken from Figma, likely not finalized
-    <Card sx={{ maxWidth: 343 }}>
-      {video}
+    <Card>
+      {mediaCardVideo}
       <CardContent>
         {videoTitle}
         {clientComponent}
