@@ -1,3 +1,4 @@
+import React from "react";
 import { CardMedia } from "@mui/material";
 
 type VideoProps = {
@@ -6,5 +7,10 @@ type VideoProps = {
 
 // WIP
 export function Video({ url }: VideoProps) {
-  return <CardMedia src={url} component={"iframe"} />;
+  return (
+    <CardMedia component={"iframe"} src={addQueryParamsToVideoUrl(url)} sx={{ aspectRatio: "16/9" }} />
+  );
+}
+function addQueryParamsToVideoUrl(url: string): string {
+  return url + "";
 }
