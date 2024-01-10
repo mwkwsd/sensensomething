@@ -1,8 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { VideoCard } from "../molecules/videoCard/VideoCard";
 import { IVideoCard } from "../../common/interfaces/IVideoCard";
 import { VideoList } from "../organisms/videoList/VideoList";
+import { useQuery } from "../../common/utils/reactUtils";
+import { PageTitle } from "../atoms/pageTitle/PageTitle";
+import styled from "styled-components";
 
 {
   /* <iframe src="https://player.vimeo.com/video/222272362?h=e078f1bb38&color=ef9700&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -26,20 +27,22 @@ const videos: IVideoCard[] = [
     roles: ["director_producer", "camera_operator"],
   },
 ];
+const VideoListContainer = styled("div")(() => ({
+  display: "grid",
+  gap: 24,
+  justifyContent: "stretch",
+}));
 
 export function VideoListPage() {
-  const { role, genre } = useParams();
-
-  console.log(`Role: ${role}`);
-  console.log(`Genre: ${genre}`);
+  const _query = useQuery();
 
   return (
-    <div>
-      <h2>Video List Page</h2>
-      <p>Role: {role}</p>
-      <p>Genre: {genre}</p>
+    <VideoListContainer>
+      <PageTitle title={"documentary"} />
+      {/* <p>Role: {role}</p>
+      <p>Genre: {genre}</p> */}
+
       <VideoList videos={videos} />
-      {/* Display your videos here */}
-    </div>
+    </VideoListContainer>
   );
 }
