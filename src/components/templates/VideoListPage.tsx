@@ -1,17 +1,39 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import { IVideoCard } from "../../common/interfaces/IVideoCard";
+import { VideoList } from "../organisms/videoList/VideoList";
+import { useQuery } from "../../common/utils/reactUtils";
+import { PageTitle } from "../atoms/pageTitle/PageTitle";
+import styled from "styled-components";
 
-function VideoListPage() {
-  const { role, genre } = useParams();
+const videos: IVideoCard[] = [
+  {
+    url: "https://player.vimeo.com/video/121707380",
+    title: "From Mass to the Mountain",
+    clientName: "Self",
+    genre: "documentary",
+    roles: ["director_producer"],
+  },
+  {
+    url: "https://player.vimeo.com/video/222272362",
+    title: "Meet The Pill Bug",
+    clientName: "Bugs Everywhere",
+    genre: "documentary",
+    roles: ["director_producer", "camera_operator"],
+  },
+];
+const VideoListContainer = styled("div")(() => ({
+  display: "grid",
+  gap: 24,
+  justifyContent: "stretch",
+}));
+
+export function VideoListPage() {
+  const _query = useQuery();
 
   return (
-    <div>
-      <h2>Video List Page</h2>
-      <p>Role: {role}</p>
-      <p>Genre: {genre}</p>
-      {/* Display your videos here */}
-    </div>
-  )
+    <VideoListContainer>
+      <PageTitle title={"documentary"} />
+      <VideoList videos={videos} />
+    </VideoListContainer>
+  );
 }
-
-export default VideoListPage
