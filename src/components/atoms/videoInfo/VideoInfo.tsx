@@ -1,15 +1,16 @@
 import { Typography } from "@mui/material";
+import { ReactNode } from "react";
 
 type VideoInfoProps = {
   label?: string;
-  text: string;
+  infoValue: ReactNode
 };
 
-export function VideoInfo({ label, text }: VideoInfoProps) {
+export function VideoInfo({ label, infoValue }: VideoInfoProps) {
   return (
     <Typography>
       {!!label && <b>{`${label}: `}</b>}
-      {text}
+      {infoValue}
     </Typography>
   );
 }
