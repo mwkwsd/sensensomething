@@ -1,16 +1,20 @@
-import { Typography } from "@mui/material";
-import { ReactNode } from "react";
+import { Typography, Link } from '@mui/material'
+import { ReactNode } from 'react'
 
 type VideoInfoProps = {
-  label?: string;
+  label?: string
   infoValue: ReactNode
-};
+}
 
 export function VideoInfo({ label, infoValue }: VideoInfoProps) {
   return (
     <Typography>
       {!!label && <b>{`${label}: `}</b>}
-      {infoValue}
+      {label === 'Client' ? (
+        <span>{infoValue}</span>
+      ) : (
+        <Link href={`/${infoValue}`}>{infoValue}</Link>
+      )}
     </Typography>
-  );
+  )
 }
