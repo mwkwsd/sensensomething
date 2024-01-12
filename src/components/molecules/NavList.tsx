@@ -1,101 +1,58 @@
-import React, { useState } from "react";
-import {
-  List,
-  ListItemButton,
-  ListItemText,
-  ListSubheader,
-} from "@mui/material";
-import { Link } from "react-router-dom";
+import { List, ListItemButton, ListItemText, ListSubheader } from '@mui/material';
+import { Link, useLocation } from 'react-router-dom';
 
 const commonStyle = {
-  fontWeight: "bold",
-  bgcolor: "black",
-  color: "white",
+  fontWeight: 'bold',
+  bgcolor: 'black',
+  color: 'white',
   fontSize: 20,
+  textAlign: 'right',
 };
 
-function generateButtonStyle(isSelected: boolean) {
+function generateButtonStyle(isSelected: boolean, link: string) {
   return {
     ...(isSelected && {
-      backgroundColor: "lightgrey",
-      padding: "1px 16px",
-      borderRadius: "0 24px 24px 0",
-      "&:hover": {
-        backgroundColor: "lightgrey",
+      backgroundColor: 'lightgrey',
+      padding: '1px 16px',
+      borderRadius: '24px 0 0 24px',
+      '&:hover': {
+        backgroundColor: 'lightgrey',
       },
     }),
+    color: isSelected ? 'black' : 'white',
   };
 }
 
-function NavList() {
-  const [selectedLink, setSelectedLink] = useState<string | null>(null);
+export function NavList() {
+  const location = useLocation();
 
-  const handleLinkClick = (link: string) => {
-    setSelectedLink(link);
-  };
-
-  const isLinkSelected = (link: string) => selectedLink === link;
+  const isLinkSelected = (link: string) => location.pathname === link;
 
   return (
     <List
-      sx={{ width: "100%", height: "100%", maxWidth: 360, ...commonStyle }}
+      sx={{ width: '100%', height: '100%', maxWidth: 360, ...commonStyle }}
       component="nav"
     >
       <ListItemButton
         component={Link}
         to="/"
-        sx={{ ...generateButtonStyle(isLinkSelected("/")) }}
-        onClick={() => handleLinkClick("/")}
+        sx={{ ...generateButtonStyle(isLinkSelected('/'), '/'), textAlign: 'right' }}
       >
-        <ListItemText
-          primary="Recent Work"
-          sx={{
-            color: isLinkSelected("/") ? "black" : "white",
-            padding: "1px",
-          }}
-        />
+        <ListItemText primary="Recent Work" />
       </ListItemButton>
       <ListItemButton
         component={Link}
         to="/contact"
-        sx={{ ...generateButtonStyle(isLinkSelected("/contact")) }}
-        onClick={() => handleLinkClick("/contact")}
+        sx={{ ...generateButtonStyle(isLinkSelected('/contact'), '/contact'), textAlign: 'right' }}
       >
-        <ListItemText
-          primary="Contact"
-          sx={{
-            color: isLinkSelected("/contact") ? "black" : "white",
-            padding: "1px",
-          }}
-        />
+        <ListItemText primary="Contact" />
       </ListItemButton>
       <ListItemButton
         component={Link}
         to="/about"
-        sx={{ ...generateButtonStyle(isLinkSelected("/about")) }}
-        onClick={() => handleLinkClick("/about")}
+        sx={{ ...generateButtonStyle(isLinkSelected('/about'), '/about'), textAlign: 'right' }}
       >
-        <ListItemText
-          primary="About"
-          sx={{
-            color: isLinkSelected("/about") ? "black" : "white",
-            padding: "1px",
-          }}
-        />
-      </ListItemButton>
-      <ListItemButton
-        component={Link}
-        to="/video-list-page"
-        sx={{ ...generateButtonStyle(isLinkSelected("/video-list-page")) }}
-        onClick={() => handleLinkClick("/video-list-page")}
-      >
-        <ListItemText
-          primary="Video List"
-          sx={{
-            color: isLinkSelected("/video-list-page") ? "black" : "white",
-            padding: "1px",
-          }}
-        />
+        <ListItemText primary="About" />
       </ListItemButton>
 
       {/* WIP style sub items */}
@@ -106,30 +63,16 @@ function NavList() {
         <ListItemButton
           component={Link}
           to="/director-producer"
-          sx={{ ...generateButtonStyle(isLinkSelected("/director-producer")) }}
-          onClick={() => handleLinkClick("/director-producer")}
+          sx={{ ...generateButtonStyle(isLinkSelected('/director-producer'), '/director-producer'), textAlign: 'right' }}
         >
-          <ListItemText
-            primary="Director & Producer"
-            sx={{
-              color: isLinkSelected("/director-producer") ? "black" : "white",
-              padding: "1px",
-            }}
-          />
+          <ListItemText primary="Director & Producer" />
         </ListItemButton>
         <ListItemButton
           component={Link}
           to="/camera-operator"
-          sx={{ ...generateButtonStyle(isLinkSelected("/camera-operator")) }}
-          onClick={() => handleLinkClick("/camera-operator")}
+          sx={{ ...generateButtonStyle(isLinkSelected('/camera-operator'), '/camera-operator'), textAlign: 'right' }}
         >
-          <ListItemText
-            primary="Camera Operator"
-            sx={{
-              color: isLinkSelected("/camera-operator") ? "black" : "white",
-              padding: "1px",
-            }}
-          />
+          <ListItemText primary="Camera Operator" />
         </ListItemButton>
       </List>
 
@@ -140,48 +83,25 @@ function NavList() {
         <ListItemButton
           component={Link}
           to="/animation"
-          sx={{ ...generateButtonStyle(isLinkSelected("/animation")) }}
-          onClick={() => handleLinkClick("/animation")}
+          sx={{ ...generateButtonStyle(isLinkSelected('/animation'), '/animation'), textAlign: 'right' }}
         >
-          <ListItemText
-            primary="Animation"
-            sx={{
-              color: isLinkSelected("/animation") ? "black" : "white",
-              padding: "1px",
-            }}
-          />
+          <ListItemText primary="Animation" />
         </ListItemButton>
         <ListItemButton
           component={Link}
           to="/documentary"
-          sx={{ ...generateButtonStyle(isLinkSelected("/documentary")) }}
-          onClick={() => handleLinkClick("/documentary")}
+          sx={{ ...generateButtonStyle(isLinkSelected('/documentary'), '/documentary'), textAlign: 'right' }}
         >
-          <ListItemText
-            primary="Documentary"
-            sx={{
-              color: isLinkSelected("/documentary") ? "black" : "white",
-              padding: "1px",
-            }}
-          />
+          <ListItemText primary="Documentary" />
         </ListItemButton>
         <ListItemButton
           component={Link}
           to="/series"
-          sx={{ ...generateButtonStyle(isLinkSelected("/series")) }}
-          onClick={() => handleLinkClick("/series")}
+          sx={{ ...generateButtonStyle(isLinkSelected('/series'), '/series'), textAlign: 'right' }}
         >
-          <ListItemText
-            primary="Series"
-            sx={{
-              color: isLinkSelected("/series") ? "black" : "white",
-              padding: "1px",
-            }}
-          />
+          <ListItemText primary="Series" />
         </ListItemButton>
       </List>
     </List>
   );
 }
-
-export default NavList;

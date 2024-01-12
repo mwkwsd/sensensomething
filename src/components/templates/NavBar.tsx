@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {AppBar, Box, Drawer, IconButton, Toolbar, Typography} from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
-import NavList from "../molecules/NavList"
+import { NavList } from "../molecules/NavList"
 
 function NavBar (){
   const [menuOpen, setMenuOpen] = useState(false)
@@ -30,6 +30,7 @@ function NavBar (){
       </AppBar>
       <Drawer
         variant="temporary"
+        anchor="right"
         open={menuOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
