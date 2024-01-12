@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@mui/system/styled";
-import { FirstName } from "../../atoms/firstName/FirstName";
-import { LastName } from "../../atoms/lastName/LastName";
+import { FirstName } from "../../atoms/mainHeading/MainHeading";
+import { LastName } from "../../atoms/subHeading/SubHeading";
 
 const HeaderContainer = styled("div")({
   margin: "20px",
