@@ -10,14 +10,14 @@ const videos: IVideoCard[] = [
     url: "https://player.vimeo.com/video/121707380",
     title: "From Mass to the Mountain",
     clientName: "Self",
-    genre: "documentary",
+    genres: ["documentary"],
     roles: ["director_producer"],
   },
   {
     url: "https://player.vimeo.com/video/222272362",
     title: "Meet The Pill Bug",
     clientName: "Bugs Everywhere",
-    genre: "documentary",
+    genres: ["documentary", "animation"],
     roles: ["director_producer", "camera_operator"],
   },
 ];

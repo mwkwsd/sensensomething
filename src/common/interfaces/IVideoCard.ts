@@ -6,6 +6,6 @@ export interface IVideoCard {
   title: string; // The title of the video
   clientName: string; // The name of the client
   roles: Role[]; // The roles Kurt was for this video
-  genre: Genre; // The genre of the video
+  genres: Genre[]; // The genre of the video
   isRecentWork?: boolean; // If this video should be on the recent work section
 }

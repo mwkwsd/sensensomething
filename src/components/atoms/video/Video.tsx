@@ -12,5 +12,7 @@ export function Video({ url }: VideoProps) {
   );
 }
 function addQueryParamsToVideoUrl(url: string): string {
-  return url + "";
+  // color only seems to change the color of the played % on the video controls
+  // Not any of the buttons. Might need to look at Kurt's setting for that.
+  return url + "?color=0000ff";
 }
