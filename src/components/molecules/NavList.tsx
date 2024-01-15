@@ -1,7 +1,12 @@
-import React from 'react';
-import {List, ListItemButton, ListItemText, ListSubheader} from '@mui/material';
+import React from 'react'
+import {
+  List,
+  ListItemButton,
+  ListItemText,
+  ListSubheader,
+} from '@mui/material'
 
-function NavList (){
+function NavList() {
   return (
     <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
@@ -17,12 +22,10 @@ function NavList (){
       <ListItemButton>
         <ListItemText primary="Contact" />
       </ListItemButton>
-      
+
       {/* WIP style sub items */}
-      <List component="div" >
-        <ListSubheader component="div">
-          ROLES
-        </ListSubheader>
+      <List component="div">
+        <ListSubheader component="div">ROLES</ListSubheader>
         <ListItemButton>
           <ListItemText primary="Director & Producer" />
         </ListItemButton>
@@ -31,10 +34,8 @@ function NavList (){
         </ListItemButton>
       </List>
 
-      <List component="div" >
-      <ListSubheader component="div">
-          GENRE
-        </ListSubheader>
+      <List component="div">
+        <ListSubheader component="div">GENRE</ListSubheader>
         <ListItemButton>
           <ListItemText primary="Documentary" />
         </ListItemButton>
@@ -46,7 +47,6 @@ function NavList (){
         </ListItemButton>
       </List>
     </List>
-
   )
 }
 

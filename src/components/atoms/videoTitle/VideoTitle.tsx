@@ -1,9 +1,9 @@
-import { Typography } from "@mui/material";
+import { Typography } from '@mui/material'
 
 type VideoTitleProps = {
-  title: string;
-};
+  title: string
+}
 
 export function VideoTitle({ title }: VideoTitleProps) {
-  return <Typography>{title}</Typography>;
+  return <Typography>{title}</Typography>
 }
