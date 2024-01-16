@@ -1,32 +1,17 @@
 import { Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
-import { Genre, Role, roleTypeChecker } from '../../../common/constants/enums'
-import {
-  convertFromEnumToText,
-  convertFromEnumToUrl,
-} from '../../../common/utils/utils'
+import { Genre, Role } from '../../../common/constants/enums'
 import { ReactNode } from 'react'
+import { LinkForEnum } from '../linkForEnum/LinkForEnum'
 
 type VideoInfoProps = {
   label: string
   linkableInfo: Genre[] | Role[]
 }
 
-function buildLinkUrl(arg: Genre | Role): string {
-  const filterKey = roleTypeChecker(arg) ? 'role' : 'genre'
-  return '/video-list-page?' + filterKey + '=' + convertFromEnumToUrl(arg)
-}
-
 export function VideoInfoWithLink({ label, linkableInfo }: VideoInfoProps) {
   const links: ReactNode = linkableInfo
     .map<ReactNode>((info, index) => (
-      <Link
-        style={{ color: 'black', textDecoration: 'none' }}
-        to={buildLinkUrl(info)}
-        key={`${label}-to-${info}-link-${index}`}
-      >
-        {convertFromEnumToText(info)}
-      </Link>
+      <LinkForEnum value={info} key={`link-for-enum-${info}-${index}`} />
     ))
     .reduce((acc, value) => [acc, ', ', value])
   return (
