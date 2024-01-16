@@ -2,7 +2,7 @@ import {
   genreToText,
   genreToUrl,
   roleToText,
-  rolesToUrl,
+  roleToUrl,
 } from '../constants/constants'
 import { Genre, Role, genreTypeChecker } from '../constants/enums'
 
@@ -20,6 +20,6 @@ export function convertFromEnumToUrl(arg: Enums): string {
   if (genreTypeChecker(arg)) {
     return genreToUrl[arg]
   } else {
-    return rolesToUrl[arg]
+    return roleToUrl[arg]
   }
 }

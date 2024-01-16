@@ -5,7 +5,7 @@ export const roleToText: { [key in Role]: string } = {
   director_producer: 'Director & Producer',
 } as const
 
-export const rolesToUrl: { [key in Role]: string } = {
+export const roleToUrl: { [key in Role]: string } = {
   camera_operator: 'camera-operator',
   director_producer: 'director-producer',
 } as const
@@ -20,4 +20,4 @@ export const genreToUrl: { [key in Genre]: string } = {
   animation: 'animation',
   documentary: 'documentary',
   series: 'series',
-}
+} as const
