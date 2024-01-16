@@ -3,17 +3,17 @@ import {AppBar, Box, Drawer, IconButton, Toolbar, Typography} from "@mui/materia
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavList } from "../molecules/NavList"
 
-function NavBar (){
+function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
-  
+
   const handleDrawerToggle = () => {
-    setMenuOpen(!menuOpen);
-  };
+    setMenuOpen(!menuOpen)
+  }
 
   return (
     <Box sx={{ display: 'flex' }}>
       {/* styles WIP */}
-      <AppBar >
+      <AppBar>
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
             Kurt Sensenbrenner

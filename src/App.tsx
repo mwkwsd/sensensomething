@@ -20,7 +20,7 @@ function App() {
         <Route path="/animation" element={<AnimationPage />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
