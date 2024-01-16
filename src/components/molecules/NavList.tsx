@@ -26,7 +26,11 @@ function generateButtonStyle(isSelected: boolean, link: string) {
 export function NavList() {
   const location = useLocation();
 
-  const isLinkSelected = (link: string) => location.pathname === link;
+  const isLinkSelected = (link: string) => {
+    const basePath = '/video-list';
+    const linkWithoutQuery = link.replace(/(\?.*)$/, ''); 
+    return location.pathname === linkWithoutQuery && location.search.includes(link.replace(basePath, ''));
+  };
 
   return (
     <List
@@ -63,14 +67,14 @@ export function NavList() {
         <ListItemButton
           component={Link}
           to="/video-list?filter=director-producer"
-          sx={{ ...generateButtonStyle(isLinkSelected('/video-list'), '/video-list?filter=director-producer'), textAlign: 'right' }}
+          sx={{ ...generateButtonStyle(isLinkSelected('/video-list?filter=director-producer'), '/video-list?filter=director-producer'), textAlign: 'right' }}
         >
           <ListItemText primary="Director & Producer" />
         </ListItemButton>
         <ListItemButton
           component={Link}
           to="/video-list?filter=camera-operator"
-          sx={{ ...generateButtonStyle(isLinkSelected('/camera-operator'), '/video-list?filter=camera-operator'), textAlign: 'right' }}
+          sx={{ ...generateButtonStyle(isLinkSelected('/video-list?filter=camera-operator'), '/video-list?filter=camera-operator'), textAlign: 'right' }}
         >
           <ListItemText primary="Camera Operator" />
         </ListItemButton>
@@ -83,21 +87,21 @@ export function NavList() {
         <ListItemButton
           component={Link}
           to="/video-list?filter=animation"
-          sx={{ ...generateButtonStyle(isLinkSelected('/animation'), '/video-list?filter=animation'), textAlign: 'right' }}
+          sx={{ ...generateButtonStyle(isLinkSelected('/video-list?filter=animation'), '/video-list?filter=animation'), textAlign: 'right' }}
         >
           <ListItemText primary="Animation" />
         </ListItemButton>
         <ListItemButton
           component={Link}
           to="/video-list?filter=documentary"
-          sx={{ ...generateButtonStyle(isLinkSelected('/documentary'), '/video-list?filter=documentary'), textAlign: 'right' }}
+          sx={{ ...generateButtonStyle(isLinkSelected('/video-list?filter=documentary'), '/video-list?filter=documentary'), textAlign: 'right' }}
         >
           <ListItemText primary="Documentary" />
         </ListItemButton>
         <ListItemButton
           component={Link}
-          to="/series"
-          sx={{ ...generateButtonStyle(isLinkSelected('/series'), '/series'), textAlign: 'right' }}
+          to="/video-list?filter=series"
+          sx={{ ...generateButtonStyle(isLinkSelected('/video-list?filter=series'), '/video-list?filter=series'), textAlign: 'right' }}
         >
           <ListItemText primary="Series" />
         </ListItemButton>
