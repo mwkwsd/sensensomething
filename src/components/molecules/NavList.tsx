@@ -62,15 +62,15 @@ export function NavList() {
         </ListSubheader>
         <ListItemButton
           component={Link}
-          to="/director-producer"
-          sx={{ ...generateButtonStyle(isLinkSelected('/director-producer'), '/director-producer'), textAlign: 'right' }}
+          to="/video-list?filter=director-producer"
+          sx={{ ...generateButtonStyle(isLinkSelected('/video-list'), '/video-list?filter=director-producer'), textAlign: 'right' }}
         >
           <ListItemText primary="Director & Producer" />
         </ListItemButton>
         <ListItemButton
           component={Link}
-          to="/camera-operator"
-          sx={{ ...generateButtonStyle(isLinkSelected('/camera-operator'), '/camera-operator'), textAlign: 'right' }}
+          to="/video-list?filter=camera-operator"
+          sx={{ ...generateButtonStyle(isLinkSelected('/camera-operator'), '/video-list?filter=camera-operator'), textAlign: 'right' }}
         >
           <ListItemText primary="Camera Operator" />
         </ListItemButton>
@@ -82,15 +82,15 @@ export function NavList() {
         </ListSubheader>
         <ListItemButton
           component={Link}
-          to="/animation"
-          sx={{ ...generateButtonStyle(isLinkSelected('/animation'), '/animation'), textAlign: 'right' }}
+          to="/video-list?filter=animation"
+          sx={{ ...generateButtonStyle(isLinkSelected('/animation'), '/video-list?filter=animation'), textAlign: 'right' }}
         >
           <ListItemText primary="Animation" />
         </ListItemButton>
         <ListItemButton
           component={Link}
-          to="/documentary"
-          sx={{ ...generateButtonStyle(isLinkSelected('/documentary'), '/documentary'), textAlign: 'right' }}
+          to="/video-list?filter=documentary"
+          sx={{ ...generateButtonStyle(isLinkSelected('/documentary'), '/video-list?filter=documentary'), textAlign: 'right' }}
         >
           <ListItemText primary="Documentary" />
         </ListItemButton>
