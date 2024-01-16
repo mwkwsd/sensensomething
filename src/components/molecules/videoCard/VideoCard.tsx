@@ -1,3 +1,4 @@
+import React from 'react'
 import { Card, CardContent, CardMedia } from '@mui/material'
 import { useMemo } from 'react'
 import { Video } from '../../atoms/video/Video'
@@ -20,18 +21,18 @@ export function VideoCard({
   const videoTitle = useMemo(() => <VideoTitle title={title} />, [title])
 
   const clientComponent = useMemo(
-    () => <VideoInfo label='Client' infoValue={clientName} />,
+    () => <VideoInfo label="Client" infoValue={clientName} />,
     [clientName]
   )
 
   const rolesComponent = useMemo(() => {
     const rolesComponents = roles.map(convertFromEnumToText).join(', ')
-    return <VideoInfo label='Roles' infoValue={rolesComponents} />
+    return <VideoInfo label="Roles" infoValue={rolesComponents} />
   }, [roles])
 
   const genresComponent = useMemo(() => {
     const genresComponents = genres.map(convertFromEnumToText).join(', ')
-    return <VideoInfo label='Genres' infoValue={genresComponents} />
+    return <VideoInfo label="Genres" infoValue={genresComponents} />
   }, [genres])
 
   return (
