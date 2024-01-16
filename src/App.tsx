@@ -1,11 +1,11 @@
-import React from "react";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/templates/Home";
-import Contact from "./components/templates/Contact";
-import { VideoListPage } from "./components/templates/VideoListPage";
-import SeriesPage from "./components/templates/SeriesPage";
-import AnimationPage from "./components/templates/AnimationPage";
+import React from 'react'
+import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './components/templates/Home'
+import Contact from './components/templates/Contact'
+import { VideoListPage } from './components/templates/VideoListPage'
+import SeriesPage from './components/templates/SeriesPage'
+import AnimationPage from './components/templates/AnimationPage'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/animation" element={<AnimationPage />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

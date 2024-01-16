@@ -1,11 +1,11 @@
 module.exports = {
   // The Webpack config to use when compiling your react app for development or production.
-  webpack: function(config, env) {
+  webpack: function (config, env) {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@mui/styled-engine': '@mui/styled-engine-sc',
-     };
-    return config;
+    }
+    return config
   },
   // // The Jest config to use when running your jest tests - note that the normal rewires do not
   // // work here.
