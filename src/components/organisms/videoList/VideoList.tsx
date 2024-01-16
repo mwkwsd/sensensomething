@@ -8,7 +8,7 @@ type VideoListProps = {
 
 export function VideoList({ videos }: VideoListProps) {
   const videoComponents = videos.map((iVideo, index) => (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} md={6} key={`grid-item-video-list-${iVideo.title}`}>
       <VideoCard {...iVideo} key={`video-list-index-${index}`} />{' '}
     </Grid>
   ))

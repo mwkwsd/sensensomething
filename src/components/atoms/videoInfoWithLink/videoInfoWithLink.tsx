@@ -19,10 +19,11 @@ function buildLinkUrl(arg: Genre | Role): string {
 
 export function VideoInfoWithLink({ label, linkableInfo }: VideoInfoProps) {
   const links: ReactNode = linkableInfo
-    .map<ReactNode>(info => (
+    .map<ReactNode>((info, index) => (
       <Link
         style={{ color: 'black', textDecoration: 'none' }}
         to={buildLinkUrl(info)}
+        key={`${label}-to-${info}-link-${index}`}
       >
         {convertFromEnumToText(info)}
       </Link>
