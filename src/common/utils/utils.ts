@@ -6,7 +6,9 @@ import {
 } from '../constants/constants'
 import { Genre, Role, genreTypeChecker } from '../constants/enums'
 
-export function convertFromEnumToText(arg: Genre | Role): string {
+type Enums = Genre | Role
+
+export function convertFromEnumToText(arg: Enums): string {
   if (genreTypeChecker(arg)) {
     return genreToText[arg]
   } /* assume arg is Role */ else {
@@ -14,7 +16,7 @@ export function convertFromEnumToText(arg: Genre | Role): string {
   }
 }
 
-export function convertFromEnumToUrl(arg: Genre | Role): string {
+export function convertFromEnumToUrl(arg: Enums): string {
   if (genreTypeChecker(arg)) {
     return genreToUrl[arg]
   } else {

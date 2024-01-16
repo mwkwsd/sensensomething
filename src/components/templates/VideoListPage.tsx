@@ -1,9 +1,8 @@
 import React from 'react'
 import { IVideoCard } from '../../common/interfaces/IVideoCard'
 import { VideoList } from '../organisms/videoList/VideoList'
-import { useQuery } from '../../common/utils/reactUtils'
 import { PageTitle } from '../atoms/pageTitle/PageTitle'
-import styled from 'styled-components'
+import { useSearchParams } from 'react-router-dom'
 
 const videos: IVideoCard[] = [
   {
@@ -21,19 +20,14 @@ const videos: IVideoCard[] = [
     roles: ['director_producer', 'camera_operator'],
   },
 ]
-const VideoListContainer = styled('div')(() => ({
-  display: 'grid',
-  gap: 24,
-  justifyContent: 'stretch',
-}))
 
 export function VideoListPage() {
-  const _query = useQuery()
-
+  const [queryParams] = useSearchParams()
+  console.log('query: ', queryParams)
   return (
-    <VideoListContainer>
+    <>
       <PageTitle title={'documentary'} />
       <VideoList videos={videos} />
-    </VideoListContainer>
+    </>
   )
 }
