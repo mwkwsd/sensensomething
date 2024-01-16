@@ -5,7 +5,12 @@ import { Video } from '../../atoms/video/Video'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
 import { IVideoCard } from '../../../common/interfaces/IVideoCard'
-import { convertFromEnumToText } from '../../../common/utils/utils'
+import {
+  convertFromEnumToText,
+  convertFromEnumToUrl,
+} from '../../../common/utils/utils'
+import { Link } from 'react-router-dom'
+import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 
 type VideoCardProps = Omit<IVideoCard, 'isRecentWork'>
 
@@ -21,18 +26,16 @@ export function VideoCard({
   const videoTitle = useMemo(() => <VideoTitle title={title} />, [title])
 
   const clientComponent = useMemo(
-    () => <VideoInfo label="Client" infoValue={clientName} />,
+    () => <VideoInfo label="Client" info={clientName} />,
     [clientName]
   )
 
   const rolesComponent = useMemo(() => {
-    const rolesComponents = roles.map(convertFromEnumToText).join(', ')
-    return <VideoInfo label="Roles" infoValue={rolesComponents} />
+    return <VideoInfoWithLink label="Roles" linkableInfo={roles} />
   }, [roles])
 
   const genresComponent = useMemo(() => {
-    const genresComponents = genres.map(convertFromEnumToText).join(', ')
-    return <VideoInfo label="Genres" infoValue={genresComponents} />
+    return <VideoInfoWithLink label="Genres" linkableInfo={genres} />
   }, [genres])
 
   return (
