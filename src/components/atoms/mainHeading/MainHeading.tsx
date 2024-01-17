@@ -1,18 +1,14 @@
 import React from 'react';
-import styled from '@mui/system/styled';
+import Typography from '@mui/material/Typography';
 
-type FirstNameProps = {
-  firstName: string;
+type MainHeadingProps = {
+  mainHeading: string;
 };
 
-const StyledFirstName = styled('p')(({ theme }) => ({
-  margin: 0,
-  fontSize: '50px',
-  [theme.breakpoints.up('lg')]: {
-    fontSize: '65px', 
-  },
-}));
-
-export function FirstName({ firstName }: FirstNameProps) {
-  return <StyledFirstName>{firstName}</StyledFirstName>;
+export function MainHeading({ mainHeading }: MainHeadingProps) {
+  return (
+    <Typography sx={{ margin: 0, fontSize: '50px', '@media (min-width: 1280px)': { fontSize: '65px' } }}>
+      {mainHeading}
+    </Typography>
+  );
 }

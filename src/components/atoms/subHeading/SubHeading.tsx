@@ -1,18 +1,14 @@
-import styled from '@mui/system/styled';
+import React from 'react';
+import Typography from '@mui/material/Typography';
 
-type LastNameProps = {
-  lastName: string;
-}
+type SubHeadingProps = {
+  subHeading: string;
+};
 
-const StyledLastName = styled('p')(({ theme }) => ({
-  margin: 0,
-  fontSize: '15px',
-  marginTop: '-10px',
-  [theme.breakpoints.up('lg')]: {
-    fontSize: '20px', 
-  },
-}));
-
-export function LastName({ lastName}: LastNameProps) {
-  return <StyledLastName>{lastName}</StyledLastName>
+export function SubHeading({ subHeading }: SubHeadingProps) {
+  return (
+    <Typography sx={{ margin: 0, fontSize: '15px', marginTop: '-10px', '@media (min-width: 1280px)': { fontSize: '20px' } }}>
+      {subHeading}
+    </Typography>
+  );
 }
