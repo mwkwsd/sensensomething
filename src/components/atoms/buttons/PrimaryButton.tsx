@@ -1,3 +1,3 @@
-export function PrimaryButton(){
+export function PrimaryButton() {
   return <div></div>
 }
