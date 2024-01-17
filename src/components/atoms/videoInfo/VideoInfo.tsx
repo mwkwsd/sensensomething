@@ -1,16 +1,19 @@
 import { Typography } from '@mui/material'
 import { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 
 type VideoInfoProps = {
-  label?: string
-  infoValue: ReactNode
+  label: string
+  info: string
 }
 
-export function VideoInfo({ label, infoValue }: VideoInfoProps) {
+export function VideoInfo({ label, info }: VideoInfoProps) {
   return (
-    <Typography>
-      {!!label && <b>{`${label}: `}</b>}
-      {infoValue}
-    </Typography>
+    <span>
+      <Typography>
+        <b>{label}: </b>
+        {info}
+      </Typography>
+    </span>
   )
 }
