@@ -39,7 +39,7 @@ export function VideoCard({
   }, [genres])
 
   return (
-    <Card>
+    <Card elevation={0} variant='outlined' sx={{width: 1}}>
       {mediaCardVideo}
       <CardContent>
         {videoTitle}
