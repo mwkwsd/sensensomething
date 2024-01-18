@@ -1,8 +1,10 @@
-import React from 'react';
-import { List, ListItemButton, ListItemText } from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
-import { RoleListSubheader } from './roleListSubheader/RoleListSubheader';
-import { GenreListSubheader } from './genreListSubheader/GenreListSubheader';
+import { List } from '@mui/material'
+import { useLocation } from 'react-router-dom'
+import { RoleListSubheader } from './roleListSubheader/RoleListSubheader'
+import { GenreListSubheader } from './genreListSubheader/GenreListSubheader'
+import { RecentWorkButton } from '../atoms/buttons/recentWorkButton/RecentWorkButton'
+import { AboutButton } from '../atoms/buttons/aboutButton/AboutButton'
+import { ContactButton } from '../atoms/buttons/contactButton/ContactButton'
 
 const commonStyle = {
   fontWeight: 'bold',
@@ -10,7 +12,7 @@ const commonStyle = {
   color: 'white',
   fontSize: 20,
   textAlign: 'right',
-};
+}
 
 function generateButtonStyle(isSelected: boolean) {
   return {
@@ -21,48 +23,47 @@ function generateButtonStyle(isSelected: boolean) {
       backgroundColor: 'lightgrey',
     },
     color: isSelected ? 'black' : 'white',
-  };
+  }
 }
 
 export function NavList() {
-  const location = useLocation();
+  const location = useLocation()
 
   const isLinkSelected = (link: string) => {
-    const linkWithoutQuery = link.replace(/(\?.*)$/, '');
-    return location.pathname === linkWithoutQuery;
-  };
+    const linkWithoutQuery = link.replace(/(\?.*)$/, '')
+    return location.pathname === linkWithoutQuery
+  }
 
   return (
-    <List sx={{ width: '100%', height: '100%', maxWidth: 360, ...commonStyle }} component="nav">
-      <ListItemButton
-        component={Link}
-        to="/"
-        sx={{ ...generateButtonStyle(isLinkSelected('/')), textAlign: 'right' }}
+    <List
+      sx={{ width: '100%', height: '100%', maxWidth: 360, ...commonStyle }}
+      component="nav"
+    >
+      <RecentWorkButton
+        isSelected={isLinkSelected('/')}
+        generateButtonStyle={generateButtonStyle}
+        isLinkSelected={isLinkSelected}
+      />
+      <AboutButton
+        isSelected={isLinkSelected('/about')}
+        generateButtonStyle={generateButtonStyle}
+        isLinkSelected={isLinkSelected}
+      />
+      <ContactButton
+        isSelected={isLinkSelected('/contact')}
+        generateButtonStyle={generateButtonStyle}
+        isLinkSelected={isLinkSelected}
+      />
 
-      >
-        <ListItemText primary="Recent Work" />
-      </ListItemButton>
-      <ListItemButton
-        component={Link}
-        to="/contact"
-        sx={{ ...generateButtonStyle(isLinkSelected('/contact')), textAlign: 'right' }}
+      <RoleListSubheader
+        isLinkSelected={isLinkSelected}
+        generateButtonStyle={generateButtonStyle}
+      />
 
-      >
-        <ListItemText primary="Contact" />
-      </ListItemButton>
-      <ListItemButton
-        component={Link}
-        to="/about"
-        sx={{ ...generateButtonStyle(isLinkSelected('/about')), textAlign: 'right' }}
-
-      >
-        <ListItemText primary="About" />
-      </ListItemButton>
-
-      <RoleListSubheader isLinkSelected={isLinkSelected} generateButtonStyle={generateButtonStyle} />
-
-      {/* Genre List Subheader */}
-      <GenreListSubheader />
+      <GenreListSubheader
+        isLinkSelected={isLinkSelected}
+        generateButtonStyle={generateButtonStyle}
+      />
     </List>
-  );
+  )
 }

@@ -2,23 +2,20 @@ import React from 'react';
 import { ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-interface DirectorProducerButtonProps {
+interface DocumentaryButtonProps {
   isSelected: boolean;
   generateButtonStyle: (isSelected: boolean) => React.CSSProperties;
   isLinkSelected: (link: string) => boolean;
 }
 
-export function DirectorProducerButton({ isSelected, generateButtonStyle, isLinkSelected }: DirectorProducerButtonProps) {
+export function DocumentaryButton({ isSelected, generateButtonStyle }: DocumentaryButtonProps) {
   return (
     <ListItemButton
       component={Link}
-      to="/video-list?filter=director-producer"
-      sx={{
-        ...generateButtonStyle(isSelected),
-        textAlign: 'right',
-      }}
+      to="/video-list?filter=documentary"
+      sx={{ ...generateButtonStyle(isSelected), textAlign: 'right', paddingRight: '0px' }}
     >
-      <ListItemText primary="Director & Producer" />
+      <ListItemText primary="Documentary" />
     </ListItemButton>
   );
 }
