@@ -17,7 +17,7 @@ type LinkForEnumProps = {
 export function LinkForEnum({ value }: LinkForEnumProps) {
   return (
     <Link
-      style={{ color: 'black', textDecoration: 'none' }}
+      style={{ textDecoration: 'none', color: 'inherit' }}
       to={buildLinkUrl(value)}
     >
       {convertFromEnumToText(value)}
