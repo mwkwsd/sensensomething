@@ -24,7 +24,7 @@ export function VideoListPage() {
   return (
     <>
       <PageTitle title={pageEnum} />
-      <VideoList videos={videosForPage} />
+      <VideoList videos={videosForPage} pageEnum={pageEnum} />
     </>
   )
 }

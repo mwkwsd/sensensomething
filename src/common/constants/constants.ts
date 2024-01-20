@@ -1,5 +1,7 @@
 import { Genre, Role } from './enums'
 
+export type PageEnum = Genre | Role
+
 export const roleToText: { [key in Role]: string } = {
   camera_operator: 'Camera Operator',
   director_producer: 'Director & Producer',
