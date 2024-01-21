@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { Genre, Role } from '../../../common/constants/enums'
 import { convertFromEnumToText } from '../../../common/utils/utils'
 
@@ -7,5 +8,5 @@ type PageTitleProps = {
 
 export function PageTitle({ title }: PageTitleProps) {
   const pageTitle = convertFromEnumToText(title)
-  return <h2>{pageTitle}</h2>
+  return <Typography variant="h2">{pageTitle}</Typography>
 }

@@ -15,7 +15,7 @@ export function VideoInfoWithLink({ label, linkableInfo }: VideoInfoProps) {
     ))
     .reduce((acc, value) => [acc, ', ', value])
   return (
-    <Typography sx={{ color: 'black' }}>
+    <Typography variant="body1">
       <b>{label}: </b>
       {links}
     </Typography>

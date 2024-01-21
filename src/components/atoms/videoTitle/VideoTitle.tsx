@@ -5,5 +5,5 @@ type VideoTitleProps = {
 }
 
 export function VideoTitle({ title }: VideoTitleProps) {
-  return <Typography>{title}</Typography>
+  return <Typography variant="h3">{title}</Typography>
 }
