@@ -9,11 +9,9 @@ type VideoInfoProps = {
 
 export function VideoInfo({ label, info }: VideoInfoProps) {
   return (
-    <div>
-      <Typography variant="body1">
-        <b>{label}: </b>
-        {info}
-      </Typography>
-    </div>
+    <Typography variant="body1">
+      <b>{label}: </b>
+      {info}
+    </Typography>
   )
 }
