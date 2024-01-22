@@ -8,3 +8,8 @@ export type Genre = (typeof genres)[number]
 export function genreTypeChecker(arg: any): arg is Genre {
   return genres.includes(arg)
 }
+export const navLinks = [
+  { route: '/', label: 'Recent Work' },
+  { route: '/about', label: 'About' },
+  { route: '/contact', label: 'Contact' },
+] as const;
