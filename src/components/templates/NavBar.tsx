@@ -1,23 +1,31 @@
-import { useState } from "react";
-import {AppBar, Box, Drawer, IconButton, Toolbar, Typography} from "@mui/material"
+import React, { useState } from "react";
+import { AppBar, Box, Drawer, IconButton, Toolbar, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
-import { NavList } from "../molecules/NavList"
+import { NavList } from "../molecules/NavList";
+import { MainHeading } from '../../components/atoms/mainHeading/MainHeading';
+import { SubHeading } from '../../components/atoms/subHeading/SubHeading';
 
-function NavBar() {
-  const [menuOpen, setMenuOpen] = useState(false)
+export function NavBar() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    setMenuOpen(!menuOpen)
+    setMenuOpen(!menuOpen);
   }
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* styles WIP */}
-      <AppBar>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Kurt Sensenbrenner
-          </Typography>
+      <AppBar sx={{ background: '#2D2D2D' }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+            }}
+          >
+            <MainHeading mainHeading="KURT" />
+            <SubHeading subHeading="SENSENBRENNER" />
+          </Box>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -34,13 +42,11 @@ function NavBar() {
         open={menuOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
       >
         <NavList />
       </Drawer>
     </Box>
-  )
+  );
 }
-
-export default NavBar

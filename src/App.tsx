@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/templates/Home'
 import Contact from './components/templates/Contact'
@@ -12,9 +11,9 @@ import { kurtTheme } from './theme'
 function App() {
   return (
     <>
-      <Header />
       <ThemeProvider theme={kurtTheme}>
         <BrowserRouter>
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
