@@ -1,53 +1,91 @@
 import React from 'react'
-import {
-  List,
-  ListItemButton,
-  ListItemText,
-  ListSubheader,
-} from '@mui/material'
+import { List } from '@mui/material'
+import { useLocation } from 'react-router-dom'
+import { SubheaderList } from './subheaderList/SubheaderList'
+import { Genre, Role, navLinks } from '../../common/constants/enums'
+import { genreToText, roleToText } from '../../common/constants/constants'
+import { NavLinks } from './navLinks/NavLinks'
 
-function NavList() {
+const commonStyle = {
+  fontWeight: 'bold',
+  bgcolor: 'black',
+  color: 'white',
+  fontSize: 20,
+  textAlign: 'right',
+}
+
+interface ListButtonProps {
+  label: string
+  filter: Role | Genre
+  isSelected: boolean
+  generateButtonStyle: (isSelected: boolean) => React.CSSProperties
+  isLinkSelected: (link: string) => boolean
+}
+interface SubheaderListProps {
+  title: string
+  items: Record<string, string>
+}
+
+export function NavList() {
+  const location = useLocation()
+
+  const isLinkSelected = (link: string) => {
+    const linkWithoutQuery = link.replace(/(\?.*)$/, '')
+    return location.pathname === linkWithoutQuery
+  }
+
+  const generateButtons = (
+    items: Record<string, string>,
+    filterPrefix: string
+  ): ListButtonProps[] =>
+    Object.entries(items).map(([key, label]) => ({
+      label,
+      filter: key as Role | Genre,
+      isSelected: isLinkSelected(`/video-list?filter=${filterPrefix}${key}`),
+      generateButtonStyle,
+      isLinkSelected,
+    }))
+
+  const generateButtonStyle = (isSelected: boolean) => ({
+    backgroundColor: isSelected ? 'lightgrey' : 'transparent',
+    padding: '1px 16px',
+    borderRadius: isSelected ? '24px 0 0 24px' : 'unset',
+    '&:hover': {
+      backgroundColor: 'lightgrey',
+    },
+    color: isSelected ? 'black' : 'white',
+  })
+
+  const subheaderListItems: SubheaderListProps[] = [
+    { title: 'ROLE', items: roleToText },
+    { title: 'GENRE', items: genreToText },
+  ]
+
   return (
     <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+      sx={{ width: '100%', height: '100%', maxWidth: 360, ...commonStyle }}
       component="nav"
     >
-      {/* TODO: routing on click and show current selection*/}
-      <ListItemButton>
-        <ListItemText primary="Recent Work" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemText primary="About" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemText primary="Contact" />
-      </ListItemButton>
+      {navLinks.map(item => (
+        <NavLinks
+          key={item.route}
+          route={item.route}
+          label={item.label}
+          isSelected={isLinkSelected(item.route)}
+          generateButtonStyle={generateButtonStyle}
+          isLinkSelected={isLinkSelected}
+        />
+      ))}
 
-      {/* WIP style sub items */}
-      <List component="div">
-        <ListSubheader component="div">ROLES</ListSubheader>
-        <ListItemButton>
-          <ListItemText primary="Director & Producer" />
-        </ListItemButton>
-        <ListItemButton>
-          <ListItemText primary="Camera Operator" />
-        </ListItemButton>
-      </List>
-
-      <List component="div">
-        <ListSubheader component="div">GENRE</ListSubheader>
-        <ListItemButton>
-          <ListItemText primary="Documentary" />
-        </ListItemButton>
-        <ListItemButton>
-          <ListItemText primary="Animation" />
-        </ListItemButton>
-        <ListItemButton>
-          <ListItemText primary="Series" />
-        </ListItemButton>
-      </List>
+      {subheaderListItems.map(item => (
+        <SubheaderList
+          key={item.title}
+          title={item.title}
+          buttons={generateButtons(item.items, '')}
+          generateButtonStyle={generateButtonStyle}
+          isLinkSelected={isLinkSelected}
+        />
+      ))}
     </List>
   )
 }
-
-export default NavList
