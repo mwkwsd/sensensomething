@@ -8,6 +8,7 @@ import AnimationPage from './components/templates/AnimationPage'
 import { Header } from './components/molecules/headers/Header'
 import { ThemeProvider } from 'styled-components'
 import { kurtTheme } from './theme'
+import { Footer } from './components/footers/Footer'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
+      <Footer />
     </>
   )
 }
