@@ -1,5 +1,4 @@
 import { createTheme, responsiveFontSizes } from '@mui/material'
-import React from 'react'
 
 export const kurtTheme = responsiveFontSizes(
   createTheme({
