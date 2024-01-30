@@ -1,4 +1,3 @@
-import React from 'react'
 import { Card, CardContent } from '@mui/material'
 import { useMemo } from 'react'
 import { Video } from '../../atoms/video/Video'
