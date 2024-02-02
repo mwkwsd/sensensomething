@@ -1,14 +1,18 @@
-import { createTheme, responsiveFontSizes } from '@mui/material'
-import React from 'react'
+import { createTheme, responsiveFontSizes } from '@mui/material';
 
 export const kurtTheme = responsiveFontSizes(
   createTheme({
     typography: {
       fontFamily: ['Roboto', 'sans-serif'].join(','),
       body1: {
-        color: 'black',
+        color: 'white',
         textDecoration: 'none',
       },
     },
+    palette: {
+      background: {
+        default: '#343A40'
+      },
+    },
   })
-)
+);
