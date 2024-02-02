@@ -1,23 +1,23 @@
-import { Typography } from '@mui/material'
-import { Genre, Role } from '../../../common/constants/enums'
-import { ReactNode } from 'react'
-import { LinkForEnum } from '../linkForEnum/LinkForEnum'
+import { Typography } from '@mui/material';
+import { Genre, Role } from '../../../common/constants/enums';
+import { ReactNode } from 'react';
+import { ChipsForEnum } from '../chipsForEnum/ChipsForEnum'; 
 
 type VideoInfoProps = {
-  label: string
-  linkableInfo: Genre[] | Role[]
-}
+  label: string;
+  linkableInfo: Genre[] | Role[];
+};
 
 export function VideoInfoWithLink({ label, linkableInfo }: VideoInfoProps) {
-  const links: ReactNode = linkableInfo
+  const chips: ReactNode = linkableInfo
     .map<ReactNode>((info, index) => (
-      <LinkForEnum value={info} key={`link-for-enum-${info}-${index}`} />
+      <ChipsForEnum value={info} key={`chip-for-enum-${info}-${index}`} />
     ))
-    .reduce((acc, value) => [acc, ', ', value])
+    .reduce((acc, value) => [acc, ', ', value]);
+
   return (
     <Typography variant="body1">
-      <b>{label}: </b>
-      {links}
+      {chips}
     </Typography>
-  )
+  );
 }
