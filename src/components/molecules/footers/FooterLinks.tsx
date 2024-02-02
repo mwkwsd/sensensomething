@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import Typography from '@mui/material/Typography';
 
 type FooterLinksProps = {
-  title: string
-  items: { label: string; link: string }[]
-}
+  title: string;
+  items: { label: string; link: string }[];
+};
 
 export function FooterLinks({ title, items }: FooterLinksProps) {
   return (
@@ -15,16 +16,22 @@ export function FooterLinks({ title, items }: FooterLinksProps) {
         marginBottom: '10px',
       }}
     >
-      <p style={{ margin: '5px 0', fontWeight: 'bold' }}>{title}</p>
+      {title && (
+        <Typography variant="subtitle1" style={{ margin: '5px 0' }}>
+          {title}
+        </Typography>
+      )}
       {items.map((item, index) => (
         <Link
           key={index}
           to={item.link}
           style={{ textDecoration: 'none', color: 'white' }}
         >
-          <p style={{ margin: '5px 0' }}>{item.label}</p>
+          <Typography variant="subtitle1" style={{ margin: '5px 0' }}>
+            {item.label}
+          </Typography>
         </Link>
       ))}
     </div>
-  )
+  );
 }

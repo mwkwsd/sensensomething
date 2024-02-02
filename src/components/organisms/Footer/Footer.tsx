@@ -1,6 +1,7 @@
-import { FooterLinks } from '../molecules/footers/FooterLinks'
-import { navLinks, roles, genres } from '../../common/constants/enums'
-import { BottomIcons } from '../molecules/footers/BottomIcons'
+import { FooterLinks } from '../../molecules/footers/FooterLinks'
+import { navLinks, roles, genres } from '../../../common/constants/enums'
+import { BottomIcons } from '../../molecules/footers/BottomIcons'
+import { kurtTheme } from '../../../theme'
 
 export function Footer() {
   const generateColumnData = (
@@ -32,8 +33,8 @@ export function Footer() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#2D2D2D',
         padding: '10px',
+        backgroundColor: kurtTheme.palette.background.default,
       }}
     >
       <div

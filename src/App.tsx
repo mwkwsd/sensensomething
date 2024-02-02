@@ -7,7 +7,7 @@ import AnimationPage from './components/templates/AnimationPage'
 import { Header } from './components/molecules/headers/Header'
 import { ThemeProvider } from 'styled-components'
 import { kurtTheme } from './theme'
-import { Footer } from './components/footers/Footer'
+import { Footer } from './components/organisms/Footer/Footer'
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
             <Route path="/series" element={<SeriesPage />} />
             <Route path="/animation" element={<AnimationPage />} />
           </Routes>
-        <Footer />
+          <Footer />
         </BrowserRouter>
       </ThemeProvider>
     </>
