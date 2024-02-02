@@ -25,7 +25,7 @@ export function ChipsForEnum({ value }: { value: Genre | Role }): JSX.Element {
       label={label}
       component="button"
       onClick={handleClick}
-      style={{ backgroundColor: backgroundColor as any }}
+      style={{ backgroundColor }}
     />
   )
 }
