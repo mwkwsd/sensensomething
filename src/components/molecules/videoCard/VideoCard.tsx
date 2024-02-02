@@ -1,5 +1,4 @@
-import React from 'react'
-import { Card, CardContent, CardMedia } from '@mui/material'
+import { Card, CardContent, CardMedia, Stack } from '@mui/material'
 import { useMemo } from 'react'
 import { Video } from '../../atoms/video/Video'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
@@ -39,13 +38,15 @@ export function VideoCard({
   }, [genres])
 
   return (
-    <Card elevation={0} variant='outlined' sx={{width: 1}}>
+    <Card elevation={0} variant="outlined" sx={{ width: 1 }}>
       {mediaCardVideo}
       <CardContent>
         {videoTitle}
         {clientComponent}
-        {rolesComponent}
-        {genresComponent}
+        <Stack direction="row" spacing={1}>
+          {rolesComponent}
+          {genresComponent}
+        </Stack>
       </CardContent>
     </Card>
   )
