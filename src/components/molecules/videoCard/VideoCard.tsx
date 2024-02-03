@@ -29,7 +29,7 @@ export function VideoCard({
   )
 
   const rolesGenres = useMemo(() => {
-    const toLink = pageType === 'genre' ? genres : roles
+    const toLink = pageType === 'genre' ? roles : genres
     return <VideoInfoWithLink linkableInfo={toLink} />
   }, [roles, genres, pageType])
 
