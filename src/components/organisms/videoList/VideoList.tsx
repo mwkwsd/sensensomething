@@ -9,9 +9,9 @@ type VideoListProps = {
 }
 
 export function VideoList({ videos, pageEnum }: VideoListProps) {
-  const videoComponents = videos.map((iVideo, index) => (
-    <Grid item xs={12} md={6} key={`grid-item-video-list-${iVideo.title}`}>
-      <VideoCard video={iVideo} pageEnum={pageEnum} />
+  const videoComponents = videos.map(video => (
+    <Grid item xs={12} md={6} key={`grid-item-video-list-${video.title}`}>
+      <VideoCard video={video} pageEnum={pageEnum} />
     </Grid>
   ))
   return (
