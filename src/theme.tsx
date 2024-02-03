@@ -5,9 +5,14 @@ export const kurtTheme = responsiveFontSizes(
     typography: {
       fontFamily: ['Roboto', 'sans-serif'].join(','),
       body1: {
-        color: 'black',
+        color: 'white',
         textDecoration: 'none',
       },
     },
+    palette: {
+      background: {
+        default: '#343A40'
+      },
+    },
   })
-)
+);
