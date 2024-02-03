@@ -1,9 +1,4 @@
 import { Typography } from '@mui/material'
-<<<<<<< HEAD
-=======
-// import { ReactNode } from 'react'
-// import { Link } from 'react-router-dom'
->>>>>>> 2bd2e9fc057e4cb3a79011414c64465a08d8563e
 
 type VideoInfoProps = {
   label: string
