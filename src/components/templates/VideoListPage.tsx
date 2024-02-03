@@ -9,14 +9,12 @@ import { Genre, Role, roleTypeChecker } from '../../common/constants/enums'
 import videos from '../../assets/videos/videos'
 
 export function VideoListPage() {
-  console.log('VideoListPage rendered');
-  console.log('Videos:', videos);
-
   const [queryParams] = useSearchParams()
   const pageEnum = getPageEnumFromQuery(queryParams)
 
   const videosForPage = useMemo(
-    () => videos.filter(getFilterForVideos(pageEnum)),
+    () =>
+      videos.filter(getFilterForVideos(pageEnum)).filter(video => !!video.url),
     [pageEnum]
   )
 
