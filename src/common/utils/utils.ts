@@ -1,4 +1,5 @@
 import {
+  PageEnum,
   genreToText,
   genreToUrl,
   roleToText,
@@ -22,4 +23,9 @@ export function convertFromEnumToUrl(arg: Enums): string {
   } else {
     return roleToUrl[arg]
   }
+}
+
+export function getPageType(pageEnum: PageEnum): 'genre' | 'role' {
+  if (genreTypeChecker(pageEnum)) return 'genre'
+  return 'role'
 }
