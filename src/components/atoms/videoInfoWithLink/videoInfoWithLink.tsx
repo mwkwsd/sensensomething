@@ -4,8 +4,7 @@ import { ReactNode } from 'react'
 import { ChipsForEnum } from '../chipsForEnum/ChipsForEnum'
 
 type VideoInfoProps = {
-  label: string
-  linkableInfo: Genre[] | Role[]
+  linkableInfo: (Genre | Role)[]
 }
 
 export function VideoInfoWithLink({ linkableInfo }: VideoInfoProps) {

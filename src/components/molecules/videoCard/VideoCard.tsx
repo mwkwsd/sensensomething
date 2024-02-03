@@ -29,13 +29,9 @@ export function VideoCard({
     [clientName]
   )
 
-  const rolesComponent = useMemo(() => {
-    return <VideoInfoWithLink label="Roles" linkableInfo={roles} />
-  }, [roles])
-
-  const genresComponent = useMemo(() => {
-    return <VideoInfoWithLink label="Genres" linkableInfo={genres} />
-  }, [genres])
+  const rolesGenres = useMemo(() => {
+    return <VideoInfoWithLink linkableInfo={[...roles, ...genres]} />
+  }, [roles, genres])
 
   return (
     <Card elevation={0} variant="outlined" sx={{ width: 1 }}>
@@ -44,8 +40,7 @@ export function VideoCard({
         {videoTitle}
         {clientComponent}
         <Stack direction="row" spacing={1}>
-          {rolesComponent}
-          {genresComponent}
+          {rolesGenres}
         </Stack>
       </CardContent>
     </Card>

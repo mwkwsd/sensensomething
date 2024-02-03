@@ -7,13 +7,11 @@ import {
   convertFromEnumToText,
   convertFromEnumToUrl,
 } from '../../../common/utils/utils'
-import { getColorForEnum } from '../../../common/utils/enumColorUtils'
 
 export function ChipsForEnum({ value }: { value: Genre | Role }): JSX.Element {
   const isGenre = genreTypeChecker(value)
   const filterKey = isGenre ? 'genre' : 'role'
   const label = convertFromEnumToText(value)
-  const backgroundColor = getColorForEnum(value)
 
   const handleClick = () => {
     const url = `/video-list-page?${filterKey}=${convertFromEnumToUrl(value)}`
@@ -25,7 +23,7 @@ export function ChipsForEnum({ value }: { value: Genre | Role }): JSX.Element {
       label={label}
       component="button"
       onClick={handleClick}
-      style={{ backgroundColor }}
+      sx={{ backgroundColor: value + '.main' }}
     />
   )
 }
