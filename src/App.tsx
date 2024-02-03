@@ -15,9 +15,9 @@ function App() {
 
   return (
     <>
-      <Header />
       <ThemeProvider theme={kurtTheme}>
         <BrowserRouter>
+        <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />

@@ -16,11 +16,11 @@ export function Footer() {
     return { title, items }
   }
 
-  const roleColumnData = generateColumnData(roles, 'ROLE', 'video-list?filter=')
+  const roleColumnData = generateColumnData(roles, 'ROLE', 'video-list-page?role=')
   const genreColumnData = generateColumnData(
     genres,
     'GENRE',
-    'video-list?filter='
+    'video-list-page?genre='
   )
 
   const transformedNavLinks = navLinks.map(({ route, label }) => ({

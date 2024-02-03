@@ -4,12 +4,12 @@ import { Video } from '../../atoms/video/Video'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
 import { IVideoCard } from '../../../common/interfaces/IVideoCard'
-import {
-  convertFromEnumToText,
-  convertFromEnumToUrl,
-} from '../../../common/utils/utils'
-import { Link } from 'react-router-dom'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
+// import {
+  // convertFromEnumToText,
+  // convertFromEnumToUrl,
+// } from '../../../common/utils/utils'
+// import { Link } from 'react-router-dom'
 
 type VideoCardProps = Omit<IVideoCard, 'isRecentWork'>
 
