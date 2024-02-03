@@ -1,4 +1,4 @@
-export const roles = ['director_producer', 'camera_operator']
+export const roles = ['director_producer', 'director_of_photography']
 export type Role = (typeof roles)[number]
 export function roleTypeChecker(arg: any): arg is Role {
   return roles.includes(arg)
