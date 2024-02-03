@@ -24,15 +24,18 @@ export const kurtTheme = responsiveFontSizes(
 declare module '@mui/material/styles' {
   interface Palette {
     director_producer: Palette['primary']
+    director_of_photography: Palette['primary']
   }
 
   interface PaletteOptions {
     director_producer?: PaletteOptions['primary']
+    director_of_photography?: PaletteOptions['primary']
   }
 }
 
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
     director_producer: true
+    director_of_photography: true
   }
 }

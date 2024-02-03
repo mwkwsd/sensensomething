@@ -10,8 +10,8 @@ export function Footer() {
     prefix: string = ''
   ) => {
     const items = enumValues.map(value => ({
-      label: value.replace('_', ' '),
-      link: `/${prefix}${value.toLowerCase().replace('_', '-')}`,
+      label: value.replaceAll('_', ' '),
+      link: `/${prefix}${value.toLowerCase().replaceAll('_', '-')}`,
     }))
     return { title, items }
   }
