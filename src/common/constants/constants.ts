@@ -3,12 +3,12 @@ import { Genre, Role } from './enums'
 export type PageEnum = Genre | Role
 
 export const roleToText: { [key in Role]: string } = {
-  camera_operator: 'Camera Operator',
+  director_of_photography: 'Director of Photography',
   director_producer: 'Director & Producer',
 } as const
 
 export const roleToUrl: { [key in Role]: string } = {
-  camera_operator: 'camera-operator',
+  director_of_photography: 'director-of-photography',
   director_producer: 'director-producer',
 } as const
 

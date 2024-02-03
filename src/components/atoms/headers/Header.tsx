@@ -1,3 +1,7 @@
-export function Header() {
-  return <div></div>
+import NavBar from '../../templates/NavBar';
+
+export function Header(){
+  return (
+    <NavBar />
+  )
 }

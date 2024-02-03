@@ -13,14 +13,14 @@ const videos: IVideoCard[] = [
     title: 'Meet The Pill Bug',
     clientName: 'Bugs Everywhere',
     genres: ['documentary', 'animation'],
-    roles: ['director_producer', 'camera_operator'],
+    roles: ['director_producer', 'director_of_photography'],
   },
   {
     url: '',
     title: '',
     clientName: '',
     genres: ['animation'],
-    roles: ['camera_operator'],
+    roles: ['director_of_photography'],
     isRecentWork: false,
   },
 ]

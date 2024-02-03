@@ -1,16 +1,10 @@
-import React from 'react'
-import { Card, CardContent, CardMedia } from '@mui/material'
+import { Card, CardContent, CardMedia, Stack } from '@mui/material'
 import { useMemo } from 'react'
 import { Video } from '../../atoms/video/Video'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
 import { IVideoCard } from '../../../common/interfaces/IVideoCard'
-import {
-  convertFromEnumToText,
-  convertFromEnumToUrl,
-  getPageType,
-} from '../../../common/utils/utils'
-import { Link } from 'react-router-dom'
+import { getPageType } from '../../../common/utils/utils'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 import { PageEnum } from '../../../common/constants/constants'
 
@@ -34,15 +28,10 @@ export function VideoCard({
     [clientName]
   )
 
-  const rolesComponent = useMemo(() => {
-    if (pageType === 'role') return null
-    return <VideoInfoWithLink label="Roles" linkableInfo={roles} />
-  }, [roles, pageType])
-
-  const genresComponent = useMemo(() => {
-    if (pageType === 'genre') return null
-    return <VideoInfoWithLink label="Genres" linkableInfo={genres} />
-  }, [genres, pageType])
+  const rolesGenres = useMemo(() => {
+    const toLink = pageType === 'genre' ? genres : roles
+    return <VideoInfoWithLink linkableInfo={toLink} />
+  }, [roles, genres, pageType])
 
   return (
     <Card elevation={0} variant="outlined" sx={{ width: 1 }}>
@@ -50,8 +39,9 @@ export function VideoCard({
       <CardContent>
         {videoTitle}
         {clientComponent}
-        {rolesComponent}
-        {genresComponent}
+        <Stack direction="row" spacing={1}>
+          {rolesGenres}
+        </Stack>
       </CardContent>
     </Card>
   )
