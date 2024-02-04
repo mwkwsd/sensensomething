@@ -1,5 +1,4 @@
 import { Genre, Input, Role } from "./enums";
-import { TextInputProps } from "../../components/atoms/formInput/TextInput";
 import { TextFieldProps } from "@mui/material";
 
 export type PageEnum = Genre | Role
