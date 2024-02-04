@@ -1,6 +1,4 @@
 import { Role } from '../../common/constants/enums'
-import { ISeriesDetail } from '../../common/interfaces/ISeriesDetail'
-import { ISeriesListPage } from '../../common/interfaces/ISeriesListPage'
 import { IVideoListPageInfo } from '../../common/interfaces/IVideoListPageInfo'
 
 export const videoListPagesInfo: { [key in Role]: IVideoListPageInfo } & {
@@ -13,5 +11,3 @@ export const videoListPagesInfo: { [key in Role]: IVideoListPageInfo } & {
   },
   documentary: {},
 }
-
-export const seriesListPageInfo: ISeriesListPage = {}
