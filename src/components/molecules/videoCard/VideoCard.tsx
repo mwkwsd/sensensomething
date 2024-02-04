@@ -3,13 +3,13 @@ import { useMemo } from 'react'
 import { Video } from '../../atoms/video/Video'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
-import { IVideoCard } from '../../../common/interfaces/IVideoCard'
+import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { getPageType } from '../../../common/utils/utils'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 import { PageEnum } from '../../../common/constants/constants'
 
 type VideoCardProps = {
-  video: Omit<IVideoCard, 'isRecentWork'>
+  video: Omit<IVideoInfo, 'isRecentWork'>
   pageEnum: PageEnum
 }
 

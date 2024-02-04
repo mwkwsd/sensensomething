@@ -9,7 +9,7 @@ type PageTitleProps = {
 }
 
 export function PageTitle({ title, subheaderText, sx }: PageTitleProps) {
-  const pageTitle = enumMappings[title].text
+  const pageTitle = enumMappings[title].label
   return (
     <Container sx={{ ...sx }} disableGutters={true}>
       <Typography variant="h1" sx={{ padding: '0px 0px 8px' }}>

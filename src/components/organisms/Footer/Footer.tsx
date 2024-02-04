@@ -8,6 +8,7 @@ import {
 } from '../../../common/constants/enums'
 import { BottomIcons } from '../../molecules/footers/BottomIcons'
 import { kurtTheme } from '../../../theme'
+import { enumMappings } from '../../../common/constants/constants'
 
 export function Footer() {
   const generateColumnData = (
@@ -17,21 +18,13 @@ export function Footer() {
   ) => {
     const items = enumValues.map(value => ({
       label: value.replaceAll('_', ' '),
-      link: `/${prefix}${value.toLowerCase().replaceAll('_', '-')}`,
+      link: enumMappings[value].url,
     }))
     return { title, items }
   }
 
-  const roleColumnData = generateColumnData(
-    roles,
-    'ROLE',
-    'video-list-page?role='
-  )
-  const genreColumnData = generateColumnData(
-    genres,
-    'GENRE',
-    'video-list-page?genre='
-  )
+  const roleColumnData = generateColumnData(roles, 'ROLE', 'videos?role=')
+  const genreColumnData = generateColumnData(genres, 'GENRE', 'videos?genre=')
 
   const transformedNavLinks = navLinks.map(({ route, label }) => ({
     label,

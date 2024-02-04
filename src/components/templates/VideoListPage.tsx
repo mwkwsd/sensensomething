@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { IVideoCard } from '../../common/interfaces/IVideoCard'
+import { IVideoInfo } from '../../common/interfaces/IVideoInfo'
 import { VideoList } from '../organisms/videoList/VideoList'
 import { PageTitle } from '../atoms/pageTitle/PageTitle'
 import { useSearchParams } from 'react-router-dom'
@@ -10,7 +10,6 @@ import { videoListPagesInfo } from '../../assets/pages/pagesInfo'
 
 type VideoListPageEnum = Role | 'documentary'
 /**
- *
  * @returns Page for showing video lists for Roles (Director & Producer, Director of Photography) and Documentary
  */
 export function VideoListPage() {
@@ -60,7 +59,7 @@ function getPageEnumFromQuery(
 
 function getFilterForVideos(
   pageEnum: VideoListPageEnum | null
-): (arg: IVideoCard) => boolean {
+): (arg: IVideoInfo) => boolean {
   if (!pageEnum) return _ => false
   if (roleTypeChecker(pageEnum)) {
     return video => video.roles.includes(pageEnum)

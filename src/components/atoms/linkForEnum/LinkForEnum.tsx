@@ -7,11 +7,11 @@ type LinkForEnumProps = {
 }
 
 export function LinkForEnum({ value }: LinkForEnumProps) {
-  const { url, text } = enumMappings[value]
+  const { url, label } = enumMappings[value]
 
   return (
     <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={url}>
-      {text}
+      {label}
     </Link>
   )
 }

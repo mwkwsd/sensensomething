@@ -7,7 +7,7 @@ import { enumMappings } from '../../../common/constants/constants'
 import { SxProps, useTheme } from '@mui/material'
 
 export function ChipsForEnum({ value }: { value: Genre | Role }): JSX.Element {
-  const { text: label, url } = enumMappings[value]
+  const { label, url } = enumMappings[value]
   const theme = useTheme()
 
   const handleClick = () => {

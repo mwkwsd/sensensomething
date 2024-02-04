@@ -45,7 +45,7 @@ export function NavList() {
     filterPrefix: string
   ): ListButtonProps[] =>
     items.map(item => ({
-      label: enumMappings[item].text,
+      label: enumMappings[item].label,
       filter: item,
       isSelected: isLinkSelected(enumMappings[item].url),
       generateButtonStyle,

@@ -1,6 +1,6 @@
-import { IVideoCard } from '../../common/interfaces/IVideoCard'
+import { IVideoInfo } from '../../common/interfaces/IVideoInfo'
 
-const videos: IVideoCard[] = [
+const videos: IVideoInfo[] = [
   {
     url: 'https://player.vimeo.com/video/121707380',
     title: 'From Mass to the Mountain',
