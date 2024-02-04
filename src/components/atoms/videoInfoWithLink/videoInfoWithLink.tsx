@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material'
+import { Stack } from '@mui/material'
 import { Genre, Role } from '../../../common/constants/enums'
 import { ReactNode } from 'react'
 import { ChipsForEnum } from '../chipsForEnum/ChipsForEnum'

@@ -1,4 +1,4 @@
-import { Card, CardContent, Grid, Stack } from '@mui/material'
+import { Card, CardContent } from '@mui/material'
 import { useMemo } from 'react'
 import { Video } from '../../atoms/video/Video'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'

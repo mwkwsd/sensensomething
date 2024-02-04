@@ -1,5 +1,4 @@
-import { PageEnum } from '../../common/constants/constants'
-import { Genre, Role } from '../../common/constants/enums'
+import { Role } from '../../common/constants/enums'
 import { ISeriesDetailPage } from '../../common/interfaces/ISeriesDetailPage'
 import { ISeriesListPage } from '../../common/interfaces/ISeriesListPage'
 import { IVideoListPageInfo } from '../../common/interfaces/IVideoListPageInfo'

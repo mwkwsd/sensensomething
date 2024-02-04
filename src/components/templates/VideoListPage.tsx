@@ -7,7 +7,6 @@ import { Role, roleTypeChecker } from '../../common/constants/enums'
 // Directly import the videos?
 import videos from '../../assets/videos/videos'
 import { videoListPagesInfo } from '../../assets/pages/pagesInfo'
-import { Typography } from '@mui/material'
 
 type VideoListPageEnum = Role | 'documentary'
 /**
