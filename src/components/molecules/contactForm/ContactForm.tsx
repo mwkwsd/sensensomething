@@ -33,7 +33,7 @@ function ContactForm() {
     <Box component='form' ref={form} onSubmit={(e) => sendEmail(e)}>
       <TextInput fieldName="name"/>
       <TextInput fieldName={"email_address"}/>
-      <TextInput fieldName="message"/>
+      <TextInput fieldName="message" multiline/>
       <Button type='submit' variant='contained' disabled={filledOut ? false : true}>Send</Button>
     </Box>
   )

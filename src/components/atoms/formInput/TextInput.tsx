@@ -1,18 +1,17 @@
-import { TextField } from "@mui/material";
+import { TextField, TextFieldProps } from "@mui/material";
 import { convertFromEnumToText } from "../../../common/utils/utils";
 import { Input } from "../../../common/constants/enums";
 
 type TextInputProps = {
   fieldName: Input
-
-  // stateManager: 
 }
 
-export function TextInput({fieldName}: TextInputProps) {
+export function TextInput(props: TextInputProps & TextFieldProps) {
   return (
     <TextField 
-      id={fieldName+"_text"}
-      label={convertFromEnumToText(fieldName)}
+      id={props.fieldName + "_text"}
+      label={convertFromEnumToText(props.fieldName)}
+      {...props}
     />
   )
 }
