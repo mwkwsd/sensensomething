@@ -1,7 +1,9 @@
-import React from 'react'
+import ContactForm from '../molecules/contactForm/ContactForm'
 
 function Contact() {
-  return <h1>Contact</h1>
+  return (
+    <ContactForm/>
+  )
 }
 
 export default Contact
