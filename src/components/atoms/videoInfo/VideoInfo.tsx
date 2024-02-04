@@ -1,13 +1,14 @@
-import { Typography } from '@mui/material'
+import { SxProps, Typography } from '@mui/material'
 
 type VideoInfoProps = {
   label: string
   info: string
+  sx?: SxProps
 }
 
-export function VideoInfo({ label, info }: VideoInfoProps) {
+export function VideoInfo({ label, info, sx }: VideoInfoProps) {
   return (
-    <Typography variant="body1">
+    <Typography variant="body1" sx={{ ...sx }}>
       <b>{label}: </b>
       {info}
     </Typography>

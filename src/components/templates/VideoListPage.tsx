@@ -1,65 +1,66 @@
 import React, { useMemo } from 'react'
-import { IVideoCard } from '../../common/interfaces/IVideoCard'
+import { IVideoInfo } from '../../common/interfaces/IVideoInfo'
 import { VideoList } from '../organisms/videoList/VideoList'
 import { PageTitle } from '../atoms/pageTitle/PageTitle'
 import { useSearchParams } from 'react-router-dom'
-import { roleToUrl, genreToUrl } from '../../common/constants/constants'
-import { Genre, Role, roleTypeChecker } from '../../common/constants/enums'
+import { Role, roleTypeChecker } from '../../common/constants/enums'
 // Directly import the videos?
 import videos from '../../assets/videos/videos'
+import { videoListPagesInfo } from '../../assets/pages/pagesInfo'
 
+type VideoListPageEnum = Role | 'documentary'
+/**
+ * @returns Page for showing video lists for Roles (Director & Producer, Director of Photography) and Documentary
+ */
 export function VideoListPage() {
-  console.log('VideoListPage rendered');
-  console.log('Videos:', videos);
-
   const [queryParams] = useSearchParams()
   const pageEnum = getPageEnumFromQuery(queryParams)
 
   const videosForPage = useMemo(
-    () => videos.filter(getFilterForVideos(pageEnum)),
+    () =>
+      videos.filter(getFilterForVideos(pageEnum)).filter(video => !!video.url),
     [pageEnum]
   )
 
   if (!pageEnum) {
+    // TODO reroute to home page
     return null
   }
 
   return (
     <>
-      <PageTitle title={pageEnum} />
+      <PageTitle
+        title={pageEnum}
+        subheaderText={videoListPagesInfo[pageEnum].subheaderText}
+        sx={{ padding: '16px 16px 24px' }}
+      />
       <VideoList videos={videosForPage} pageEnum={pageEnum} />
     </>
   )
 }
 
-function getPageEnumFromQuery(query: URLSearchParams): Genre | Role | null {
-  const maybeRoleQuery = query.get('role')
-  const maybeGenreQuery = query.get('genre')
-  if (!maybeGenreQuery && !maybeRoleQuery) {
+function getPageEnumFromQuery(
+  query: URLSearchParams
+): VideoListPageEnum | null {
+  const queryValue = query.get('filter')
+
+  if (!queryValue) {
     // No query found
     return null
   }
-  if (!!maybeRoleQuery) {
-    const [roleEnum] =
-      Object.entries(roleToUrl).find(([_key, url]) => url === maybeRoleQuery) ||
-      []
 
-    // Not a huge fan of this coersion, but it makes sense?  Other ideas?
-    return !!roleEnum ? (roleEnum as Role) : null
-  } /* assume maybeGenreQuery */ else {
-    const [genreEnum] =
-      Object.entries(genreToUrl).find(
-        ([_key, url]) => url === maybeGenreQuery
-      ) || []
+  const sanitzedValue = queryValue.replaceAll('-', '_')
 
-    // Not a huge fan of this coersion, but it makes sense?  Other ideas?
-    return !!genreEnum ? (genreEnum as Genre) : null
+  if (!roleTypeChecker(sanitzedValue) && sanitzedValue !== 'documentary') {
+    return null
   }
+
+  return sanitzedValue
 }
 
 function getFilterForVideos(
-  pageEnum: Role | Genre | null
-): (arg: IVideoCard) => boolean {
+  pageEnum: VideoListPageEnum | null
+): (arg: IVideoInfo) => boolean {
   if (!pageEnum) return _ => false
   if (roleTypeChecker(pageEnum)) {
     return video => video.roles.includes(pageEnum)

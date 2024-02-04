@@ -2,8 +2,14 @@ import React from 'react'
 import { List } from '@mui/material'
 import { useLocation } from 'react-router-dom'
 import { SubheaderList } from './subheaderList/SubheaderList'
-import { Genre, Role, navLinks } from '../../common/constants/enums'
-import { genreToText, roleToText } from '../../common/constants/constants'
+import {
+  Genre,
+  Role,
+  genres,
+  navLinks,
+  roles,
+} from '../../common/constants/enums'
+import { enumMappings } from '../../common/constants/constants'
 import { NavLinks } from './navLinks/NavLinks'
 
 const commonStyle = {
@@ -23,7 +29,7 @@ interface ListButtonProps {
 }
 interface SubheaderListProps {
   title: string
-  items: Record<string, string>
+  items: readonly Genre[] | readonly Role[]
 }
 
 export function NavList() {
@@ -35,13 +41,13 @@ export function NavList() {
   }
 
   const generateButtons = (
-    items: Record<string, string>,
+    items: readonly Genre[] | readonly Role[],
     filterPrefix: string
   ): ListButtonProps[] =>
-    Object.entries(items).map(([key, label]) => ({
-      label,
-      filter: key as Role | Genre,
-      isSelected: isLinkSelected(`/video-list?filter=${filterPrefix}${key}`),
+    items.map(item => ({
+      label: enumMappings[item].label,
+      filter: item,
+      isSelected: isLinkSelected(enumMappings[item].url),
       generateButtonStyle,
       isLinkSelected,
     }))
@@ -57,8 +63,8 @@ export function NavList() {
   })
 
   const subheaderListItems: SubheaderListProps[] = [
-    { title: 'ROLE', items: roleToText },
-    { title: 'GENRE', items: genreToText },
+    { title: 'ROLE', items: roles },
+    { title: 'GENRE', items: genres },
   ]
 
   return (
