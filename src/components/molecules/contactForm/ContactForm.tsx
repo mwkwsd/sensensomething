@@ -41,7 +41,7 @@ function ContactForm() {
 
   return (
     <Box component='form' ref={form} onSubmit={(e) => sendEmail(e)}>
-      {inputs.map((i) => <TextInput {...inputToFormProps[i]} updateFields={() => updateFieldState(i, fieldStates[i])}/>)}
+      {inputs.map((i) => <TextInput {...inputToFormProps[i]} onChange={() => updateFieldState(i, fieldStates[i])}/>)}
       <Button type='submit' variant='contained' >Send</Button>
     </Box>
   )

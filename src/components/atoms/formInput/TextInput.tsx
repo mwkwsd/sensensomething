@@ -4,15 +4,15 @@ import { Input } from "../../../common/constants/enums";
 
 export type TextInputProps = {
   fieldName: Input
-  updateFields: () => void
+  onChange: () => void
 } & TextFieldProps
 
-export function TextInput(props: TextInputProps) {
+export function TextInput({fieldName, ...rest}: TextInputProps) {
   return (
     <TextField 
-      id={props.fieldName + "_text"}
-      label={convertFromEnumToText(props.fieldName)}
-      {...props}
+      id={fieldName + "_text"}
+      label={convertFromEnumToText(fieldName)}
+      {...rest}
     />
   )
 }
