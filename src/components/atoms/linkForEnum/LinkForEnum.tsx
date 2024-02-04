@@ -1,26 +1,17 @@
 import { Link } from 'react-router-dom'
-import { Genre, Role, roleTypeChecker } from '../../../common/constants/enums'
-import {
-  convertFromEnumToText,
-  convertFromEnumToUrl,
-} from '../../../common/utils/utils'
-
-function buildLinkUrl(arg: Genre | Role): string {
-  const filterKey = roleTypeChecker(arg) ? 'role' : 'genre'
-  return '/video-list-page?' + filterKey + '=' + convertFromEnumToUrl(arg)
-}
+import { Genre, Role } from '../../../common/constants/enums'
+import { enumMappings } from '../../../common/constants/constants'
 
 type LinkForEnumProps = {
   value: Genre | Role
 }
 
 export function LinkForEnum({ value }: LinkForEnumProps) {
+  const { url, text } = enumMappings[value]
+
   return (
-    <Link
-      style={{ color: 'inherit', textDecoration: 'inherit' }}
-      to={buildLinkUrl(value)}
-    >
-      {convertFromEnumToText(value)}
+    <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={url}>
+      {text}
     </Link>
   )
 }

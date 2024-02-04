@@ -2,20 +2,21 @@
 // There is an error "squiggle" on the very last curly bracket
 // that says, "Declaration or statement expected.ts(1128)"???
 import Chip from '@mui/material/Chip'
-import { Genre, Role, genreTypeChecker } from '../../../common/constants/enums'
-import {
-  convertFromEnumToText,
-  convertFromEnumToUrl,
-} from '../../../common/utils/utils'
+import { Genre, Role } from '../../../common/constants/enums'
+import { enumMappings } from '../../../common/constants/constants'
+import { SxProps, useTheme } from '@mui/material'
 
 export function ChipsForEnum({ value }: { value: Genre | Role }): JSX.Element {
-  const isGenre = genreTypeChecker(value)
-  const filterKey = isGenre ? 'genre' : 'role'
-  const label = convertFromEnumToText(value)
+  const { text: label, url } = enumMappings[value]
+  const theme = useTheme()
 
   const handleClick = () => {
-    const url = `/video-list-page?${filterKey}=${convertFromEnumToUrl(value)}`
     window.location.href = url
+  }
+
+  const chipCssProperties: SxProps = {
+    ...theme.typography.body2,
+    backgroundColor: value + '.main',
   }
 
   return (
@@ -23,7 +24,7 @@ export function ChipsForEnum({ value }: { value: Genre | Role }): JSX.Element {
       label={label}
       component="button"
       onClick={handleClick}
-      sx={{ backgroundColor: value + '.main' }}
+      sx={chipCssProperties}
     />
   )
 }

@@ -2,24 +2,31 @@ import { Genre, Role } from './enums'
 
 export type PageEnum = Genre | Role
 
-export const roleToText: { [key in Role]: string } = {
-  director_of_photography: 'Director of Photography',
-  director_producer: 'Director & Producer',
-} as const
-
-export const roleToUrl: { [key in Role]: string } = {
-  director_of_photography: 'director-of-photography',
-  director_producer: 'director-producer',
-} as const
-
-export const genreToText: { [key in Genre]: string } = {
-  animation: 'Animation',
-  documentary: 'Documentary',
-  series: 'Series',
-} as const
-
-export const genreToUrl: { [key in Genre]: string } = {
-  animation: 'animation',
-  documentary: 'documentary',
-  series: 'series',
+interface EnumMapping {
+  text: string
+  url: string
+}
+export const enumMappings: { [key in Role]: EnumMapping } & {
+  [key in Genre]: EnumMapping
+} = {
+  director_of_photography: {
+    text: 'Director of Photography',
+    url: '/video-list-page?role=director-of-photography',
+  },
+  director_producer: {
+    text: 'Director & Producer',
+    url: '/video-list-page?role=director-producer',
+  },
+  animation: {
+    text: 'Animation',
+    url: '/lo-phe-life',
+  },
+  documentary: {
+    text: 'Documentary',
+    url: '/video-list-page?genre=documentary',
+  },
+  series: {
+    text: 'Series',
+    url: '/series',
+  },
 } as const

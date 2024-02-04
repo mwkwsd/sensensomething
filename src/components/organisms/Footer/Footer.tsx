@@ -1,11 +1,17 @@
 import { FooterLinks } from '../../molecules/footers/FooterLinks'
-import { navLinks, roles, genres } from '../../../common/constants/enums'
+import {
+  navLinks,
+  roles,
+  genres,
+  Role,
+  Genre,
+} from '../../../common/constants/enums'
 import { BottomIcons } from '../../molecules/footers/BottomIcons'
 import { kurtTheme } from '../../../theme'
 
 export function Footer() {
   const generateColumnData = (
-    enumValues: string[],
+    enumValues: readonly Genre[] | readonly Role[],
     title: string,
     prefix: string = ''
   ) => {
@@ -16,7 +22,11 @@ export function Footer() {
     return { title, items }
   }
 
-  const roleColumnData = generateColumnData(roles, 'ROLE', 'video-list-page?role=')
+  const roleColumnData = generateColumnData(
+    roles,
+    'ROLE',
+    'video-list-page?role='
+  )
   const genreColumnData = generateColumnData(
     genres,
     'GENRE',

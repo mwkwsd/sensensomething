@@ -3,12 +3,33 @@ import { createTheme, responsiveFontSizes } from '@mui/material'
 export const kurtTheme = responsiveFontSizes(
   createTheme({
     typography: {
+      allVariants: {
+        font: 'Roboto',
+      },
       fontFamily: ['Roboto', 'sans-serif'].join(','),
+      h1: {
+        fontSize: '28px',
+        color: '#FFFFFF',
+        fontWeight: 700,
+      },
+      h2: {
+        fontWeight: 700,
+        color: '#FFFFFF',
+        fontSize: '24px',
+      },
       body1: {
         color: 'white',
         textDecoration: 'none',
+        lineHeight: '18.75px',
+        fontSize: '16px',
+        fontWeight: 400,
       },
-      h1: {},
+      body2: {
+        color: '#212529',
+        fontWeight: 400,
+        fontSize: '12px',
+        lineHeight: '14px',
+      },
     },
     palette: {
       director_producer: {
@@ -22,6 +43,15 @@ export const kurtTheme = responsiveFontSizes(
       documentary: { main: '#FECBA1' },
       background: {
         default: '#343A40',
+      },
+    },
+    components: {
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#212529',
+          },
+        },
       },
     },
   })
