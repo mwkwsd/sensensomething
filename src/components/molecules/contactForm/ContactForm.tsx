@@ -29,20 +29,22 @@ function ContactForm() {
 
 
     const currentForm = form.current
-    if (currentForm == null || !process.env.REACT_APP_EMAIL_SERVICE_ID || !process.env.REACT_APP_EMAIL_TEMPLATE_ID || !process.env.REACT_APP_EMAIL_PUBLIC_ID) return // don't love this, but otherwise my sendform errors
+    if (currentForm == null || !process.env.REACT_APP_EMAIL_SERVICE_ID || !process.env.REACT_APP_EMAIL_TEMPLATE_ID || !process.env.REACT_APP_EMAIL_PUBLIC_ID) return // don't love this, but otherwise my sendForm() errors
 
-    emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, currentForm, process.env.REACT_APP_EMAIL_TEMPLATE_ID)
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
+    console.log(currentForm)
+
+    // emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, currentForm, process.env.REACT_APP_EMAIL_PUBLIC_ID)
+    //   .then((result) => {
+    //       console.log(result.text);
+    //   }, (error) => {
+    //       console.log(error.text);
+    //   });
   };
 
   return (
     <Box component='form' ref={form} onSubmit={(e) => sendEmail(e)}>
       {inputs.map((i) => <TextInput {...inputToFormProps[i]} onChange={() => updateFieldState(i, fieldStates[i])}/>)}
-      <Button type='submit' variant='contained' >Send</Button>
+      <Button type='submit' variant='contained' disabled={Object.values(fieldStates).every(val => val !== '')}>Send</Button>
     </Box>
   )
 }
