@@ -11,11 +11,11 @@ export const enumMappings: { [key in Role]: EnumMapping } & {
 } = {
   director_of_photography: {
     label: 'Director of Photography',
-    url: '/videos?role=director-of-photography',
+    url: '/videos?filter=director-of-photography',
   },
   director_producer: {
     label: 'Director & Producer',
-    url: '/videos?role=director-producer',
+    url: '/videos?filter=director-producer',
   },
   animation: {
     label: 'Animation',
@@ -23,7 +23,7 @@ export const enumMappings: { [key in Role]: EnumMapping } & {
   },
   documentary: {
     label: 'Documentary',
-    url: '/videos?genre=documentary',
+    url: '/videos?filter=documentary',
   },
   series: {
     label: 'Series',

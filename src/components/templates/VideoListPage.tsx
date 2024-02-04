@@ -23,6 +23,7 @@ export function VideoListPage() {
   )
 
   if (!pageEnum) {
+    // TODO reroute to home page
     return null
   }
 
@@ -41,7 +42,7 @@ export function VideoListPage() {
 function getPageEnumFromQuery(
   query: URLSearchParams
 ): VideoListPageEnum | null {
-  const queryValue = query.get('role') || query.get('genre')
+  const queryValue = query.get('filter')
 
   if (!queryValue) {
     // No query found
