@@ -5,13 +5,14 @@ import { Kurt } from "../../../assets/personalInfo/personalInfo"
 export function AboutPage (){
   const navigate = useNavigate()
 
-  const name = Kurt.name
+  const title = Kurt.title
   const description = Kurt.description
   
   return (
     <>
-      <Typography>{name}</Typography>
+      <Typography variant="h3">{title}</Typography>
       <Typography>{description}</Typography>
+      {Kurt.photos.map((photo) => <img src={photo}/>)}
       <Button onClick={() => navigate("/contact")}>Like my work?</Button>
     </>
   )

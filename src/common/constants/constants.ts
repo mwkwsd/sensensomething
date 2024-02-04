@@ -1,4 +1,6 @@
 import { Genre, Input, Role } from "./enums";
+import { TextInputProps } from "../../components/atoms/formInput/TextInput";
+import { TextFieldProps } from "@mui/material";
 
 export type PageEnum = Genre | Role
 
@@ -31,8 +33,14 @@ export const enumMappings: { [key in Role]: EnumMapping } & {
   },
 } as const
 
-export const inputToText: { [key in Input]: string } = {
-  email_address: "Email Address",
-  message: "Message",
-  name: "Name",
-} as const;
+// export const inputToText: { [key in Input]: string } = {
+//   email_address: "Email Address",
+//   message: "Message",
+//   name: "Name",
+// } as const;
+
+export const inputToFormProps: { [key in Input]: TextFieldProps & { fieldName: Input, label: string } } = {
+  email_address: {fieldName: "email_address", label: "Email Address"},
+  message: {fieldName: "message", label: "Message", multiline: true},
+  name: {fieldName: "name", label: "Name"},
+}

@@ -16,7 +16,7 @@ export const navLinks = [
   { route: '/contact', label: 'Contact' },
 ] as const
 
-const inputs = ["name", "email_address", "message"] as const;
+export const inputs = ["name", "email_address", "message"] as const;
 export type Input = (typeof inputs)[number];
 export function inputTypeChecker(arg: any): arg is Input {
   return inputs.includes(arg);

@@ -3,8 +3,8 @@ import { AboutPage } from "../molecules/About/AboutPage";
 
 export function About (){
   return (
-    <Card>
-      <Typography variant={"h3"}>About</Typography>
+    <Card elevation={0} variant="outlined" sx={{margin: 4, padding:4}}>
+      {/* <Typography variant={"h3"}>About</Typography> */}
       <AboutPage />
     </Card>
   )
