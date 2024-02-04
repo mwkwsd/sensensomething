@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/templates/Home'
 import Contact from './components/templates/Contact'
+import { About } from './components/templates/About'
 import { VideoListPage } from './components/templates/VideoListPage'
 import SeriesPage from './components/templates/SeriesPage'
 import AnimationPage from './components/templates/AnimationPage'
@@ -20,6 +21,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/videos" element={<VideoListPage />} />
             <Route path="/series" element={<SeriesPage />} />
