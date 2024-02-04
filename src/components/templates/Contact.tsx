@@ -1,12 +1,12 @@
-import { Typography } from '@mui/material'
+import { Card, Typography } from '@mui/material'
 import ContactForm from '../molecules/contactForm/ContactForm'
 
 function Contact() {
   return (
-    <>
-      <Typography variant="h3">GET IN TOUCH</Typography>
+    <Card sx={{paddingY: 4}}>
+      <Typography variant="h3">Get In Touch</Typography>
       <ContactForm/>
-    </>
+    </Card>
   )
 }
 

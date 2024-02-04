@@ -37,6 +37,7 @@ export function Footer() {
         display: 'flex',
         flexDirection: 'column',
         padding: '10px',
+        marginTop: '16px',
         backgroundColor: kurtTheme.palette.background.default,
       }}
     >
