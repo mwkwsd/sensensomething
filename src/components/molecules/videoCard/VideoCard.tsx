@@ -1,51 +1,54 @@
-import React from 'react'
-import { Card, CardContent, CardMedia } from '@mui/material'
+import { Card, CardContent } from '@mui/material'
 import { useMemo } from 'react'
 import { Video } from '../../atoms/video/Video'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
-import { IVideoCard } from '../../../common/interfaces/IVideoCard'
-import {
-  convertFromEnumToText,
-  convertFromEnumToUrl,
-} from '../../../common/utils/utils'
-import { Link } from 'react-router-dom'
+import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
+import { getPageType } from '../../../common/utils/utils'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
+import { PageEnum } from '../../../common/constants/constants'
 
-type VideoCardProps = Omit<IVideoCard, 'isRecentWork'>
+type VideoCardProps = {
+  video: Omit<IVideoInfo, 'isRecentWork'>
+  pageEnum: PageEnum
+}
 
 // TODO: Video needs to take full width of Card
 export function VideoCard({
-  url,
-  title,
-  clientName,
-  roles,
-  genres,
+  video: { url, title, clientName, roles, genres },
+  pageEnum,
 }: VideoCardProps) {
   const mediaCardVideo = useMemo(() => <Video url={url} />, [url])
-  const videoTitle = useMemo(() => <VideoTitle title={title} />, [title])
-
-  const clientComponent = useMemo(
-    () => <VideoInfo label="Client" info={clientName} />,
-    [clientName]
+  const videoTitle = useMemo(
+    () => <VideoTitle title={title} sx={{ marginBottom: '8px' }} />,
+    [title]
   )
 
-  const rolesComponent = useMemo(() => {
-    return <VideoInfoWithLink label="Roles" linkableInfo={roles} />
-  }, [roles])
+  const pageType = getPageType(pageEnum)
 
-  const genresComponent = useMemo(() => {
-    return <VideoInfoWithLink label="Genres" linkableInfo={genres} />
-  }, [genres])
+  const clientComponent = useMemo(() => {
+    if (!clientName) return null
+    return (
+      <VideoInfo
+        label="Client"
+        info={clientName}
+        sx={{ marginBottom: '8px' }}
+      />
+    )
+  }, [clientName])
+
+  const rolesGenres = useMemo(() => {
+    const toLink = pageType === 'genre' ? roles : genres
+    return <VideoInfoWithLink linkableInfo={toLink} />
+  }, [roles, genres, pageType])
 
   return (
-    <Card elevation={0} variant='outlined' sx={{width: 1}}>
+    <Card elevation={0}>
       {mediaCardVideo}
-      <CardContent>
+      <CardContent sx={{ '&:last-child': { padding: '16px' } }}>
         {videoTitle}
         {clientComponent}
-        {rolesComponent}
-        {genresComponent}
+        {rolesGenres}
       </CardContent>
     </Card>
   )

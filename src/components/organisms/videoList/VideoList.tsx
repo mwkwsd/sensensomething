@@ -1,15 +1,17 @@
 import { Grid } from '@mui/material'
-import { IVideoCard } from '../../../common/interfaces/IVideoCard'
+import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { VideoCard } from '../../molecules/videoCard/VideoCard'
+import { PageEnum } from '../../../common/constants/constants'
 
 type VideoListProps = {
-  videos: IVideoCard[]
+  videos: IVideoInfo[]
+  pageEnum: PageEnum
 }
 
-export function VideoList({ videos }: VideoListProps) {
-  const videoComponents = videos.map((iVideo, index) => (
-    <Grid item xs={12} md={6} key={`grid-item-video-list-${iVideo.title}`}>
-      <VideoCard {...iVideo} />
+export function VideoList({ videos, pageEnum }: VideoListProps) {
+  const videoComponents = videos.map(video => (
+    <Grid item xs={12} md={6} key={`grid-item-video-list-${video.title}`}>
+      <VideoCard video={video} pageEnum={pageEnum} />
     </Grid>
   ))
   return (
