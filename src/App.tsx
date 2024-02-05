@@ -5,10 +5,10 @@ import Contact from './components/templates/Contact'
 import { VideoListPage } from './components/templates/VideoListPage'
 import SeriesPage from './components/templates/SeriesPage'
 import AnimationPage from './components/templates/AnimationPage'
-import { Header } from './components/molecules/headers/Header'
 import { ThemeProvider } from '@mui/material/styles'
 import { kurtTheme } from './theme'
 import { Footer } from './components/organisms/Footer/Footer'
+import { NavBar } from './components/templates/NavBar'
 
 function App() {
   const memoizedFooter = useMemo(() => <Footer />, [])
@@ -17,7 +17,7 @@ function App() {
     <>
       <ThemeProvider theme={kurtTheme}>
         <BrowserRouter>
-          <Header />
+          <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
