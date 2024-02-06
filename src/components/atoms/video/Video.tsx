@@ -11,7 +11,7 @@ export function Video({ url }: VideoProps) {
     <CardMedia
       component={'iframe'}
       src={addQueryParamsToVideoUrl(url)}
-      sx={{ aspectRatio: '16/9' }}
+      sx={{ aspectRatio: '16/9', border: '0' }}
     />
   )
 }

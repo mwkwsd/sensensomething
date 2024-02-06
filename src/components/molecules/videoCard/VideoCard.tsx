@@ -1,15 +1,15 @@
-import { Card, CardContent, Stack } from '@mui/material'
+import { Card, CardContent } from '@mui/material'
 import { useMemo } from 'react'
 import { Video } from '../../atoms/video/Video'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
-import { IVideoCard } from '../../../common/interfaces/IVideoCard'
+import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { getPageType } from '../../../common/utils/utils'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 import { PageEnum } from '../../../common/constants/constants'
 
 type VideoCardProps = {
-  video: Omit<IVideoCard, 'isRecentWork'>
+  video: Omit<IVideoInfo, 'isRecentWork'>
   pageEnum: PageEnum
 }
 
@@ -19,14 +19,23 @@ export function VideoCard({
   pageEnum,
 }: VideoCardProps) {
   const mediaCardVideo = useMemo(() => <Video url={url} />, [url])
-  const videoTitle = useMemo(() => <VideoTitle title={title} />, [title])
+  const videoTitle = useMemo(
+    () => <VideoTitle title={title} sx={{ marginBottom: '8px' }} />,
+    [title]
+  )
 
   const pageType = getPageType(pageEnum)
 
-  const clientComponent = useMemo(
-    () => <VideoInfo label="Client" info={clientName} />,
-    [clientName]
-  )
+  const clientComponent = useMemo(() => {
+    if (!clientName) return null
+    return (
+      <VideoInfo
+        label="Client"
+        info={clientName}
+        sx={{ marginBottom: '8px' }}
+      />
+    )
+  }, [clientName])
 
   const rolesGenres = useMemo(() => {
     const toLink = pageType === 'genre' ? roles : genres
@@ -34,14 +43,12 @@ export function VideoCard({
   }, [roles, genres, pageType])
 
   return (
-    <Card elevation={0} variant="outlined" sx={{ width: 1 }}>
+    <Card elevation={0}>
       {mediaCardVideo}
-      <CardContent>
+      <CardContent sx={{ '&:last-child': { padding: '16px' } }}>
         {videoTitle}
         {clientComponent}
-        <Stack direction="row" spacing={1}>
-          {rolesGenres}
-        </Stack>
+        {rolesGenres}
       </CardContent>
     </Card>
   )

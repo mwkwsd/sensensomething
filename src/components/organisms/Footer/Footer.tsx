@@ -1,27 +1,30 @@
 import { FooterLinks } from '../../molecules/footers/FooterLinks'
-import { navLinks, roles, genres } from '../../../common/constants/enums'
+import {
+  navLinks,
+  roles,
+  genres,
+  Role,
+  Genre,
+} from '../../../common/constants/enums'
 import { BottomIcons } from '../../molecules/footers/BottomIcons'
 import { kurtTheme } from '../../../theme'
+import { enumMappings } from '../../../common/constants/constants'
 
 export function Footer() {
   const generateColumnData = (
-    enumValues: string[],
+    enumValues: readonly Genre[] | readonly Role[],
     title: string,
     prefix: string = ''
   ) => {
     const items = enumValues.map(value => ({
-      label: value.replace('_', ' '),
-      link: `/${prefix}${value.toLowerCase().replace('_', '-')}`,
+      label: value.replaceAll('_', ' '),
+      link: enumMappings[value].url,
     }))
     return { title, items }
   }
 
-  const roleColumnData = generateColumnData(roles, 'ROLE', 'video-list-page?role=')
-  const genreColumnData = generateColumnData(
-    genres,
-    'GENRE',
-    'video-list-page?genre='
-  )
+  const roleColumnData = generateColumnData(roles, 'ROLE', 'videos?role=')
+  const genreColumnData = generateColumnData(genres, 'GENRE', 'videos?genre=')
 
   const transformedNavLinks = navLinks.map(({ route, label }) => ({
     label,
