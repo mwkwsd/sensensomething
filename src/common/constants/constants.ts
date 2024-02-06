@@ -10,7 +10,7 @@ export const enumMappings: { [key in Role]: EnumMapping } & {
   [key in Genre]: EnumMapping
 } = {
   director_of_photography: {
-    label: 'Director of Photography',
+    label: 'Director Of Photography',
     url: '/videos?filter=director-of-photography',
   },
   director_producer: {

@@ -4,9 +4,8 @@ import { VideoList } from '../organisms/videoList/VideoList'
 import { PageTitle } from '../atoms/pageTitle/PageTitle'
 import { useSearchParams } from 'react-router-dom'
 import { Role, roleTypeChecker } from '../../common/constants/enums'
-// Directly import the videos?
-import videos from '../../assets/videos/videos'
 import { videoListPagesInfo } from '../../assets/pages/pagesInfo'
+import videos from '../../assets/videos'
 
 type VideoListPageEnum = Role | 'documentary'
 /**

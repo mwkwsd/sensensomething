@@ -1,6 +1,6 @@
 import { IVideoInfo } from '../../common/interfaces/IVideoInfo'
 
-const videos: IVideoInfo[] = [
+export const adHocVideos: IVideoInfo[] = [
   {
     url: 'https://player.vimeo.com/video/121707380',
     title: 'From Mass to the Mountain',
@@ -29,5 +29,3 @@ const videos: IVideoInfo[] = [
     roles: ['director_of_photography', 'director_of_photography'],
   },
 ]
-
-export default videos

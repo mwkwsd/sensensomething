@@ -30,6 +30,13 @@ export const kurtTheme = responsiveFontSizes(
         fontSize: '12px',
         lineHeight: '14px',
       },
+      button: {
+        // EXPLORE THE SERIES
+        color: '#FFFFFF',
+        lineHeight: '22px',
+        fontSize: '13px',
+        letterSpacing: '0.46px',
+      },
     },
     palette: {
       director_producer: {
@@ -46,6 +53,13 @@ export const kurtTheme = responsiveFontSizes(
       },
     },
     components: {
+      MuiAppBar: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#2D2D2D',
+          },
+        },
+      },
       MuiCard: {
         styleOverrides: {
           root: {

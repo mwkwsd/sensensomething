@@ -1,11 +1,11 @@
-import React from 'react'
+import { Card } from '@mui/material'
 import { ISeriesDetail } from '../../common/interfaces/ISeriesDetail'
 import { useLoaderData } from 'react-router-dom'
 
 type SeriesDetailPageProps = {}
 
 export function SeriesDetailPage({}: SeriesDetailPageProps) {
-  // const seriesInfo =  as ISeriesDetail //gross
+  const seriesInfo = useLoaderData() as ISeriesDetail
 
-  return <></>
+  return <Card>{seriesInfo.fullDescription}</Card>
 }
