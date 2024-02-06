@@ -45,17 +45,6 @@ function App() {
     <>
       <ThemeProvider theme={kurtTheme}>
         <RouterProvider router={router}></RouterProvider>
-        {/* <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/videos" element={<VideoListPage />} />
-            <Route path="/series" element={<SeriesPage />} />
-            <Route path="/animation" element={<AnimationPage />} />
-          </Routes>
-          {memoizedFooter}
-        </BrowserRouter> */}
       </ThemeProvider>
     </>
   )
