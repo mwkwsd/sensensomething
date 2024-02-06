@@ -1,4 +1,4 @@
-import { FooterLinks } from '../../molecules/footers/FooterLinks'
+import { FooterLinks } from '../../molecules/footer/FooterLinks'
 import {
   navLinks,
   roles,
@@ -6,7 +6,7 @@ import {
   Role,
   Genre,
 } from '../../../common/constants/enums'
-import { BottomIcons } from '../../molecules/footers/BottomIcons'
+import { BottomIcons } from '../../molecules/footer/BottomIcons'
 import { kurtTheme } from '../../../theme'
 import { enumMappings } from '../../../common/constants/constants'
 
