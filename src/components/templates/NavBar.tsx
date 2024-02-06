@@ -1,7 +1,14 @@
-import { useState } from "react";
-import {AppBar, Box, Drawer, IconButton, Toolbar, Typography} from "@mui/material"
-import MenuIcon from '@mui/icons-material/Menu';
-import { NavList } from "../molecules/NavList"
+import { useState } from 'react'
+import {
+  AppBar,
+  Box,
+  Drawer,
+  IconButton,
+  Toolbar,
+  Typography,
+} from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+import { NavList } from '../molecules/NavList'
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -13,7 +20,7 @@ function NavBar() {
   return (
     <Box sx={{ display: 'flex' }}>
       {/* styles WIP */}
-      <AppBar>
+      <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
             Kurt Sensenbrenner
@@ -28,7 +35,9 @@ function NavBar() {
           </IconButton>
         </Toolbar>
       </AppBar>
+
       <Drawer
+        component="nav"
         variant="temporary"
         anchor="right"
         open={menuOpen}
