@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './components/templates/Home'
 import Contact from './components/templates/Contact'
@@ -7,7 +6,6 @@ import SeriesPage from './components/templates/SeriesPage'
 import AnimationPage from './components/templates/AnimationPage'
 import { ThemeProvider } from '@mui/material/styles'
 import { kurtTheme } from './theme'
-import { Footer } from './components/organisms/Footer/Footer'
 import { KurtApp } from './components/pages/kurtApp/KurtApp'
 
 const router = createBrowserRouter([
