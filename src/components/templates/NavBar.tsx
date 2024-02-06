@@ -35,19 +35,19 @@ function NavBar() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <nav>
-        <Drawer
-          variant="temporary"
-          anchor="right"
-          open={menuOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-          <NavList />
-        </Drawer>
-      </nav>
+
+      <Drawer
+        component="nav"
+        variant="temporary"
+        anchor="right"
+        open={menuOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+      >
+        <NavList />
+      </Drawer>
     </Box>
   )
 }
