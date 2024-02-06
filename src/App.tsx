@@ -39,8 +39,6 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  const memoizedFooter = useMemo(() => <Footer />, [])
-
   return (
     <>
       <ThemeProvider theme={kurtTheme}>
