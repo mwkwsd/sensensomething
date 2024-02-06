@@ -1,10 +1,4 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-} from '@mui/material'
+import { Card, CardActions, CardContent, Typography } from '@mui/material'
 import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { getVideoInfoForSeriesDetail } from '../../../common/utils/utils'
@@ -12,6 +6,7 @@ import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLi
 import { Video } from '../../atoms/video/Video'
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { UnderlinedButton } from '../../atoms/buttons/UnderlinedButton'
 
 type SeriesListCardProps = {
   seriesInfo: ISeriesDetail
@@ -31,7 +26,7 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
 
   const mediaCardVideo = useMemo(() => {
     if (!videoInfo) return null
-    return <Video url={videoInfo.url} />
+    return <Video url={videoInfo.url} sx={{ width: '100vw' }} />
   }, [videoInfo])
 
   return (
@@ -47,9 +42,10 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
       </CardContent>
       {mediaCardVideo}
       <CardActions sx={{ justifyContent: 'center' }}>
-        <Button onClick={() => navigate(`/series/${seriesInfo.path}`)}>
-          <Typography variant="button">Explore the Series</Typography>
-        </Button>
+        <UnderlinedButton
+          label="Explore the Series"
+          onClick={() => navigate(`/series/${seriesInfo.path}`)}
+        ></UnderlinedButton>
       </CardActions>
     </Card>
   )

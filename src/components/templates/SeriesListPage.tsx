@@ -9,7 +9,7 @@ export function SeriesListPage() {
   return (
     <>
       <PageTitle
-        title="series"
+        title="Series"
         subheaderText={seriesListSubheaderText}
         sx={{ padding: '16px 16px 24px' }}
       ></PageTitle>
