@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material'
-import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { VideoCard } from '../../molecules/videoCard/VideoCard'
 import { PageEnum } from '../../../common/constants/constants'
+import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 
 type VideoListProps = {
   videos: IVideoInfo[]

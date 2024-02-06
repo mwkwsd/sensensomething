@@ -16,12 +16,17 @@ const videos: IVideoInfo[] = [
     roles: ['director_producer', 'director_of_photography'],
   },
   {
-    url: '',
-    title: '',
-    clientName: '',
-    genres: ['animation'],
-    roles: ['director_of_photography'],
+    url: 'https://player.vimeo.com/video/282421105',
+    title: 'Afro Punk Ballet',
+    genres: ['documentary'],
+    roles: ['director_producer'],
     isRecentWork: false,
+  },
+  {
+    url: 'https://player.vimeo.com/video/81963254',
+    title: 'How To: Go Wicky-Wacky with Bridge',
+    genres: ['documentary'],
+    roles: ['director_of_photography', 'director_of_photography'],
   },
 ]
 

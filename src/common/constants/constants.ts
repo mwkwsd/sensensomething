@@ -19,7 +19,7 @@ export const enumMappings: { [key in Role]: EnumMapping } & {
   },
   animation: {
     label: 'Animation',
-    url: '/series/lo-phe-life',
+    url: '/series/low-phe-life',
   },
   documentary: {
     label: 'Documentary',

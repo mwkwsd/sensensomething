@@ -2,11 +2,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './components/templates/Home'
 import Contact from './components/templates/Contact'
 import { VideoListPage } from './components/templates/VideoListPage'
-import SeriesPage from './components/templates/SeriesPage'
-import AnimationPage from './components/templates/AnimationPage'
 import { ThemeProvider } from '@mui/material/styles'
 import { kurtTheme } from './theme'
 import { KurtApp } from './components/pages/kurtApp/KurtApp'
+import { SeriesDetailPage } from './components/templates/SeriesDetailPage'
+import { SeriesListPage } from './components/templates/SeriesListPage'
+import { getSeriesDetailFromSeriesPath } from './common/utils/utils'
 
 const router = createBrowserRouter([
   {
@@ -22,11 +23,14 @@ const router = createBrowserRouter([
       },
       {
         path: '/series',
-        element: <SeriesPage />,
+        element: <SeriesListPage />,
       },
       {
-        path: '/series/low-phe-life',
-        element: <AnimationPage />,
+        path: '/series/:seriesUrl',
+        element: <SeriesDetailPage />,
+        loader: ({ params }) => ({
+          seriesInfo: getSeriesDetailFromSeriesPath(params.seriesUrl),
+        }),
       },
       {
         element: <Home />,
