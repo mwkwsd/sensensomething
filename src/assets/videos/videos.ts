@@ -2,7 +2,7 @@ import { IVideoInfo } from '../../common/interfaces/IVideoInfo'
 
 const videos: IVideoInfo[] = [
   {
-    url: 'https://player.vimeo.com/video/121707380',
+    url: 'https://www.youtube.com/watch?v=JTRpgFxXwmU',
     title: 'From Mass to the Mountain',
     clientName: 'Self',
     genres: ['documentary'],
