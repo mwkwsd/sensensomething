@@ -21,7 +21,7 @@ export function SeriesDetailDescription({
     [seriesInfo]
   )
   return (
-    <Box sx={{ paddingTop: '24px', paddingBottom: '16px' }}>
+    <Box sx={{ padding: '24px 16px 16px' }}>
       <PageTitle title={pageTitle} />
       {seriesInfo.imageUrl && (
         <img

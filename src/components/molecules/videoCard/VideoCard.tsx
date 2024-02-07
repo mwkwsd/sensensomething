@@ -43,11 +43,9 @@ export function VideoCard({
   }, [roles, genres, pageType])
 
   return (
-    <Card elevation={0}>
-      <CardMedia component="div" sx={{ aspectRatio: '16/9', border: '0' }}>
-        {videoComponent}
-      </CardMedia>
-      <CardContent sx={{ '&:last-child': { padding: '16px' } }}>
+    <Card>
+      <CardMedia>{videoComponent}</CardMedia>
+      <CardContent>
         {videoTitle}
         {clientComponent}
         {rolesGenres}

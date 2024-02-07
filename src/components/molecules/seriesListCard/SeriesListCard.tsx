@@ -36,8 +36,8 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
   }, [videoInfo])
 
   return (
-    <Card elevation={0}>
-      <CardContent sx={{ '&:last-child': { padding: '16px' } }}>
+    <Card>
+      <CardContent>
         <VideoTitle title={name} sx={{ paddingBottom: '8px' }}></VideoTitle>
         {shortDescription && (
           <Typography variant="body1" sx={{ paddingBottom: '8px' }}>
@@ -46,14 +46,12 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
         )}
         {rolesGenresChips}
       </CardContent>
-      <CardMedia component="div" sx={{ aspectRatio: '16/9', border: '0' }}>
-        {mediaCardVideo}
-      </CardMedia>
+      <CardMedia>{mediaCardVideo}</CardMedia>
       <CardActions sx={{ justifyContent: 'center' }}>
         <UnderlinedButton
           label="Explore the Series"
           onClick={() => navigate(`/series/${seriesInfo.path}`)}
-        ></UnderlinedButton>
+        />
       </CardActions>
     </Card>
   )

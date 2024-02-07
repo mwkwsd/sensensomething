@@ -26,6 +26,6 @@ export const adHocVideos: IVideoInfo[] = [
     url: 'https://player.vimeo.com/video/81963254',
     title: 'How To: Go Wicky-Wacky with Bridge',
     genres: ['documentary'],
-    roles: ['director_of_photography', 'director_of_photography'],
+    roles: ['director_of_photography', 'director_producer'],
   },
 ]

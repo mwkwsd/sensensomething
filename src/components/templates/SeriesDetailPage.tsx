@@ -10,7 +10,7 @@ export function SeriesDetailPage({}: SeriesDetailPageProps) {
   const seriesInfo = useLoaderData() as ISeriesDetail
 
   return (
-    <Box sx={{ padding: '0px 16px' }}>
+    <Box sx={{ padding: '0px ' }}>
       <SeriesDetailDescription seriesInfo={seriesInfo} />
       <SeriesDetailEpisodes seriesInfo={seriesInfo} />
     </Box>

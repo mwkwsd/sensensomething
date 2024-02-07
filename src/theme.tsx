@@ -54,16 +54,36 @@ export const kurtTheme = responsiveFontSizes(
     },
     components: {
       MuiAppBar: {
-        styleOverrides: {
-          root: {
+        defaultProps: {
+          sx: {
             backgroundColor: '#2D2D2D',
           },
         },
       },
       MuiCard: {
-        styleOverrides: {
-          root: {
+        defaultProps: {
+          elevation: 0,
+          sx: {
             backgroundColor: '#212529',
+            overflow: 'visible',
+          },
+        },
+      },
+      MuiCardContent: {
+        defaultProps: {
+          sx: {
+            '&:last-child': {
+              padding: '16px',
+            },
+          },
+        },
+      },
+      MuiCardMedia: {
+        defaultProps: {
+          component: 'div',
+          sx: {
+            aspectRatio: '16/9',
+            border: '0px',
           },
         },
       },
