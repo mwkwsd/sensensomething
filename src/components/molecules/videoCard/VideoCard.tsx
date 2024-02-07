@@ -1,4 +1,4 @@
-import { Card, CardContent } from '@mui/material'
+import { Card, CardContent, CardMedia } from '@mui/material'
 import { useMemo } from 'react'
 import { Video } from '../../atoms/video/Video'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
@@ -18,7 +18,14 @@ export function VideoCard({
   video: { url, title, clientName, roles, genres },
   pageEnum,
 }: VideoCardProps) {
-  const mediaCardVideo = useMemo(() => <Video url={url} />, [url])
+  const mediaCardVideo = useMemo(
+    () => (
+      <CardMedia component='div' sx={{ aspectRatio: '16/9', border: '0' }}>
+        <Video url={url} />
+      </CardMedia>
+    ),
+    [url]
+  )
   const videoTitle = useMemo(
     () => <VideoTitle title={title} sx={{ marginBottom: '8px' }} />,
     [title]

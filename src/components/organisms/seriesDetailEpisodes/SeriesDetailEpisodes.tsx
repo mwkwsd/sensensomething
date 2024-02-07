@@ -13,6 +13,7 @@ export function SeriesDetailEpisodes({
   const videos = seriesInfo.orderedVideoUrls
     .map(url => getVideoInfoForUrl(url))
     .filter((videoInfo): videoInfo is IVideoInfo => !!videoInfo)
+    .map((videoInfo, index) => {})
 
   function loadAllVideos() {}
   return (

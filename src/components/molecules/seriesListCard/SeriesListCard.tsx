@@ -1,4 +1,10 @@
-import { Card, CardActions, CardContent, Typography } from '@mui/material'
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from '@mui/material'
 import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { getVideoInfoForSeriesDetail } from '../../../common/utils/utils'
@@ -26,7 +32,11 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
 
   const mediaCardVideo = useMemo(() => {
     if (!videoInfo) return null
-    return <Video url={videoInfo.url} sx={{ width: '100vw' }} />
+    return (
+      <CardMedia component="div" sx={{ aspectRatio: '16/9', border: '0' }}>
+        <Video url={videoInfo.url} />
+      </CardMedia>
+    )
   }, [videoInfo])
 
   return (
