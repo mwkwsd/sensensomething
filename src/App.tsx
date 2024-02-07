@@ -28,9 +28,7 @@ const router = createBrowserRouter([
       {
         path: '/series/:seriesUrl',
         element: <SeriesDetailPage />,
-        loader: ({ params: { seriesUrl } }) => {
-          return getSeriesDetailFromSeriesPath(seriesUrl)
-        },
+        loader: ({ params }) => getSeriesDetailFromSeriesPath(params.seriesUrl),
       },
       {
         element: <Home />,
