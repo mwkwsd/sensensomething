@@ -32,11 +32,7 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
 
   const mediaCardVideo = useMemo(() => {
     if (!videoInfo) return null
-    return (
-      <CardMedia component="div" sx={{ aspectRatio: '16/9', border: '0' }}>
-        <Video url={videoInfo.url} />
-      </CardMedia>
-    )
+    return <Video url={videoInfo.url} />
   }, [videoInfo])
 
   return (
@@ -50,7 +46,9 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
         )}
         {rolesGenresChips}
       </CardContent>
-      {mediaCardVideo}
+      <CardMedia component="div" sx={{ aspectRatio: '16/9', border: '0' }}>
+        {mediaCardVideo}
+      </CardMedia>
       <CardActions sx={{ justifyContent: 'center' }}>
         <UnderlinedButton
           label="Explore the Series"

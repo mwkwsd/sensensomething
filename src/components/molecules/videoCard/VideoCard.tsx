@@ -18,14 +18,7 @@ export function VideoCard({
   video: { url, title, clientName, roles, genres },
   pageEnum,
 }: VideoCardProps) {
-  const mediaCardVideo = useMemo(
-    () => (
-      <CardMedia component='div' sx={{ aspectRatio: '16/9', border: '0' }}>
-        <Video url={url} />
-      </CardMedia>
-    ),
-    [url]
-  )
+  const videoComponent = useMemo(() => <Video url={url} />, [url])
   const videoTitle = useMemo(
     () => <VideoTitle title={title} sx={{ marginBottom: '8px' }} />,
     [title]
@@ -51,7 +44,9 @@ export function VideoCard({
 
   return (
     <Card elevation={0}>
-      {mediaCardVideo}
+      <CardMedia component="div" sx={{ aspectRatio: '16/9', border: '0' }}>
+        {videoComponent}
+      </CardMedia>
       <CardContent sx={{ '&:last-child': { padding: '16px' } }}>
         {videoTitle}
         {clientComponent}
