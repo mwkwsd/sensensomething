@@ -1,9 +1,14 @@
-import React, { useState } from "react";
-import { AppBar, Box, Drawer, IconButton, Toolbar, Typography } from "@mui/material";
-import MenuIcon from '@mui/icons-material/Menu';
-import { NavList } from "../molecules/NavList";
-import { MainHeading } from '../../components/atoms/mainHeading/MainHeading';
-import { SubHeading } from '../../components/atoms/subHeading/SubHeading';
+import { useState } from 'react'
+import {
+  AppBar,
+  Box,
+  Drawer,
+  IconButton,
+  Toolbar,
+  Typography,
+} from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+import { NavList } from '../molecules/NavList'
 
 export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,18 +19,12 @@ export function NavBar() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar sx={{ background: '#2D2D2D' }}>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-            }}
-          >
-            <MainHeading mainHeading="KURT" />
-            <SubHeading subHeading="SENSENBRENNER" />
-          </Box>
+      {/* styles WIP */}
+      <AppBar position="sticky">
+        <Toolbar>
+          <Typography variant="h6" noWrap component="div">
+            Kurt Sensenbrenner
+          </Typography>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -36,7 +35,9 @@ export function NavBar() {
           </IconButton>
         </Toolbar>
       </AppBar>
+
       <Drawer
+        component="nav"
         variant="temporary"
         anchor="right"
         open={menuOpen}
