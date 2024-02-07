@@ -18,7 +18,9 @@ export const kurtTheme = responsiveFontSizes(
         fontSize: '24px',
       },
       body1: {
-        color: 'white',
+        // Could only get NavBar Links text color to render black 
+        // when this is commented out of the body
+        // color: 'white',
         textDecoration: 'none',
         lineHeight: '18.75px',
         fontSize: '16px',

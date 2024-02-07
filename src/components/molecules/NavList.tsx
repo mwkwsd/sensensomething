@@ -1,7 +1,7 @@
-import React from 'react'
 import { List } from '@mui/material'
 import { useLocation } from 'react-router-dom'
-import { SubheaderList } from './subheaderList/SubheaderList'
+import { SubheaderLinks } from './subheaderLinks/SubheaderLinks'
+import { NavLinks } from './navLinks/NavLinks'
 import {
   Genre,
   Role,
@@ -10,86 +10,60 @@ import {
   roles,
 } from '../../common/constants/enums'
 import { enumMappings } from '../../common/constants/constants'
-import { NavLinks } from './navLinks/NavLinks'
+import { NavStyle } from '../../common/utils/navStyle'
 
-const commonStyle = {
-  fontWeight: 'bold',
-  bgcolor: 'black',
-  color: 'white',
-  fontSize: 20,
-  textAlign: 'right',
+interface SubheaderLinksProps {
+  title: string
+  items: readonly Genre[] | readonly Role[]
+  isSelected: boolean
 }
-
-interface ListButtonProps {
+interface LinkProps {
   label: string
   filter: Role | Genre
   isSelected: boolean
-  generateButtonStyle: (isSelected: boolean) => React.CSSProperties
-  isLinkSelected: (link: string) => boolean
-}
-interface SubheaderListProps {
-  title: string
-  items: readonly Genre[] | readonly Role[]
 }
 
 export function NavList() {
   const location = useLocation()
 
+  // TODO: The ListItemButtons inside of SubheaderLinks are rendering
+  // as if isSelected: true is there default state. Figure out how to
+  // fix this. Can this function be leveraged?
   const isLinkSelected = (link: string) => {
     const linkWithoutQuery = link.replace(/(\?.*)$/, '')
     return location.pathname === linkWithoutQuery
   }
 
-  const generateButtons = (
-    items: readonly Genre[] | readonly Role[],
-    filterPrefix: string
-  ): ListButtonProps[] =>
+  const generateLinks = (
+    items: readonly Genre[] | readonly Role[]
+  ): LinkProps[] =>
     items.map(item => ({
       label: enumMappings[item].label,
       filter: item,
       isSelected: isLinkSelected(enumMappings[item].url),
-      generateButtonStyle,
-      isLinkSelected,
     }))
 
-  const generateButtonStyle = (isSelected: boolean) => ({
-    backgroundColor: isSelected ? 'lightgrey' : 'transparent',
-    padding: '1px 16px',
-    borderRadius: isSelected ? '24px 0 0 24px' : 'unset',
-    '&:hover': {
-      backgroundColor: 'lightgrey',
-    },
-    color: isSelected ? 'black' : 'white',
-  })
-
-  const subheaderListItems: SubheaderListProps[] = [
-    { title: 'ROLE', items: roles },
-    { title: 'GENRE', items: genres },
+  const subheaderLinksItems: SubheaderLinksProps[] = [
+    { title: 'ROLE', items: roles, isSelected: isLinkSelected('/role') },
+    { title: 'GENRE', items: genres, isSelected: isLinkSelected('/genre') },
   ]
 
   return (
-    <List
-      sx={{ width: '100%', height: '100%', maxWidth: 360, ...commonStyle }}
-      component="nav"
-    >
+    <List sx={{ width: '100%', height: '100%', maxWidth: 360, ...NavStyle }}>
       {navLinks.map(item => (
         <NavLinks
           key={item.route}
           route={item.route}
           label={item.label}
           isSelected={isLinkSelected(item.route)}
-          generateButtonStyle={generateButtonStyle}
-          isLinkSelected={isLinkSelected}
         />
       ))}
-
-      {subheaderListItems.map(item => (
-        <SubheaderList
+      {subheaderLinksItems.map(item => (
+        <SubheaderLinks
           key={item.title}
           title={item.title}
-          buttons={generateButtons(item.items, '')}
-          generateButtonStyle={generateButtonStyle}
-          isLinkSelected={isLinkSelected}
+          links={generateLinks(item.items)}
+          isSelected={item.isSelected}
         />
       ))}
     </List>
