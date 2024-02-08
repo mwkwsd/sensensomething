@@ -1,12 +1,12 @@
-import { Card, CardContent } from '@mui/material'
+import { Card, CardContent, CardMedia } from '@mui/material'
 import { useMemo } from 'react'
 import { Video } from '../../atoms/video/Video'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
-import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { getPageType } from '../../../common/utils/utils'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 import { PageEnum } from '../../../common/constants/constants'
+import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 
 type VideoCardProps = {
   video: Omit<IVideoInfo, 'isRecentWork'>
@@ -18,7 +18,7 @@ export function VideoCard({
   video: { url, title, clientName, roles, genres },
   pageEnum,
 }: VideoCardProps) {
-  const mediaCardVideo = useMemo(() => <Video url={url} />, [url])
+  const videoComponent = useMemo(() => <Video url={url} />, [url])
   const videoTitle = useMemo(
     () => <VideoTitle title={title} sx={{ marginBottom: '8px' }} />,
     [title]
@@ -43,9 +43,9 @@ export function VideoCard({
   }, [roles, genres, pageType])
 
   return (
-    <Card elevation={0}>
-      {mediaCardVideo}
-      <CardContent sx={{ '&:last-child': { padding: '16px' } }}>
+    <Card>
+      <CardMedia>{videoComponent}</CardMedia>
+      <CardContent>
         {videoTitle}
         {clientComponent}
         {rolesGenres}

@@ -1,5 +1,4 @@
 import ReactPlayer from 'react-player'
-import { CardMedia } from '@mui/material'
 
 type VideoProps = {
   url: string
@@ -7,14 +6,12 @@ type VideoProps = {
 
 export function Video({ url }: VideoProps) {
   return (
-    <CardMedia component={'div'} sx={{ aspectRatio: '16/9', border: '0' }}>
-      <ReactPlayer
-        url={addQueryParamsToVideoUrl(url)}
-        controls
-        width="100%"
-        height="100%"
-      />
-    </CardMedia>
+    <ReactPlayer
+      url={addQueryParamsToVideoUrl(url)}
+      controls
+      width="100%"
+      height="100%"
+    />
   )
 }
 
