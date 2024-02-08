@@ -10,11 +10,11 @@ import {
 import MenuIcon from '@mui/icons-material/Menu'
 import { NavList } from '../molecules/NavList'
 
-function NavBar() {
-  const [menuOpen, setMenuOpen] = useState(false)
+export function NavBar() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    setMenuOpen(!menuOpen)
+    setMenuOpen(!menuOpen);
   }
 
   return (
@@ -43,13 +43,11 @@ function NavBar() {
         open={menuOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
       >
         <NavList />
       </Drawer>
     </Box>
-  )
+  );
 }
-
-export default NavBar

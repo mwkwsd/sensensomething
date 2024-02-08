@@ -7,7 +7,7 @@ type MainHeadingProps = {
 
 export function MainHeading({ mainHeading }: MainHeadingProps) {
   return (
-    <Typography sx={{ margin: 0, fontSize: '50px', '@media (min-width: 1280px)': { fontSize: '65px' } }}>
+    <Typography >
       {mainHeading}
     </Typography>
   );
