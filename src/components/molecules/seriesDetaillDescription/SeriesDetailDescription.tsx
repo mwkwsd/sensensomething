@@ -25,7 +25,7 @@ export function SeriesDetailDescription({
       <PageTitle title={pageTitle} />
       {seriesInfo.imageUrl && (
         <img
-          alt={`image for ${seriesInfo.name}`}
+          alt={`${seriesInfo.name}`}
           src={seriesInfo.imageUrl}
           width="100vw"
           style={{ marginLeft: '-16px' }}
