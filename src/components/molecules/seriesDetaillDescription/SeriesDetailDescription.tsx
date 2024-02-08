@@ -4,12 +4,12 @@ import { PageTitle } from '../../atoms/pageTitle/PageTitle'
 import { useMemo } from 'react'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 
-type SeriesDetailDescription = {
+type SeriesDetailDescriptionProps = {
   seriesInfo: ISeriesDetail
 }
 export function SeriesDetailDescription({
   seriesInfo,
-}: SeriesDetailDescription) {
+}: SeriesDetailDescriptionProps) {
   const pageTitle = seriesInfo.name.toLocaleUpperCase()
   const genresRolesChips = useMemo(
     () => (

@@ -4,9 +4,7 @@ import { useLoaderData } from 'react-router-dom'
 import { SeriesDetailDescription } from '../molecules/seriesDetaillDescription/SeriesDetailDescription'
 import { SeriesDetailEpisodes } from '../organisms/seriesDetailEpisodes/SeriesDetailEpisodes'
 
-type SeriesDetailPageProps = {}
-
-export function SeriesDetailPage({}: SeriesDetailPageProps) {
+export function SeriesDetailPage() {
   const seriesInfo = useLoaderData() as ISeriesDetail
 
   return (
