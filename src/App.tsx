@@ -40,11 +40,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+
       <ThemeProvider theme={kurtTheme}>
         <RouterProvider router={router}></RouterProvider>
       </ThemeProvider>
-    </>
   )
 }
 
