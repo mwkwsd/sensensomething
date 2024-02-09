@@ -13,11 +13,11 @@ export function FooterLinks({ title, items }: FooterLinksProps) {
         display: 'flex',
         flexDirection: 'column',
         color: 'white',
-        marginBottom: '10px',
+        paddingTop: '30px'
       }}
     >
       {title && (
-        <Typography variant="subtitle1" style={{ margin: '5px 0' }}>
+        <Typography variant="subtitle1" sx={{ fontSize: '10px' }}>
           {title}
         </Typography>
       )}
@@ -27,7 +27,7 @@ export function FooterLinks({ title, items }: FooterLinksProps) {
           to={item.link}
           style={{ textDecoration: 'none', color: 'white' }}
         >
-          <Typography variant="subtitle1" style={{ margin: '5px 0' }}>
+          <Typography variant="subtitle1" sx={{ fontSize: '10px'}}>
             {item.label}
           </Typography>
         </Link>

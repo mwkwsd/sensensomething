@@ -14,17 +14,16 @@ export function Footer() {
   const generateColumnData = (
     enumValues: readonly Genre[] | readonly Role[],
     title: string,
-    prefix: string = ''
   ) => {
     const items = enumValues.map(value => ({
-      label: value.replaceAll('_', ' '),
+      label: enumMappings[value].label,
       link: enumMappings[value].url,
     }))
     return { title, items }
   }
 
-  const roleColumnData = generateColumnData(roles, 'ROLE', 'videos?role=')
-  const genreColumnData = generateColumnData(genres, 'GENRE', 'videos?genre=')
+  const roleColumnData = generateColumnData(roles, 'ROLE' )
+  const genreColumnData = generateColumnData(genres, 'GENRE' )
 
   const transformedNavLinks = navLinks.map(({ route, label }) => ({
     label,
@@ -53,6 +52,7 @@ export function Footer() {
           title={roleColumnData.title}
           items={roleColumnData.items}
         />
+
 
         <FooterLinks
           title={genreColumnData.title}
