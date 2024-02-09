@@ -11,20 +11,18 @@ export function ImageOverlayText({ text, borderColor }: ImageOverlayTextProps) {
   const borderCss = `1px solid ${borderColor}`
 
   return (
-    <>
-      <Typography
-        variant="h3"
-        sx={{
-          ':after': {
-            border: borderCss,
-            display: 'block',
-            content: '""',
-            width: '40px',
-          },
-        }}
-      >
-        {text}
-      </Typography>
-    </>
+    <Typography
+      variant="h3"
+      sx={{
+        ':after': {
+          border: borderCss,
+          display: 'block',
+          content: '""',
+          width: '40px',
+        },
+      }}
+    >
+      {text}
+    </Typography>
   )
 }
