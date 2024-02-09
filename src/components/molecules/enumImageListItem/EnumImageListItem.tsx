@@ -1,6 +1,7 @@
 import { ImageListItem, ImageListItemBar, useTheme } from '@mui/material'
 import { PageEnum, enumMappings } from '../../../common/constants/constants'
 import { ImageOverlayText } from '../../atoms/imageOverlayButton/ImageOverlayText'
+import { useNavigate } from 'react-router-dom'
 
 type EnumImageListItemProps = {
   pageEnum: PageEnum
@@ -10,8 +11,13 @@ export function EnumImageListItem({ pageEnum }: EnumImageListItemProps) {
   const theme = useTheme()
   const borderColor = theme.palette[pageEnum].main
   const { transformLevel, path } = enumMappings[pageEnum].landingPageImage
+
+  const navigate = useNavigate()
   return (
-    <ImageListItem sx={{ overflow: 'hidden' }}>
+    <ImageListItem
+      onClick={() => navigate(enumMappings[pageEnum].url)}
+      sx={{ overflow: 'hidden' }}
+    >
       <img
         style={{ transform: `scale(${transformLevel || 1.5})` }}
         src={path}
@@ -19,7 +25,6 @@ export function EnumImageListItem({ pageEnum }: EnumImageListItemProps) {
       />
 
       <ImageListItemBar
-        onClick={() => console.log('Clicked: ', pageEnum)}
         sx={{ height: '100%', width: '100%' }}
         title={
           <ImageOverlayText
