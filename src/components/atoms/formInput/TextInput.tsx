@@ -1,7 +1,9 @@
 import { TextField } from "@mui/material";
+import { convertFromEnumToText } from "../../../common/utils/utils";
+import { Input } from "../../../common/constants/enums";
 
 type TextInputProps = {
-  fieldName: string
+  fieldName: Input
 
   // stateManager: 
 }
@@ -9,8 +11,8 @@ type TextInputProps = {
 export function TextInput({fieldName}: TextInputProps) {
   return (
     <TextField 
-      id={fieldName+"text"}
-      label={fieldName.toUpperCase()}
+      id={fieldName+"_text"}
+      label={convertFromEnumToText(fieldName)}
     />
   )
 }

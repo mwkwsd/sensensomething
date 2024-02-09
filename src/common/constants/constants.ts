@@ -1,4 +1,4 @@
-import { Genre, Role } from './enums'
+import { Genre, Input, Role } from "./enums";
 
 export type PageEnum = Genre | Role
 
@@ -30,3 +30,9 @@ export const enumMappings: { [key in Role]: EnumMapping } & {
     url: '/series',
   },
 } as const
+
+export const inputToText: { [key in Input]: string } = {
+  email_address: "Email Address",
+  message: "Message",
+  name: "Name",
+} as const;

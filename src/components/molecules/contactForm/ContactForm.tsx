@@ -1,21 +1,40 @@
-import { Box, Button, Card, Container } from "@mui/material"
+import { useEffect, useRef, useState } from "react"
+import { Box, Button } from "@mui/material"
 import { TextInput } from "../../atoms/formInput/TextInput"
-import { useState } from "react"
+import emailjs from '@emailjs/browser';
+
 
 
 function ContactForm() {
   const [filledOut, setFilledOut] = useState(false)
-  
-  function onClick (){
-    
-  }
+
+  useEffect(() => {
+    console.log(form.current)
+  }, [])
+
+  const form = useRef();
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+
+    const currentForm = form.current
+    if (currentForm == null) return
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', currentForm, 'YOUR_PUBLIC_KEY')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
   return (
-    <Box component='form'>
+    <Box component='form' ref={form} onSubmit={(e) => sendEmail(e)}>
       <TextInput fieldName="name"/>
-      <TextInput fieldName="email address"/>
+      <TextInput fieldName={"email_address"}/>
       <TextInput fieldName="message"/>
-      <Button variant='contained' disabled={filledOut ? false : true} onClick={onClick}>Send</Button>
+      <Button type='submit' variant='contained' disabled={filledOut ? false : true}>Send</Button>
     </Box>
   )
 }
