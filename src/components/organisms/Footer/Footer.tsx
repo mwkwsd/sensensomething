@@ -13,17 +13,16 @@ import { enumMappings } from '../../../common/constants/constants'
 export function Footer() {
   const generateColumnData = (
     enumValues: readonly Genre[] | readonly Role[],
-    title: string,
   ) => {
     const items = enumValues.map(value => ({
       label: enumMappings[value].label,
       link: enumMappings[value].url,
     }))
-    return { title, items }
+    return { items }
   }
 
-  const roleColumnData = generateColumnData(roles, 'ROLE' )
-  const genreColumnData = generateColumnData(genres, 'GENRE' )
+  const roleColumnData = generateColumnData(roles )
+  const genreColumnData = generateColumnData(genres )
 
   const transformedNavLinks = navLinks.map(({ route, label }) => ({
     label,
@@ -46,16 +45,14 @@ export function Footer() {
           marginBottom: '10px',
         }}
       >
-        <FooterLinks title="" items={transformedNavLinks} />
+        <FooterLinks items={transformedNavLinks} />
 
         <FooterLinks
-          title={roleColumnData.title}
           items={roleColumnData.items}
         />
 
 
         <FooterLinks
-          title={genreColumnData.title}
           items={genreColumnData.items}
         />
       </div>
