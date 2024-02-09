@@ -1,11 +1,17 @@
-import React from 'react'
+import { PageEnum } from '../../common/constants/constants'
+import { LandingPageLinks } from '../organisms/landingPageLinks/LandingPageLinks'
 
-function Home() {
+const orderedLinks: PageEnum[] = [
+  'director_producer',
+  'director_of_photography',
+  'documentary',
+  'animation',
+  'series',
+]
+export function Home() {
   return (
-    <div>
-      <h1>Landing Page</h1>
-    </div>
+    <>
+      <LandingPageLinks pages={orderedLinks} />
+    </>
   )
 }
-
-export default Home
