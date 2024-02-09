@@ -1,8 +1,12 @@
+import { Typography } from '@mui/material'
 import ContactForm from '../molecules/contactForm/ContactForm'
 
 function Contact() {
   return (
-    <ContactForm/>
+    <>
+      <Typography variant="h3">GET IN TOUCH</Typography>
+      <ContactForm/>
+    </>
   )
 }
 
