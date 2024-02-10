@@ -2,15 +2,25 @@ import { useEffect, useRef, useState } from "react"
 import { Box, Button } from "@mui/material"
 import { TextInput } from "../../atoms/formInput/TextInput"
 import emailjs from '@emailjs/browser';
+import { Input, inputs } from "../../../common/constants/enums";
+import { inputToFormProps } from "../../../common/constants/constants";
 
+const defaultFieldState:{[key in Input]: string} = inputs.reduce((acc, i) => {
+  acc[i] = ""
+  return acc
+}, {} as {[key in Input]: string})
 
 
 function ContactForm() {
-  const [filledOut, setFilledOut] = useState(false)
+  const [fieldStates, setFieldStates] = useState(defaultFieldState)
 
-  useEffect(() => {
-    console.log(form.current)
-  }, [])
+  
+  function updateFieldState(field: Input, value: string) {
+    setFieldStates((currentFieldStates) => ({
+      ...currentFieldStates,
+      [field]: value,
+    }));
+  }
 
   const form = useRef();
 
@@ -19,9 +29,9 @@ function ContactForm() {
 
 
     const currentForm = form.current
-    if (currentForm == null) return
+    if (currentForm == null || !process.env.REACT_APP_EMAIL_SERVICE_ID || !process.env.REACT_APP_EMAIL_TEMPLATE_ID || !process.env.REACT_APP_EMAIL_PUBLIC_ID) return // don't love this, but otherwise my sendform errors
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', currentForm, 'YOUR_PUBLIC_KEY')
+    emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, currentForm, process.env.REACT_APP_EMAIL_TEMPLATE_ID)
       .then((result) => {
           console.log(result.text);
       }, (error) => {
@@ -31,10 +41,8 @@ function ContactForm() {
 
   return (
     <Box component='form' ref={form} onSubmit={(e) => sendEmail(e)}>
-      <TextInput fieldName="name"/>
-      <TextInput fieldName={"email_address"}/>
-      <TextInput fieldName="message" multiline/>
-      <Button type='submit' variant='contained' disabled={filledOut ? false : true}>Send</Button>
+      {inputs.map((i) => <TextInput {...inputToFormProps[i]} updateFields={() => updateFieldState(i, fieldStates[i])}/>)}
+      <Button type='submit' variant='contained' >Send</Button>
     </Box>
   )
 }
