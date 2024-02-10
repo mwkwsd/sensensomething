@@ -1,7 +1,7 @@
 import { TextField, TextFieldProps } from "@mui/material";
-import { convertFromEnumToText } from "../../../common/utils/utils";
 import { Input } from "../../../common/constants/enums";
 import { kurtTheme } from "../../../theme";
+import { inputToFormProps } from "../../../common/constants/constants";
 
 export type TextInputProps = {
   fieldName: Input
@@ -14,7 +14,7 @@ export function TextInput({fieldName, ...rest}: TextInputProps) {
     <TextField 
       sx={{backgroundColor: kurtTheme.palette.background.default, marginY: 2, maxWidth: 400, height: rest.multiline ? 100 : undefined}}
       id={fieldName + "_text"}
-      label={convertFromEnumToText(fieldName)}
+      label={inputToFormProps[fieldName]["label"]}
       name={fieldName}
       {...rest}
     />
