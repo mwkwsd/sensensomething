@@ -8,7 +8,6 @@ export type TextInputProps = {
 } & TextFieldProps
 
 export function TextInput({fieldName, ...rest}: TextInputProps) {
-  const theme = useTheme()
 
   return (
     <TextField 
