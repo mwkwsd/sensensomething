@@ -5,8 +5,8 @@ import emailjs from '@emailjs/browser';
 
 
 const inputs = ["name", "email_address", "message"] as const;
-type Input = (typeof inputs)[number];
-const inputToFormProps: { [key in Input]: TextFieldProps & { fieldName: Input, label: string } } = {
+export type Input = (typeof inputs)[number];
+export const inputToFormProps: { [key in Input]: TextFieldProps & { fieldName: Input, label: string } } = {
   email_address: {fieldName: "email_address", label: "Email Address"},
   message: {fieldName: "message", label: "Message", multiline: true},
   name: {fieldName: "name", label: "Name"},

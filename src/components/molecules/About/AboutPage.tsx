@@ -2,7 +2,7 @@ import { Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Kurt } from "../../../assets/personalInfo/personalInfo"
 
-export function AboutPage (){
+export function AboutPage() {
   const navigate = useNavigate()
 
   const title = Kurt.title

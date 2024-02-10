@@ -1,7 +1,6 @@
 import { TextField, TextFieldProps } from "@mui/material";
-import { Input } from "../../../common/constants/enums";
 import { kurtTheme } from "../../../theme";
-import { inputToFormProps } from "../../../common/constants/constants";
+import { Input, inputToFormProps } from "../../molecules/contactForm/ContactForm";
 
 export type TextInputProps = {
   fieldName: Input
