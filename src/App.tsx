@@ -6,15 +6,19 @@ import { kurtTheme } from './theme'
 import { KurtApp } from './components/pages/kurtApp/KurtApp'
 import { SeriesDetailPage } from './components/templates/SeriesDetailPage'
 import { SeriesListPage } from './components/templates/SeriesListPage'
-import { getSeriesDetailFromSeriesPath } from './common/utils/utils'
+import {
+  getSeriesDetailFromSeriesPath,
+  getVideoPageFromVideosPath,
+} from './common/utils/utils'
 
 const router = createBrowserRouter([
   {
     element: <KurtApp />,
     children: [
       {
-        path: '/videos',
+        path: '/videos/:videoPage',
         element: <VideoListPage />,
+        loader: ({ params }) => getVideoPageFromVideosPath(params.videoPage),
       },
       {
         path: '/series',
