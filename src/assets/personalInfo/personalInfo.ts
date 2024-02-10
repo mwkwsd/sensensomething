@@ -1,7 +1,11 @@
+interface IPersonalPhoto {
+  path: string,
+  alt: string
+}
 interface IPersonalInfo {
   title: string
   description: string
-  photos: string[] //probably a different type, but I figure this just ends up being the path
+  photos: IPersonalPhoto[] //probably a different type, but I figure this just ends up being the path
 }
 
 export const Kurt: IPersonalInfo = {
@@ -14,5 +18,10 @@ export const Kurt: IPersonalInfo = {
   His documentary work can now be seen in film festivals worldwide, on Amazon Prime, and PBS.
   
   Kurt has a Master of Fine Arts in Documentary Studies and Production from Hofstra University and a Bachelor of Fine Arts in Film from the University of Wisconsin-Milwaukee.`,
-  photos: ["/images/kurt_profile.jpeg"]
+  photos: [
+    {
+      path: "/images/kurt_profile.jpeg",
+      alt: "Kurt Sensenbrenner flying an airplane"
+    }
+  ]
 }

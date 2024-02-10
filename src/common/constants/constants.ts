@@ -1,5 +1,4 @@
-import { Genre, Input, Role } from "./enums";
-import { TextFieldProps } from "@mui/material";
+import { Genre, Role } from "./enums";
 
 export type PageEnum = Genre | Role
 
@@ -31,9 +30,3 @@ export const enumMappings: { [key in Role]: EnumMapping } & {
     url: '/series',
   },
 } as const
-
-export const inputToFormProps: { [key in Input]: TextFieldProps & { fieldName: Input, label: string } } = {
-  email_address: {fieldName: "email_address", label: "Email Address"},
-  message: {fieldName: "message", label: "Message", multiline: true},
-  name: {fieldName: "name", label: "Name"},
-}

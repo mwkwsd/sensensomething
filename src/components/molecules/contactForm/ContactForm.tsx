@@ -1,9 +1,16 @@
 import { useRef, useState } from "react"
-import { Box, Button } from "@mui/material"
+import { Box, Button, TextFieldProps } from "@mui/material"
 import { TextInput } from "../../atoms/formInput/TextInput"
 import emailjs from '@emailjs/browser';
-import { Input, inputs } from "../../../common/constants/enums";
-import { inputToFormProps } from "../../../common/constants/constants";
+
+
+const inputs = ["name", "email_address", "message"] as const;
+type Input = (typeof inputs)[number];
+const inputToFormProps: { [key in Input]: TextFieldProps & { fieldName: Input, label: string } } = {
+  email_address: {fieldName: "email_address", label: "Email Address"},
+  message: {fieldName: "message", label: "Message", multiline: true},
+  name: {fieldName: "name", label: "Name"},
+}
 
 const defaultFieldState:{[key in Input]: string} = inputs.reduce((acc, i) => {
   acc[i] = ""
@@ -14,7 +21,6 @@ const defaultFieldState:{[key in Input]: string} = inputs.reduce((acc, i) => {
 function ContactForm() {
   const [fieldStates, setFieldStates] = useState(defaultFieldState)
   const [formSubmitted, setFormSubmitted] = useState(false)
-
   
   function updateFieldState(field: Input, value: string) {
     setFieldStates((currentFieldStates) => ({
@@ -37,7 +43,7 @@ function ContactForm() {
       .then(() => {
         setFormSubmitted(true);
       }, (error) => {
-          console.log(error.text); // We should figure out what we want to show for "Your email didn't send"
+        console.log(error.text); // We should figure out what we want to show for "Your email didn't send"
       });
   };
 

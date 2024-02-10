@@ -12,7 +12,7 @@ export function AboutPage (){
     <>
       <Typography variant="h3">{title}</Typography>
       <Typography>{description}</Typography>
-      {Kurt.photos.map((photo) => <img src={photo} alt="Kurt Sensenbrenner flying an airplane"/>)}
+      {Kurt.photos.map((photo) => <img src={photo.path} alt={photo.alt}/>)}
       <Button onClick={() => navigate("/contact")}>Like my work?</Button>
     </>
   )
