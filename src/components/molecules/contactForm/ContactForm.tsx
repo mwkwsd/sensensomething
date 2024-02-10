@@ -13,6 +13,7 @@ const defaultFieldState:{[key in Input]: string} = inputs.reduce((acc, i) => {
 
 function ContactForm() {
   const [fieldStates, setFieldStates] = useState(defaultFieldState)
+  const [formSubmitted, setFormSubmitted] = useState(false)
 
   
   function updateFieldState(field: Input, value: string) {
@@ -27,26 +28,29 @@ function ContactForm() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-
     const currentForm = form.current
 
     // TODO: enValid package
     if (currentForm == null || !process.env.REACT_APP_EMAIL_SERVICE_ID || !process.env.REACT_APP_EMAIL_TEMPLATE_ID || !process.env.REACT_APP_EMAIL_PUBLIC_ID) return // don't love this, but otherwise my sendForm() errors
 
-    console.log(currentForm)
-
     emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, currentForm, process.env.REACT_APP_EMAIL_PUBLIC_ID)
-      .then((result) => {
-          console.log(result.text);
+      .then(() => {
+        setFormSubmitted(true);
       }, (error) => {
-          console.log(error.text);
+          console.log(error.text); // We should figure out what we want to show for "Your email didn't send"
       });
   };
 
   return (
-    <Box component='form' ref={form} onSubmit={(e) => sendEmail(e)}>
-      {inputs.map((i) => <TextInput {...inputToFormProps[i]} onChange={() => updateFieldState(i, fieldStates[i])}/>)}
-      <Button type='submit' variant='contained' disabled={Object.values(fieldStates).every(val => val !== '')}>Send</Button>
+    <Box component='form' ref={form} onSubmit={(e) => sendEmail(e)} sx={{display: "flex", flexDirection:"column", justifyContent:"center"}}>
+      {formSubmitted 
+        ? <div>Thank you for the inquiry! I'll reach out soon!</div>
+        : <>
+            {inputs.map((i) => <TextInput {...inputToFormProps[i]} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateFieldState(i, e.target.value)}/>)}
+            <Button type='submit' variant='contained' disabled={!Object.values(fieldStates).every(val => val !== '')}>Send</Button>
+          </>
+      }
+      
     </Box>
   )
 }
