@@ -13,10 +13,6 @@ const router = createBrowserRouter([
     element: <KurtApp />,
     children: [
       {
-        path: '/about',
-        element: <About />,
-      },
-      {
         path: '/videos',
         element: <VideoListPage />,
       },
