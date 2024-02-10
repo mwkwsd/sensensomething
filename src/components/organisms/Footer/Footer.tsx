@@ -13,18 +13,16 @@ import { enumMappings } from '../../../common/constants/constants'
 export function Footer() {
   const generateColumnData = (
     enumValues: readonly Genre[] | readonly Role[],
-    title: string,
-    prefix: string = ''
   ) => {
     const items = enumValues.map(value => ({
-      label: value.replaceAll('_', ' '),
+      label: enumMappings[value].label,
       link: enumMappings[value].url,
     }))
-    return { title, items }
+    return { items }
   }
 
-  const roleColumnData = generateColumnData(roles, 'ROLE', 'videos?role=')
-  const genreColumnData = generateColumnData(genres, 'GENRE', 'videos?genre=')
+  const roleColumnData = generateColumnData(roles )
+  const genreColumnData = generateColumnData(genres )
 
   const transformedNavLinks = navLinks.map(({ route, label }) => ({
     label,
@@ -37,6 +35,7 @@ export function Footer() {
         display: 'flex',
         flexDirection: 'column',
         padding: '10px',
+        marginTop: '16px',
         backgroundColor: kurtTheme.palette.background.default,
       }}
     >
@@ -47,15 +46,14 @@ export function Footer() {
           marginBottom: '10px',
         }}
       >
-        <FooterLinks title="" items={transformedNavLinks} />
+        <FooterLinks items={transformedNavLinks} />
 
         <FooterLinks
-          title={roleColumnData.title}
           items={roleColumnData.items}
         />
 
+
         <FooterLinks
-          title={genreColumnData.title}
           items={genreColumnData.items}
         />
       </div>

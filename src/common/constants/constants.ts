@@ -1,4 +1,4 @@
-import { Genre, Role } from './enums'
+import { Genre, Role } from "./enums";
 
 export type PageEnum = Genre | Role
 
