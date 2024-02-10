@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './components/templates/Home'
-import { About } from './components/templates/About'
+import { Home } from './components/templates/Home'
 import { VideoListPage } from './components/templates/VideoListPage'
 import { ThemeProvider } from '@mui/material/styles'
 import { kurtTheme } from './theme'
@@ -13,10 +12,6 @@ const router = createBrowserRouter([
   {
     element: <KurtApp />,
     children: [
-      {
-        path: '/about',
-        element: <About />,
-      },
       {
         path: '/videos',
         element: <VideoListPage />,
@@ -40,11 +35,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
-      <ThemeProvider theme={kurtTheme}>
-        <RouterProvider router={router}></RouterProvider>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={kurtTheme}>
+      <RouterProvider router={router}></RouterProvider>
+    </ThemeProvider>
   )
 }
 

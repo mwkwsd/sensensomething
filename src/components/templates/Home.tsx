@@ -1,9 +1,20 @@
+import { PageEnum } from '../../common/constants/constants'
+import { LandingPageLinks } from '../organisms/landingPageLinks/LandingPageLinks'
 import Contact from './Contact'
 
-function Home() {
+const orderedLinks: PageEnum[] = [
+  'director_producer',
+  'director_of_photography',
+  'documentary',
+  'animation',
+  'series',
+]
+
+export function Home() {
   return (
-    <Contact />
+    <>
+      <LandingPageLinks pages={orderedLinks} />
+      <Contact />
+    </>
   )
 }
-
-export default Home
