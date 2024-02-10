@@ -14,5 +14,5 @@ export const Kurt: IPersonalInfo = {
   His documentary work can now be seen in film festivals worldwide, on Amazon Prime, and PBS.
   
   Kurt has a Master of Fine Arts in Documentary Studies and Production from Hofstra University and a Bachelor of Fine Arts in Film from the University of Wisconsin-Milwaukee.`,
-  photos: ["/assets/personalInfo/kurt_profile.jpeg"]
+  photos: ["/images/kurt_profile.jpeg"]
 }

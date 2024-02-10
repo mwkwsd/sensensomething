@@ -29,16 +29,18 @@ function ContactForm() {
 
 
     const currentForm = form.current
+
+    // TODO: enValid package
     if (currentForm == null || !process.env.REACT_APP_EMAIL_SERVICE_ID || !process.env.REACT_APP_EMAIL_TEMPLATE_ID || !process.env.REACT_APP_EMAIL_PUBLIC_ID) return // don't love this, but otherwise my sendForm() errors
 
     console.log(currentForm)
 
-    // emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, currentForm, process.env.REACT_APP_EMAIL_PUBLIC_ID)
-    //   .then((result) => {
-    //       console.log(result.text);
-    //   }, (error) => {
-    //       console.log(error.text);
-    //   });
+    emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, currentForm, process.env.REACT_APP_EMAIL_PUBLIC_ID)
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
   };
 
   return (
