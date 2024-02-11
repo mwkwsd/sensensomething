@@ -6,7 +6,7 @@ export const otherAOPAVideos = [
     url: 'https://www.youtube.com/embed/9pYw1j-mcQg?si=79t6cuaNJveq6Jnf',
     clientName: 'AOPA Air Safety Institute',
     genres: [],
-    roles: ['director_of_photography'],
+    roles: ['director_producer', 'director_of_photography'],
   },
   {
     title: 'What are the Costliest Insurance Claims?',
