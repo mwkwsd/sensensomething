@@ -3,7 +3,7 @@ import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
 import { SeriesListCard } from '../../molecules/seriesListCard/SeriesListCard'
 
 type SeriesListProps = {
-  series: ISeriesDetail[]
+  series: readonly ISeriesDetail[]
 }
 export function SeriesList({ series }: SeriesListProps) {
   const seriesItemComponents = series.map(seriesDetail => (

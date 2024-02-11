@@ -1,6 +1,6 @@
-import { createTheme } from '@mui/material'
+import { createTheme } from '@mui/material/styles'
 
-export const kurtTheme = createTheme({
+const theme = createTheme({
   typography: {
     allVariants: {
       font: 'Roboto',
@@ -46,43 +46,22 @@ export const kurtTheme = createTheme({
       letterSpacing: '0.46px',
     },
   },
-  palette: {
-    director_producer: {
-      main: '#4BAEFF',
-    },
-    director_of_photography: {
-      main: '#CA9FFF',
-    },
-    series: { main: '#FFB74D' },
-    animation: { main: '#F8CAFF' },
-    documentary: { main: '#79DFC1' },
-    background: {
-      default: '#343A40',
-    },
-  },
   components: {
     MuiAppBar: {
       defaultProps: {
-        sx: {
-          backgroundColor: '#2D2D2D',
-        },
+        sx: { backgroundColor: '#191B1B' },
       },
     },
     MuiCard: {
       defaultProps: {
         elevation: 0,
-        sx: {
-          backgroundColor: '#212529',
-          overflow: 'visible',
-        },
+        sx: { backgroundColor: '#0C0D0D' },
       },
     },
     MuiCardContent: {
       defaultProps: {
         sx: {
-          '&:last-child': {
-            padding: '16px',
-          },
+          '&:last-child': { padding: '16px' },
         },
       },
     },
@@ -105,6 +84,32 @@ export const kurtTheme = createTheme({
       },
     },
   },
+  palette: { background: { default: '#0C0D0D' } },
+})
+
+export const kurtTheme = createTheme(theme, {
+  palette: {
+    director_producer: theme.palette.augmentColor({
+      color: { main: '#4BAEFF' },
+      name: 'director_producer',
+    }),
+    director_of_photography: theme.palette.augmentColor({
+      color: { main: '#CA9FFF' },
+      name: 'director_of_photography',
+    }),
+    series: theme.palette.augmentColor({
+      color: { main: '#FFB74D' },
+      name: 'series',
+    }),
+    animation: theme.palette.augmentColor({
+      color: { main: '#F8CAFF' },
+      name: 'animation',
+    }),
+    documentary: theme.palette.augmentColor({
+      color: { main: '#79DFC1' },
+      name: 'documentary',
+    }),
+  },
 })
 
 declare module '@mui/material/styles' {
@@ -125,8 +130,18 @@ declare module '@mui/material/styles' {
   }
 }
 
-declare module '@mui/material/Button' {
-  interface ButtonPropsColorOverrides {
+// declare module '@mui/material/Button' {
+//   interface ButtonPropsColorOverrides {
+//     director_producer: true
+//     director_of_photography: true
+//     series: true
+//     animation: true
+//     documentary: true
+//   }
+// }
+
+declare module '@mui/material/Chip' {
+  interface ChipPropsColorOverrides {
     director_producer: true
     director_of_photography: true
     series: true
