@@ -130,16 +130,6 @@ declare module '@mui/material/styles' {
   }
 }
 
-// declare module '@mui/material/Button' {
-//   interface ButtonPropsColorOverrides {
-//     director_producer: true
-//     director_of_photography: true
-//     series: true
-//     animation: true
-//     documentary: true
-//   }
-// }
-
 declare module '@mui/material/Chip' {
   interface ChipPropsColorOverrides {
     director_producer: true
