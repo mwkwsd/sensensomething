@@ -1,6 +1,6 @@
 import { List } from '@mui/material'
 import { useLocation } from 'react-router-dom'
-import { SubheaderList } from './subheaderList/SubheaderList'
+import { SubheaderLinks } from './subheaderLinks/SubheaderLinks'
 import {
   Genre,
   Role,
@@ -17,7 +17,7 @@ interface ListButtonProps {
   filter: Role | Genre
   isSelected: boolean
 }
-interface SubheaderListProps {
+interface SubheaderLinksProps {
   title: string
   items: readonly Genre[] | readonly Role[]
 }
@@ -39,7 +39,7 @@ export function NavList() {
       isSelected: isLinkSelected(enumMappings[item].url),
     }))
 
-  const subheaderListItems: SubheaderListProps[] = [
+  const subheaderLinkItems: SubheaderLinksProps[] = [
     { title: 'ROLE', items: roles },
     { title: 'GENRE', items: genres },
   ]
@@ -57,8 +57,8 @@ export function NavList() {
         />
       ))}
 
-      {subheaderListItems.map(item => (
-        <SubheaderList
+      {subheaderLinkItems.map(item => (
+        <SubheaderLinks
           key={item.title}
           title={item.title}
           links={generateButtons(item.items)}

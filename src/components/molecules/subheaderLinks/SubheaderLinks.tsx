@@ -6,12 +6,12 @@ interface ListButtonProps {
   filter: string;
 }
 
-interface SubheaderListProps {
+interface SubheaderLinksProps {
   title: string;
   links: ListButtonProps[];
 }
 
-export function SubheaderList({ title, links }: SubheaderListProps) {
+export function SubheaderLinks({ title, links }: SubheaderLinksProps) {
   return (
     <ListSubheader component="div" sx={{ ...NavStyle }}>
       {title}
