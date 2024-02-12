@@ -1,5 +1,5 @@
 import { List } from '@mui/material'
-import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { SubheaderLinks } from './subheaderLinks/SubheaderLinks'
 import {
   Genre,
@@ -14,34 +14,30 @@ import { NavStyle } from '../../common/utils/newStyle'
 
 interface ListButtonProps {
   label: string
-  filter: Role | Genre
-  isSelected: boolean
+  filter: string
 }
 interface SubheaderLinksProps {
   title: string
-  items: readonly Genre[] | readonly Role[]
+  items: readonly (Genre | Role)[]
+  navigate: (route: string) => void
 }
 
 export function NavList() {
-  const location = useLocation()
+  const navigate = useNavigate()
 
   const isLinkSelected = (link: string) => {
-    const linkWithoutQuery = link.replace(/(\?.*)$/, '')
-    return location.pathname === linkWithoutQuery
+    return window.location.pathname === link.replace(/(\?.*)$/, '')
   }
 
-  const generateButtons = (
-    items: readonly Genre[] | readonly Role[],
-  ): ListButtonProps[] =>
-    items.map(item => ({
-      label: enumMappings[item].label,
-      filter: item,
-      isSelected: isLinkSelected(enumMappings[item].url),
-    }))
+  const generateButtons = (items: readonly (Genre | Role)[]): ListButtonProps[] =>
+  items.map((item) => ({
+    label: enumMappings[item].label,
+    filter: item,
+  }));
 
   const subheaderLinkItems: SubheaderLinksProps[] = [
-    { title: 'ROLE', items: roles },
-    { title: 'GENRE', items: genres },
+    { title: 'ROLE', items: roles, navigate },
+    { title: 'GENRE', items: genres, navigate },
   ]
 
   return (
@@ -54,14 +50,17 @@ export function NavList() {
           key={item.route}
           route={item.route}
           label={item.label}
+          isLinkSelected={isLinkSelected(item.route)}
+          onClick={() => navigate(item.route)}
         />
       ))}
 
-      {subheaderLinkItems.map(item => (
+      {subheaderLinkItems.map((item) => (
         <SubheaderLinks
           key={item.title}
           title={item.title}
           links={generateButtons(item.items)}
+          navigate={navigate}
         />
       ))}
     </List>
