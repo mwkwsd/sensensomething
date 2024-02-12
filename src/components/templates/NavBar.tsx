@@ -25,14 +25,15 @@ export function NavBar() {
           <Typography variant="h6" noWrap component="div">
             Kurt Sensenbrenner
           </Typography>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerToggle}
-          >
-            <MenuIcon />
-          </IconButton>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              sx={{ marginLeft: 'auto' }}
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
         </Toolbar>
       </AppBar>
 
