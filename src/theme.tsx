@@ -53,6 +53,11 @@ const theme = createTheme({
       },
     },
     MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#0C0D0D',
+        },
+      },
       defaultProps: {
         elevation: 0,
         sx: { backgroundColor: '#0C0D0D' },
@@ -109,6 +114,10 @@ export const kurtTheme = createTheme(theme, {
       color: { main: '#79DFC1' },
       name: 'documentary',
     }),
+    email: theme.palette.augmentColor({
+      color: { main: '#FFB74D' },
+      name: 'email',
+    }),
   },
 })
 
@@ -137,5 +146,17 @@ declare module '@mui/material/Chip' {
     series: true
     animation: true
     documentary: true
+  }
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    email: true
+  }
+}
+
+declare module '@mui/material/TextField' {
+  interface TextFieldPropsColorOverrides {
+    email: true
   }
 }
