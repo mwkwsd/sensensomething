@@ -1,49 +1,29 @@
-import React from 'react';
 import { ListSubheader, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import { NavStyle } from '../../../common/utils/newStyle';
 interface ListButtonProps {
   label: string;
   filter: string;
-  isSelected: boolean;
-  generateButtonStyle: (isSelected: boolean) => React.CSSProperties;
-  isLinkSelected: (link: string) => boolean;
 }
 
 interface SubheaderListProps {
   title: string;
-  buttons: ListButtonProps[];
-  generateButtonStyle: (isSelected: boolean) => React.CSSProperties;
-  isLinkSelected: (link: string) => boolean;
+  links: ListButtonProps[];
 }
 
-export function SubheaderList({
-  title,
-  buttons,
-  generateButtonStyle,
-  isLinkSelected,
-}: SubheaderListProps) {
-  const commonStyle = {
-    fontWeight: 'bold',
-    bgcolor: 'black',
-    color: 'white',
-    fontSize: 20,
-    textAlign: 'right',
-  };
-
+export function SubheaderList({ title, links }: SubheaderListProps) {
   return (
-    <ListSubheader component="div" sx={{ ...commonStyle }}>
+    <ListSubheader component="div" sx={{ ...NavStyle }}>
       {title}
-      {buttons.map(({ label, filter, isSelected }) => (
+      {links.map(({ label, filter }) => (
         <ListItemButton
-          key={filter}
           component={Link}
-          to={`/video-list?filter=${filter}`}
-          sx={{ ...generateButtonStyle(isSelected), textAlign: 'right', paddingRight: '0px' }}
+          to={`/videos?filter=${filter}`}
+          sx={{ textAlign: 'right', paddingRight: '0' }}
         >
           <ListItemText primary={label} />
         </ListItemButton>
       ))}
     </ListSubheader>
-  );
+  )
 }
