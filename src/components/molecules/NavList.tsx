@@ -29,11 +29,13 @@ export function NavList() {
     return window.location.pathname === link.replace(/(\?.*)$/, '')
   }
 
-  const generateButtons = (items: readonly (Genre | Role)[]): ListButtonProps[] =>
-  items.map((item) => ({
-    label: enumMappings[item].label,
-    filter: item,
-  }));
+  const generateButtons = (
+    items: readonly (Genre | Role)[]
+  ): ListButtonProps[] =>
+    items.map(item => ({
+      label: enumMappings[item].label,
+      filter: item,
+    }))
 
   const subheaderLinkItems: SubheaderLinksProps[] = [
     { title: 'ROLE', items: roles, navigate },
@@ -50,12 +52,11 @@ export function NavList() {
           key={item.route}
           route={item.route}
           label={item.label}
-          isLinkSelected={isLinkSelected(item.route)}
           onClick={() => navigate(item.route)}
         />
       ))}
 
-      {subheaderLinkItems.map((item) => (
+      {subheaderLinkItems.map(item => (
         <SubheaderLinks
           key={item.title}
           title={item.title}
