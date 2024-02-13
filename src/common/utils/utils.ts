@@ -1,7 +1,7 @@
 import { directorOfPhotographyPageInfo } from '../../assets/pages/directorOfPhotography'
 import { directorProducerPageInfo } from '../../assets/pages/directorProducer'
 import { documentaryPageInfo } from '../../assets/pages/documentary'
-import { allSeriesInfo } from '../../assets/pages/series/lowPheLife'
+import allSeriesInfo from '../../assets/pages/series'
 import videos from '../../assets/videos'
 import { Role } from '../constants/enums'
 import { ISeriesDetail } from '../interfaces/ISeriesDetail'
@@ -43,9 +43,7 @@ export function getSeriesDetailFromSeriesPath(
 ): ISeriesDetail {
   const series = allSeriesInfo.find(seriesInfo => seriesInfo.path === pathArg)
   if (!series) {
-    const message = `Failed to find series with path ${pathArg}`
-    console.error(message)
-    throw new Error(message)
+    throw new Error(`Failed to find series with path ${pathArg}`)
   }
   return series
 }

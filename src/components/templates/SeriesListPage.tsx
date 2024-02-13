@@ -1,8 +1,11 @@
-import { allSeriesInfo } from '../../assets/pages/series/lowPheLife'
+import { useTheme } from '@mui/material'
+import allSeriesInfo from '../../assets/pages/series'
 import { PageTitle } from '../atoms/pageTitle/PageTitle'
 import { SeriesList } from '../organisms/seriesList/SeriesList'
 
 export function SeriesListPage() {
+  const theme = useTheme()
+  const barColor = theme.palette.series.main
   const seriesListSubheaderText =
     'Series List - Risus velit lectus ut vitae sit nunc mauris mattis erat. Posuere adipiscing nisi lacinia lacinia facilisi venenatis aliquam.'
 
@@ -10,9 +13,10 @@ export function SeriesListPage() {
     <>
       <PageTitle
         title="Series"
+        titleUnderlineColor={barColor}
         subheaderText={seriesListSubheaderText}
         sx={{ padding: '16px 16px 24px' }}
-      ></PageTitle>
+      />
       <SeriesList series={allSeriesInfo} />
     </>
   )
