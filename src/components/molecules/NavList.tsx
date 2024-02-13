@@ -25,10 +25,6 @@ interface SubheaderLinksProps {
 export function NavList() {
   const navigate = useNavigate()
 
-  const isLinkSelected = (link: string) => {
-    return window.location.pathname === link.replace(/(\?.*)$/, '')
-  }
-
   const generateButtons = (
     items: readonly (Genre | Role)[]
   ): ListButtonProps[] =>
