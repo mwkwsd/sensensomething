@@ -1,4 +1,4 @@
-import BottomNavigation from '@mui/material/BottomNavigation'
+import { BottomNavigation } from '@mui/material'
 import { RiVimeoFill } from 'react-icons/ri'
 import { FaInstagram } from 'react-icons/fa'
 import { socialLinks } from '../../../assets/socialLinks/SocialLinks'

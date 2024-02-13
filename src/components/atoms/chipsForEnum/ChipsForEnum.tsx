@@ -1,4 +1,4 @@
-import Chip from '@mui/material/Chip'
+import { Chip } from '@mui/material'
 import { Genre, Role } from '../../../common/constants/enums'
 import { enumMappings } from '../../../common/constants/constants'
 import { SxProps, useTheme } from '@mui/material'
