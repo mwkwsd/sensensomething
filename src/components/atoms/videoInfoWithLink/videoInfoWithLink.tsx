@@ -4,7 +4,7 @@ import { ReactNode } from 'react'
 import { ChipsForEnum } from '../chipsForEnum/ChipsForEnum'
 
 type VideoInfoProps = {
-  linkableInfo: (Genre | Role)[]
+  linkableInfo: readonly (Genre | Role)[]
   sx?: SxProps
 }
 

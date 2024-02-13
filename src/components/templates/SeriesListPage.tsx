@@ -1,4 +1,4 @@
-import { allSeriesInfo } from '../../assets/series/series'
+import { allSeriesInfo } from '../../assets/pages/series/lowPheLife'
 import { PageTitle } from '../atoms/pageTitle/PageTitle'
 import { SeriesList } from '../organisms/seriesList/SeriesList'
 
