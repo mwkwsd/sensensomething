@@ -16,5 +16,3 @@ const videos = [
 ] as const satisfies Readonly<IVideoInfo[]>
 
 export type VideoTitle = (typeof videos)[number]['title']
-
-export default videos
