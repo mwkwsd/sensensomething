@@ -128,6 +128,7 @@ declare module '@mui/material/styles' {
     series: Palette['primary']
     animation: Palette['primary']
     documentary: Palette['primary']
+    email: Palette['primary']
   }
 
   interface PaletteOptions {
@@ -136,6 +137,7 @@ declare module '@mui/material/styles' {
     series?: PaletteOptions['primary']
     animation?: PaletteOptions['primary']
     documentary?: PaletteOptions['primary']
+    email?: PaletteOptions['primary']
   }
 }
 

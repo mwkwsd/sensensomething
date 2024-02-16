@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react'
-import { Box, Button, TextFieldProps } from '@mui/material'
+import { useMemo, useRef, useState } from 'react'
+import { Button, Grid, TextFieldProps } from '@mui/material'
 import { TextInput } from '../../atoms/formInput/TextInput'
 import emailjs from '@emailjs/browser'
 
@@ -32,16 +32,18 @@ export function ContactForm() {
     }))
   }
 
-  const form = useRef()
+  const form = useRef<HTMLFormElement>(null)
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const currentForm = form.current
 
+    console.log('Current Form: %o', currentForm)
+
     // TODO: enValid package
     if (
-      currentForm == null ||
+      !currentForm ||
       !process.env.REACT_APP_EMAIL_SERVICE_ID ||
       !process.env.REACT_APP_EMAIL_TEMPLATE_ID ||
       !process.env.REACT_APP_EMAIL_PUBLIC_ID
@@ -65,42 +67,49 @@ export function ContactForm() {
       )
   }
 
+  const thankYouComponent = useMemo(() => {
+    if (!formSubmitted) return null
+    return <div>Thank you for the inquiry! I'll reach out soon!</div>
+  }, [formSubmitted])
+
+  const allFieldsFilledIn = Object.values(fieldStates).every(val => val !== '')
   return (
-    <Box
-      component="form"
-      ref={form}
-      onSubmit={e => sendEmail(e)}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        paddingX: '16px',
-      }}
-    >
-      {formSubmitted ? (
-        <div>Thank you for the inquiry! I'll reach out soon!</div>
-      ) : (
-        <>
+    <>
+      {!formSubmitted && (
+        <Grid
+          container
+          spacing={1.5}
+          component="form"
+          ref={form}
+          onSubmit={e => sendEmail(e)}
+          sx={{ paddingX: '16px' }}
+        >
           {inputs.map(i => (
-            <TextInput
-              {...inputToFormProps[i]}
-              sx={{ width: '100%' }}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                updateFieldState(i, e.target.value)
-              }
-            />
+            <Grid item key={`${i}-input-key`} xs={12}>
+              <TextInput
+                sx={{ width: '100%' }}
+                {...inputToFormProps[i]}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  updateFieldState(i, e.target.value)
+                }
+              />
+            </Grid>
           ))}
-          <Button
-            type="submit"
-            variant="outlined"
-            color="email"
-            disabled={!Object.values(fieldStates).every(val => val !== '')}
-            sx={{}}
-          >
-            Submit
-          </Button>
-        </>
+          <Grid item xs={2.5} marginLeft={'auto'}>
+            <Button
+              disableElevation
+              type="submit"
+              variant="outlined"
+              color="email"
+              disabled={!allFieldsFilledIn}
+              sx={{ width: '100%' }}
+            >
+              Submit
+            </Button>
+          </Grid>
+        </Grid>
       )}
-    </Box>
+      {thankYouComponent}
+    </>
   )
 }
