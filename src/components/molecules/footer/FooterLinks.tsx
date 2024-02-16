@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Typography from '@mui/material/Typography';
+import { Typography } from '@mui/material';
 
 type FooterLinksProps = {
   items: { label: string; link: string }[];
@@ -15,11 +15,6 @@ export function FooterLinks({ items }: FooterLinksProps) {
         paddingTop: '30px'
       }}
     >
-      {/* {title && (
-        <Typography variant="subtitle1" sx={{ fontSize: '10px' }}>
-          {title}
-        </Typography>
-      )} */}
       {items.map((item, index) => (
         <Link
           key={index}

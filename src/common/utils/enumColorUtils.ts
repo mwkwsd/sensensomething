@@ -6,9 +6,8 @@ export function getColorForEnum(arg: Genre | Role): string {
       return '#FECBA1'
     case 'animation':
       return '#A3CFBB'
-    // There isn't any styling for Series in Figma
     case 'series':
-      return 'your_series_color'
+      return '#FFB74D'
     case 'director_of_photography':
       return '#C29EFA'
     case 'director_producer':

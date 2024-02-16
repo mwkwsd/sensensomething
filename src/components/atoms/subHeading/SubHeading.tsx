@@ -1,4 +1,4 @@
-import Typography from '@mui/material/Typography';
+import { Typography } from '@mui/material';
 
 type SubHeadingProps = {
   subHeading: string;

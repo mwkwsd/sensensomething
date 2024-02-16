@@ -1,5 +1,4 @@
-import React from 'react'
-import BottomNavigationAction from '@mui/material/BottomNavigationAction'
+import { BottomNavigationAction } from '@mui/material'
 
 interface IconNavigationProps {
   icon: React.ReactNode
