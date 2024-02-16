@@ -7,7 +7,7 @@ export function getColorForEnum(arg: Genre | Role): string {
     case 'animation':
       return '#A3CFBB'
     case 'series':
-      return 'ffb74d'
+      return '#FFB74D'
     case 'director_of_photography':
       return '#C29EFA'
     case 'director_producer':
