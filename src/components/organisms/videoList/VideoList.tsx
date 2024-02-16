@@ -4,7 +4,7 @@ import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 
 type VideoListProps = {
   videos: IVideoInfo[]
-  pageType: 'genre' | 'role'
+  pageType: 'genre' | 'role' | 'recent'
 }
 
 export function VideoList({ videos, pageType }: VideoListProps) {

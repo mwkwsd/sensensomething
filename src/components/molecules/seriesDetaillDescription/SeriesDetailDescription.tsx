@@ -14,7 +14,9 @@ export function SeriesDetailDescription({
   const genresRolesChips = useMemo(
     () => (
       <VideoInfoWithLink
-        linkableInfo={[...seriesInfo.genres, ...seriesInfo.roles]}
+        linkableInfo={[...seriesInfo.genres, ...seriesInfo.roles].filter(
+          roleGenre => roleGenre !== 'series'
+        )}
         sx={{ paddingBottom: '16px' }}
       />
     ),

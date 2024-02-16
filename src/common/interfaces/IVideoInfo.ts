@@ -8,5 +8,4 @@ export interface IVideoInfo {
   readonly clientName?: string // The name of the client
   readonly roles: readonly Role[] // The roles Kurt was for this video
   readonly genres: readonly Genre[] // The genre of the video
-  readonly isRecentWork?: boolean // If this video should be on the recent work section
 }

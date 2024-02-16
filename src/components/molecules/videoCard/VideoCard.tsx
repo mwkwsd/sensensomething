@@ -5,10 +5,11 @@ import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
+import { Genre, Role } from '../../../common/constants/enums'
 
 type VideoCardProps = {
-  video: Omit<IVideoInfo, 'isRecentWork'>
-  pageType: 'genre' | 'role'
+  video: IVideoInfo
+  pageType: 'genre' | 'role' | 'recent'
 }
 
 // TODO: Video needs to take full width of Card
@@ -34,8 +35,16 @@ export function VideoCard({
   }, [clientName])
 
   const rolesGenres = useMemo(() => {
-    const toLink = pageType === 'genre' ? roles : genres
-    return <VideoInfoWithLink linkableInfo={toLink} />
+    let rolesGenres: (Role | Genre)[]
+    if (pageType === 'genre') {
+      rolesGenres = [...roles]
+    } else if (pageType === 'role') {
+      rolesGenres = [...genres]
+    } else {
+      rolesGenres = [...roles, ...genres]
+    }
+
+    return <VideoInfoWithLink linkableInfo={rolesGenres} />
   }, [roles, genres, pageType])
 
   return (

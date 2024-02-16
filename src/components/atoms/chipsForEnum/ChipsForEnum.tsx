@@ -1,7 +1,7 @@
 import { Chip } from '@mui/material'
 import { Genre, Role } from '../../../common/constants/enums'
 import { enumMappings } from '../../../common/constants/constants'
-import { SxProps, useTheme } from '@mui/material'
+import { useTheme } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
 export function ChipsForEnum({ value }: { value: Genre | Role }): JSX.Element {
@@ -13,17 +13,13 @@ export function ChipsForEnum({ value }: { value: Genre | Role }): JSX.Element {
     navigate(url)
   }
 
-  const chipCssProperties: SxProps = {
-    ...theme.typography.body2,
-    backgroundColor: value + '.main',
-  }
-
   return (
     <Chip
-      label={label}
+      label={label.toLocaleUpperCase()}
+      color={value}
       component="button"
+      variant="outlined"
       onClick={handleClick}
-      sx={chipCssProperties}
     />
   )
 }
