@@ -3,6 +3,7 @@ import { IVideoListPageInfo } from '../../common/interfaces/IVideoListPageInfo'
 export const directorProducerPageInfo: IVideoListPageInfo = {
   pageTitle: 'Director & Producer',
   videoTitles: [
+<<<<<<< HEAD
     'The Indicators',
     'From Mass to the Mountain',
     'Peak Performance: Flying the Fire Boss',
@@ -32,6 +33,11 @@ export const directorProducerPageInfo: IVideoListPageInfo = {
     'The Low-Phe Life: The Test',
     'The Low-Phe Life: The Taste',
     'The Low-Phe Life: The Conversation',
+=======
+    'From Mass to the Mountain',
+    'Meet The Pill Bug',
+    'Afro Punk Ballet',
+>>>>>>> 127cbf24f7cf1c57b66a5985c6e37f78a5b4f41a
     'How To: Go Wicky-Wacky with Bridge',
   ],
 }
