@@ -3,9 +3,11 @@ import { ContactForm } from '../molecules/contactForm/ContactForm'
 
 export function Contact() {
   return (
-    <Card sx={{paddingY: 4}}>
-      <Typography variant="h3">Get In Touch</Typography>
-      <ContactForm/>
+    <Card sx={{ paddingY: 4 }}>
+      <Typography variant="h3" sx={{ padding: '0px 16px' }}>
+        GET IN TOUCH
+      </Typography>
+      <ContactForm />
     </Card>
   )
 }
