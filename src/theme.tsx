@@ -1,5 +1,14 @@
 import { createTheme } from '@mui/material/styles'
 
+const colorGuide = {
+  director_of_photography: '#CA9FFF',
+  director_producer: '#4BAEFF',
+  series: '#FFB74D',
+  animation: '#F8CAFF',
+  documentary: '#79DFC1',
+  email: '#FFB74D',
+} as const
+
 const theme = createTheme({
   typography: {
     allVariants: {
@@ -95,27 +104,27 @@ const theme = createTheme({
 export const kurtTheme = createTheme(theme, {
   palette: {
     director_producer: theme.palette.augmentColor({
-      color: { main: '#4BAEFF' },
+      color: { main: colorGuide.director_producer },
       name: 'director_producer',
     }),
     director_of_photography: theme.palette.augmentColor({
-      color: { main: '#CA9FFF' },
+      color: { main: colorGuide.director_of_photography },
       name: 'director_of_photography',
     }),
     series: theme.palette.augmentColor({
-      color: { main: '#FFB74D' },
+      color: { main: colorGuide.series },
       name: 'series',
     }),
     animation: theme.palette.augmentColor({
-      color: { main: '#F8CAFF' },
+      color: { main: colorGuide.animation },
       name: 'animation',
     }),
     documentary: theme.palette.augmentColor({
-      color: { main: '#79DFC1' },
+      color: { main: colorGuide.documentary },
       name: 'documentary',
     }),
     email: theme.palette.augmentColor({
-      color: { main: '#FFB74D' },
+      color: { main: colorGuide.email },
       name: 'email',
     }),
   },
