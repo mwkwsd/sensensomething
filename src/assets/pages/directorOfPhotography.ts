@@ -2,7 +2,6 @@ import { IVideoListPageInfo } from '../../common/interfaces/IVideoListPageInfo'
 
 export const directorOfPhotographyPageInfo: IVideoListPageInfo = {
   pageTitle: 'Director of Photography',
-<<<<<<< HEAD
   videoTitles: [
     'How Corporations Raided Medicare',
     "What Energy Compnaies Don't Want You To Know",
@@ -35,7 +34,4 @@ export const directorOfPhotographyPageInfo: IVideoListPageInfo = {
     'P-51 Engine Out',
     'Flyoff: Beech Staggerwing vs. Howard DGA-15',
   ],
-=======
-  videoTitles: ['Meet The Pill Bug', 'How To: Go Wicky-Wacky with Bridge'],
->>>>>>> 127cbf24f7cf1c57b66a5985c6e37f78a5b4f41a
 }
