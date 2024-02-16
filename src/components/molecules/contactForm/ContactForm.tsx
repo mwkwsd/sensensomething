@@ -21,7 +21,7 @@ const defaultFieldState: { [key in Input]: string } = inputs.reduce(
   {} as { [key in Input]: string }
 )
 
-function ContactForm() {
+export function ContactForm() {
   const [fieldStates, setFieldStates] = useState(defaultFieldState)
   const [formSubmitted, setFormSubmitted] = useState(false)
 
@@ -104,5 +104,3 @@ function ContactForm() {
     </Box>
   )
 }
-
-export default ContactForm

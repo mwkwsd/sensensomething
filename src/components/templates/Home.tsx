@@ -3,7 +3,7 @@ import { IVideoInfo } from '../../common/interfaces/IVideoInfo'
 import { getVideoInfoForTitle } from '../../common/utils/utils'
 import { LandingPageLinks } from '../organisms/landingPageLinks/LandingPageLinks'
 import { VideoList } from '../organisms/videoList/VideoList'
-import Contact from './Contact'
+import { Contact } from './Contact'
 
 export function Home() {
   const videos = recentWorkPageInfo.videoTitles

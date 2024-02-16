@@ -1,4 +1,3 @@
-import React from 'react'
 import { List } from '@mui/material'
 import { useLocation } from 'react-router-dom'
 import { SubheaderList } from './subheaderList/SubheaderList'

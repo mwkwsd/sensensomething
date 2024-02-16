@@ -1,4 +1,3 @@
-import React from 'react';
 import { ListSubheader, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
 

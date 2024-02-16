@@ -1,6 +1,6 @@
 import { ImageListItem, ImageListItemBar, useTheme } from '@mui/material'
 import { PageEnum, enumMappings } from '../../../common/constants/constants'
-import { ImageOverlayText } from '../../atoms/imageOverlayButton/ImageOverlayText'
+import { ImageOverlayText } from '../../atoms/imageOverlayText/ImageOverlayText'
 import { useNavigate } from 'react-router-dom'
 
 type EnumImageListItemProps = {

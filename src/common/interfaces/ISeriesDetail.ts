@@ -1,4 +1,4 @@
-import videos, { VideoTitle } from '../../assets/videos'
+import { VideoTitle } from '../../assets/videos'
 import { Genre, Role } from '../constants/enums'
 
 export interface ISeriesDetail {
