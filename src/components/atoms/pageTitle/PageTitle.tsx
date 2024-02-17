@@ -13,9 +13,9 @@ export function PageTitle({
   subheaderText,
   sx,
 }: PageTitleProps) {
-  const updatedSx: SxProps | undefined = titleUnderlineColor
+  const titleUnderline: SxProps = titleUnderlineColor
     ? {
-        ...sx,
+        paddingBottom: '16px',
         ':after': {
           border: `1px solid ${titleUnderlineColor}`,
           display: 'block',
@@ -23,11 +23,12 @@ export function PageTitle({
           width: '40px',
         },
       }
-    : sx
+    : { paddingBottom: '16px' }
+
   return (
     <Container sx={{ ...sx }} disableGutters={true}>
-      <Typography variant="h1" sx={updatedSx}>
-        {title}
+      <Typography variant="h1" sx={titleUnderline}>
+        {title.toLocaleUpperCase()}
       </Typography>
       {subheaderText && (
         <Typography variant="body1">{subheaderText}</Typography>
