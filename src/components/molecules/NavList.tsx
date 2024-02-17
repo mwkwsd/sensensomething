@@ -1,6 +1,6 @@
 import { List } from '@mui/material'
-import { useLocation } from 'react-router-dom'
-import { SubheaderList } from './subheaderList/SubheaderList'
+import { useNavigate } from 'react-router-dom'
+import { SubheaderLinks } from './subheaderLinks/SubheaderLinks'
 import {
   Genre,
   Role,
@@ -10,65 +10,36 @@ import {
 } from '../../common/constants/enums'
 import { enumMappings } from '../../common/constants/constants'
 import { NavLinks } from './navLinks/NavLinks'
+import { NavStyle } from '../../common/utils/newStyle'
 
-const commonStyle = {
-  fontWeight: 'bold',
-  bgcolor: 'black',
-  color: 'white',
-  fontSize: 20,
-  textAlign: 'right',
-}
-
-interface ListButtonProps {
+type ListButtonProps = {
   label: string
-  filter: Role | Genre
-  isSelected: boolean
-  generateButtonStyle: (isSelected: boolean) => React.CSSProperties
-  isLinkSelected: (link: string) => boolean
+  filter: string
 }
-interface SubheaderListProps {
-  title: string
-  items: readonly Genre[] | readonly Role[]
+type SubheaderLinksProps = {
+  items: readonly (Genre | Role)[]
+  navigate: (route: string) => void
 }
 
 export function NavList() {
-  const location = useLocation()
-
-  const isLinkSelected = (link: string) => {
-    const linkWithoutQuery = link.replace(/(\?.*)$/, '')
-    return location.pathname === linkWithoutQuery
-  }
+  const navigate = useNavigate()
 
   const generateButtons = (
-    items: readonly Genre[] | readonly Role[],
-    filterPrefix: string
+    items: readonly (Genre | Role)[]
   ): ListButtonProps[] =>
     items.map(item => ({
       label: enumMappings[item].label,
       filter: item,
-      isSelected: isLinkSelected(enumMappings[item].url),
-      generateButtonStyle,
-      isLinkSelected,
     }))
 
-  const generateButtonStyle = (isSelected: boolean) => ({
-    backgroundColor: isSelected ? 'lightgrey' : 'transparent',
-    padding: '1px 16px',
-    borderRadius: isSelected ? '24px 0 0 24px' : 'unset',
-    '&:hover': {
-      backgroundColor: 'lightgrey',
-    },
-    color: isSelected ? 'black' : 'white',
-  })
-
-  const subheaderListItems: SubheaderListProps[] = [
-    { title: 'ROLE', items: roles },
-    { title: 'GENRE', items: genres },
+  const subheaderLinkItems: SubheaderLinksProps[] = [
+    { items: roles, navigate },
+    { items: genres, navigate },
   ]
 
   return (
     <List
-      sx={{ width: '100%', height: '100%', maxWidth: 360, ...commonStyle }}
+      sx={{ width: '100%', height: '100%', maxWidth: 360, ...NavStyle }}
       component="nav"
     >
       {navLinks.map(item => (
@@ -76,19 +47,14 @@ export function NavList() {
           key={item.route}
           route={item.route}
           label={item.label}
-          isSelected={isLinkSelected(item.route)}
-          generateButtonStyle={generateButtonStyle}
-          isLinkSelected={isLinkSelected}
+          onClick={() => navigate(item.route)}
         />
       ))}
 
-      {subheaderListItems.map(item => (
-        <SubheaderList
-          key={item.title}
-          title={item.title}
-          buttons={generateButtons(item.items, '')}
-          generateButtonStyle={generateButtonStyle}
-          isLinkSelected={isLinkSelected}
+      {subheaderLinkItems.map(item => (
+        <SubheaderLinks
+          links={generateButtons(item.items)}
+          navigate={navigate}
         />
       ))}
     </List>

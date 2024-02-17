@@ -1,21 +1,21 @@
-import { ListItemButton, ListItemText } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { ListItemButton, ListItemText } from '@mui/material'
+import { Link } from 'react-router-dom'
 
-interface NavLinksProps {
-  route: string;
-  label: string;
-  isSelected: boolean;
-  generateButtonStyle: (isSelected: boolean) => React.CSSProperties;
-  isLinkSelected: (link: string) => boolean;
+type NavLinksProps = {
+  route: string
+  label: string
+  onClick: () => void
 }
 
-export function NavLinks({ route, label, isSelected, generateButtonStyle, isLinkSelected }: NavLinksProps) {
+export function NavLinks({ route, label, onClick }: NavLinksProps) {
   return (
     <ListItemButton
       component={Link}
       to={route}
-      sx={{ ...generateButtonStyle(isSelected), textAlign: 'right' }}>
+      onClick={onClick}
+      sx={{ textAlign: 'right' }}
+    >
       <ListItemText primary={label} />
     </ListItemButton>
-  );
+  )
 }
