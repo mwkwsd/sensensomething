@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
 import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
-import { getVideoInfoForUrl } from '../../../common/utils/utils'
+import { getVideoInfoForTitle } from '../../../common/utils/utils'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { UnderlinedButton } from '../../atoms/buttons/UnderlinedButton'
 import { SeriesVideoCard } from '../../molecules/seriesVideoCard/SeriesVideoCard'
@@ -14,10 +14,10 @@ export function SeriesDetailEpisodes({
 }: SeriesDetailEpisodesProps) {
   const [shouldSeeAllEpisodes, setShouldSeeAllEpisodes] = useState(false)
 
-  const videos = seriesInfo.orderedVideoUrls
-    .map(getVideoInfoForUrl)
+  const videos = seriesInfo.orderedVideoTitles
+    .map(getVideoInfoForTitle)
     .filter((videoInfo): videoInfo is IVideoInfo => !!videoInfo)
-    .slice(0, shouldSeeAllEpisodes ? seriesInfo.orderedVideoUrls.length : 3)
+    .slice(0, shouldSeeAllEpisodes ? seriesInfo.orderedVideoTitles.length : 3)
     .map((videoInfo, index) => {
       const episodeNumber = index + 1
       const episodeLabel = 'episode ' + episodeNumber

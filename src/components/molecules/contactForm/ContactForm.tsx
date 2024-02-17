@@ -3,7 +3,6 @@ import { Box, Button, TextFieldProps } from "@mui/material"
 import { TextInput } from "../../atoms/formInput/TextInput"
 import emailjs from '@emailjs/browser';
 
-
 const inputs = ["name", "email_address", "message"] as const;
 export type Input = (typeof inputs)[number];
 export const inputToFormProps: { [key in Input]: TextFieldProps & { fieldName: Input, label: string } } = {
@@ -17,8 +16,7 @@ const defaultFieldState:{[key in Input]: string} = inputs.reduce((acc, i) => {
   return acc
 }, {} as {[key in Input]: string})
 
-
-function ContactForm() {
+export function ContactForm() {
   const [fieldStates, setFieldStates] = useState(defaultFieldState)
   const [formSubmitted, setFormSubmitted] = useState(false)
   
@@ -60,5 +58,3 @@ function ContactForm() {
     </Box>
   )
 }
-
-export default ContactForm

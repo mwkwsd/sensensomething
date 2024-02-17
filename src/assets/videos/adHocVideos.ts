@@ -1,6 +1,6 @@
 import { IVideoInfo } from '../../common/interfaces/IVideoInfo'
 
-export const adHocVideos: IVideoInfo[] = [
+export const adHocVideos = [
   {
     url: 'https://www.youtube.com/watch?v=JTRpgFxXwmU',
     title: 'From Mass to the Mountain',
@@ -12,7 +12,7 @@ export const adHocVideos: IVideoInfo[] = [
     url: 'https://player.vimeo.com/video/222272362',
     title: 'Meet The Pill Bug',
     clientName: 'Bugs Everywhere',
-    genres: ['documentary', 'animation'],
+    genres: ['documentary'],
     roles: ['director_producer', 'director_of_photography'],
   },
   {
@@ -28,4 +28,4 @@ export const adHocVideos: IVideoInfo[] = [
     genres: ['documentary'],
     roles: ['director_of_photography', 'director_producer'],
   },
-]
+] as const satisfies Readonly<IVideoInfo[]>
