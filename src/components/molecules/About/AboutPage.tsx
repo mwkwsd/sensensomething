@@ -1,8 +1,9 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
-import { Kurt } from "../../../assets/personalInfo/personalInfo"
+import { Kurt } from "../../../assets/personalInfo/personalInfo";
 
 export function AboutPage() {
+  const theme = useTheme()
   const title = Kurt.title
   const description = Kurt.description
   
@@ -13,7 +14,7 @@ export function AboutPage() {
       <Box display="flex" alignContent="center" justifyContent="center">
         {Kurt.photos.map((photo) => <img src={photo.path} alt={photo.alt} style={{height: "100%", width: "100%"}}/>)}
       </Box>
-      <Link to="/#contact">Like my work?</Link> 
+      <Button component={Link} to="/#contact">Like my work?</Button> 
     </>
   )
 }
