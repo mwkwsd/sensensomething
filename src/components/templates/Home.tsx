@@ -1,6 +1,6 @@
 import { PageEnum } from '../../common/constants/constants'
 import { LandingPageLinks } from '../organisms/landingPageLinks/LandingPageLinks'
-import Contact from './Contact'
+import { Contact } from './Contact'
 
 const orderedLinks: PageEnum[] = [
   'director_producer',
