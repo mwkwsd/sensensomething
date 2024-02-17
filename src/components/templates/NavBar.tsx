@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import MenuIcon from '@mui/icons-material/Menu'
 import {
   AppBar,
   Box,
@@ -7,14 +7,15 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { NavList } from '../molecules/NavList'
 
 export function NavBar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const handleDrawerToggle = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen(!menuOpen)
   }
 
   return (
@@ -22,18 +23,24 @@ export function NavBar() {
       {/* styles WIP */}
       <AppBar position="sticky">
         <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Kurt Sensenbrenner
+          <Typography
+            component={Link}
+            to="/"
+            variant="h3"
+            noWrap
+            sx={{ textDecoration: 'none' }}
+          >
+            KURT SENSENBRENNER
           </Typography>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="end"
-              sx={{ marginLeft: 'auto' }}
-              onClick={handleDrawerToggle}
-            >
-              <MenuIcon />
-            </IconButton>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="end"
+            sx={{ marginLeft: 'auto' }}
+            onClick={handleDrawerToggle}
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
 
@@ -50,5 +57,5 @@ export function NavBar() {
         <NavList />
       </Drawer>
     </Box>
-  );
+  )
 }
