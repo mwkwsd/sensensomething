@@ -1,9 +1,8 @@
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Kurt } from "../../../assets/personalInfo/personalInfo";
 
 export function AboutPage() {
-  const theme = useTheme()
   const title = Kurt.title
   const description = Kurt.description
   
