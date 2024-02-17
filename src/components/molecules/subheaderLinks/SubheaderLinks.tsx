@@ -7,19 +7,13 @@ type ListButtonProps = {
 }
 
 type SubheaderLinksProps = {
-  title: string
   links: ListButtonProps[]
   navigate: (route: string) => void
 }
 
-export function SubheaderLinks({
-  title,
-  links,
-  navigate,
-}: SubheaderLinksProps) {
+export function SubheaderLinks({ links, navigate }: SubheaderLinksProps) {
   return (
     <ListSubheader component="div" sx={{ ...NavStyle }}>
-      {title}
       {links.map(({ label, filter }) => (
         <ListItemButton
           key={filter}

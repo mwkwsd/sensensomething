@@ -17,7 +17,6 @@ type ListButtonProps = {
   filter: string
 }
 type SubheaderLinksProps = {
-  title: string
   items: readonly (Genre | Role)[]
   navigate: (route: string) => void
 }
@@ -34,8 +33,8 @@ export function NavList() {
     }))
 
   const subheaderLinkItems: SubheaderLinksProps[] = [
-    { title: 'ROLE', items: roles, navigate },
-    { title: 'GENRE', items: genres, navigate },
+    { items: roles, navigate },
+    { items: genres, navigate },
   ]
 
   return (
@@ -54,8 +53,6 @@ export function NavList() {
 
       {subheaderLinkItems.map(item => (
         <SubheaderLinks
-          key={item.title}
-          title={item.title}
           links={generateButtons(item.items)}
           navigate={navigate}
         />
