@@ -1,10 +1,14 @@
-import { BottomNavigation, BottomNavigationAction } from '@mui/material'
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  useTheme,
+} from '@mui/material'
 import { RiVimeoFill } from 'react-icons/ri'
 import { FaInstagram } from 'react-icons/fa'
 import { socialLinks } from '../../../assets/socialLinks/SocialLinks'
-import { kurtTheme } from '../../../theme'
 
 export function BottomIcons() {
+  const theme = useTheme()
   return (
     <BottomNavigation
       sx={{
@@ -21,7 +25,7 @@ export function BottomIcons() {
         sx={{
           alignItems: 'flex-end',
           fontSize: '30px',
-          color: kurtTheme.typography.body1.color,
+          color: theme.typography.body1.color,
         }}
       />
       <BottomNavigationAction
@@ -31,7 +35,7 @@ export function BottomIcons() {
         sx={{
           alignItems: 'flex-start',
           fontSize: '30px',
-          color: kurtTheme.typography.body1.color,
+          color: theme.typography.body1.color,
         }}
       />
     </BottomNavigation>
