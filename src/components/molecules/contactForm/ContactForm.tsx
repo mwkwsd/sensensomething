@@ -46,7 +46,7 @@ export function ContactForm() {
   };
 
   return (
-    <Box component='form' ref={form} onSubmit={(e) => sendEmail(e)} sx={{display: "flex", flexDirection:"column", justifyContent:"center"}}>
+    <Box id="contact" component='form' ref={form} onSubmit={(e) => sendEmail(e)} sx={{display: "flex", flexDirection:"column", justifyContent:"center"}}>
       {formSubmitted 
         ? <div>Thank you for the inquiry! I'll reach out soon!</div>
         : <>
