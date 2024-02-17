@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material'
-import { VideoCard } from '../../molecules/videoCard/VideoCard'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
+import { PageTitle } from '../../atoms/pageTitle/PageTitle'
+import { VideoCard } from '../../molecules/videoCard/VideoCard'
 
 type VideoListProps = {
   videos: IVideoInfo[]
@@ -14,8 +15,14 @@ export function VideoList({ videos, pageType }: VideoListProps) {
     </Grid>
   ))
   return (
-    <Grid container spacing={2}>
-      {videoComponents}
-    </Grid>
+    <>
+      <PageTitle
+        title="RECENT WORK"
+        sx={{ padding: '32px 16px 16px', fontSize: '1.75rem', fontWeight: '400' }}
+      />
+      <Grid container spacing={2}>
+        {videoComponents}
+      </Grid>
+    </>
   )
 }

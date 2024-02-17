@@ -12,9 +12,10 @@ const colorGuide = {
 const theme = createTheme({
   typography: {
     allVariants: {
-      font: 'Roboto',
+      font: 'Oswald',
+      fontFamily: 'Oswald',
     },
-    fontFamily: ['Roboto', 'sans-serif'].join(','),
+    fontFamily: ['Oswald', 'Roboto', 'sans-serif'].join(','),
     h1: {
       fontSize: '1.75rem',
       color: '#FFFFFF',
@@ -27,10 +28,8 @@ const theme = createTheme({
     },
     // Home Page image overlay text
     h3: {
-      fontFamily: 'Oswald',
       weight: 400,
       fontSize: '1.5rem',
-      // font: '"Oswald"',
       lineHeight: '35.57px',
       color: '#F8F9FA',
     },
