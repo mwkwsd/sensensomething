@@ -12,11 +12,11 @@ import { enumMappings } from '../../common/constants/constants'
 import { NavLinks } from './navLinks/NavLinks'
 import { NavStyle } from '../../common/utils/newStyle'
 
-interface ListButtonProps {
+type ListButtonProps = {
   label: string
   filter: string
 }
-interface SubheaderLinksProps {
+type SubheaderLinksProps = {
   title: string
   items: readonly (Genre | Role)[]
   navigate: (route: string) => void

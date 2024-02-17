@@ -1,6 +1,6 @@
 import { BottomNavigationAction } from '@mui/material'
 
-interface IconNavigationProps {
+type IconNavigationProps = {
   icon: React.ReactNode
   href: string
   sx: React.CSSProperties // Add this line to include styling prop. (Note for myself)

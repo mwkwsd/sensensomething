@@ -1,7 +1,7 @@
 import { ListItemButton, ListItemText } from '@mui/material'
 import { Link } from 'react-router-dom'
 
-interface NavLinksProps {
+type NavLinksProps = {
   route: string
   label: string
   onClick: () => void
