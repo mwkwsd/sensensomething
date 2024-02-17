@@ -9,7 +9,7 @@ export type TextInputProps = {
 export function TextInput({ fieldName, label, ...rest }: TextInputProps) {
   const theme = useTheme()
 
-  const inputProps: Partial<InputProps> = {
+  const inputProps: InputProps = {
     sx: {
       color: '#FFFFFF',
       '::before': {
