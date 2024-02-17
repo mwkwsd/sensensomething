@@ -1,7 +1,7 @@
-import { useMemo, useRef, useState } from 'react'
-import { Button, Grid, TextFieldProps } from '@mui/material'
-import { TextInput } from '../../atoms/formInput/TextInput'
 import emailjs from '@emailjs/browser'
+import { Button, Grid, TextFieldProps } from '@mui/material'
+import { useMemo, useRef, useState } from 'react'
+import { TextInput } from '../../atoms/formInput/TextInput'
 
 const inputs = ['name', 'email_address', 'message'] as const
 export type Input = (typeof inputs)[number]
@@ -77,6 +77,7 @@ export function ContactForm() {
     <>
       {!formSubmitted && (
         <Grid
+          id="contact"
           container
           spacing={1.5}
           component="form"
