@@ -13,5 +13,5 @@ export function genreTypeChecker(arg: any): arg is Genre {
 export const navLinks = [
   { route: '/', label: 'Recent Work' },
   { route: '/about', label: 'About' },
-  { route: '/contact', label: 'Contact' },
+  { route: '/#contact', label: 'Contact' },
 ] as const
