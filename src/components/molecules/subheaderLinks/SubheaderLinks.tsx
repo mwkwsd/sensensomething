@@ -4,6 +4,7 @@ import { NavStyle } from '../../../common/utils/newStyle'
 type ListButtonProps = {
   label: string
   filter: string
+  path: string;
 }
 
 type SubheaderLinksProps = {
@@ -14,10 +15,10 @@ type SubheaderLinksProps = {
 export function SubheaderLinks({ links, navigate }: SubheaderLinksProps) {
   return (
     <ListSubheader component="div" sx={{ ...NavStyle }}>
-      {links.map(({ label, filter }) => (
+      {links.map(({ label, filter, path }) => (
         <ListItemButton
           key={filter}
-          onClick={() => navigate(`/videos?filter=${filter}`)}
+          onClick={() => navigate(path)}
           sx={{ textAlign: 'right', paddingRight: '0' }}
         >
           <ListItemText primary={label} />
