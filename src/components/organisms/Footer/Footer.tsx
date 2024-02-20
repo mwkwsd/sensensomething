@@ -7,7 +7,6 @@ import {
   Genre,
 } from '../../../common/constants/enums'
 import { BottomIcons } from '../../molecules/footer/BottomIcons'
-import { kurtTheme } from '../../../theme'
 import { enumMappings } from '../../../common/constants/constants'
 
 export function Footer() {
