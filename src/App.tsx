@@ -10,10 +10,13 @@ import {
   getSeriesDetailFromSeriesPath,
   getVideoPageFromVideosPath,
 } from './common/utils/utils'
+import { About } from './components/templates/About'
+import { ErrorBoundary } from './components/templates/ErrorBoundary'
 
 const router = createBrowserRouter([
   {
     element: <KurtApp />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         path: '/videos/:videoPage',
@@ -28,6 +31,10 @@ const router = createBrowserRouter([
         path: '/series/:seriesUrl',
         element: <SeriesDetailPage />,
         loader: ({ params }) => getSeriesDetailFromSeriesPath(params.seriesUrl),
+      },
+      {
+        path: '/about',
+        element: <About />,
       },
       {
         element: <Home />,
