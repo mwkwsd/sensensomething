@@ -36,7 +36,7 @@ export function Footer() {
         flexDirection: 'column',
         padding: '10px',
         marginTop: '16px',
-        backgroundColor: kurtTheme.palette.background.default,
+        backgroundColor: '#191B1B',
       }}
     >
       <div
