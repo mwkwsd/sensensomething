@@ -15,6 +15,7 @@ import { NavStyle } from '../../common/utils/newStyle'
 type ListButtonProps = {
   label: string
   filter: string
+  path: string
 }
 type SubheaderLinksProps = {
   items: readonly (Genre | Role)[]
@@ -30,7 +31,8 @@ export function NavList() {
     items.map(item => ({
       label: enumMappings[item].label,
       filter: item,
-    }))
+      path: enumMappings[item].url, 
+    }));
 
   const subheaderLinkItems: SubheaderLinksProps[] = [
     { items: roles, navigate },
