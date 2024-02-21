@@ -75,12 +75,12 @@ export const adHocVideos = [
     genres: [],
     roles: ['director_of_photography'],
   },
-  {
-    title: 'The Indicators',
-    url: 'https://www.youtube.com/embed/ydbsRvoy5Ls?si=UyDICj-Y9oK4ptc2',
-    genres: ['documentary'],
-    roles: ['director_producer'],
-  },
+  // {
+  //   title: 'The Indicators',
+  //   url: 'https://www.youtube.com/embed/ydbsRvoy5Ls?si=UyDICj-Y9oK4ptc2',
+  //   genres: ['documentary'],
+  //   roles: ['director_producer'],
+  // },
   {
     title: 'How To: Go Wicky-Wacky with Bridge',
     url: 'https://player.vimeo.com/video/81963254',

@@ -3,7 +3,7 @@ import { IVideoListPageInfo } from '../../common/interfaces/IVideoListPageInfo'
 export const directorProducerPageInfo: IVideoListPageInfo = {
   pageTitle: 'Director & Producer',
   videoTitles: [
-    'The Indicators',
+    // 'The Indicators',
     'From Mass to the Mountain',
     'Peak Performance: Flying the Fire Boss',
     'Podcast: There I Was with Thomas Middleditch',
