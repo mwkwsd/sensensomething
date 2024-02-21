@@ -1,6 +1,6 @@
 export const NavStyle = {
   fontWeight: 'bold',
-  bgcolor: 'black',
+  backgroundColor: 'black',
   color: 'white',
   fontSize: 20,
   textAlign: 'right',

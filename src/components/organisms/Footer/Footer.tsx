@@ -7,7 +7,6 @@ import {
   Genre,
 } from '../../../common/constants/enums'
 import { BottomIcons } from '../../molecules/footer/BottomIcons'
-import { kurtTheme } from '../../../theme'
 import { enumMappings } from '../../../common/constants/constants'
 
 export function Footer() {
@@ -36,7 +35,7 @@ export function Footer() {
         flexDirection: 'column',
         padding: '10px',
         marginTop: '16px',
-        backgroundColor: kurtTheme.palette.background.default,
+        backgroundColor: '#191B1B',
       }}
     >
       <div
