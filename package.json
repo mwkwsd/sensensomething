@@ -30,7 +30,11 @@
   },
   "overrides": {
     "react-scripts": {
-      "typescript": "$typescript"
+      "typescript": "$typescript",
+      "resolve-url-loader": "^5.0.0"
+    },
+    "css-select": {
+      "nth-check": ">=2.0.1"
     }
   },
   "scripts": {
