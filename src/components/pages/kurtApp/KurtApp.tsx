@@ -1,7 +1,8 @@
-import { Outlet } from 'react-router-dom'
-import { NavBar } from '../../templates/NavBar'
-import { Footer } from '../../organisms/Footer/Footer'
 import { useMemo } from 'react'
+import { Outlet } from 'react-router-dom'
+import { Footer } from '../../organisms/Footer/Footer'
+import { VideoModal } from '../../organisms/modal/VideoModal'
+import { NavBar } from '../../templates/NavBar'
 
 export function KurtApp() {
   const navBar = useMemo(() => <NavBar />, [])
@@ -9,6 +10,7 @@ export function KurtApp() {
   return (
     <>
       {navBar}
+      <VideoModal />
       <Outlet />
       {footer}
     </>
