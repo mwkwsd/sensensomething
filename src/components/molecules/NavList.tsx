@@ -1,31 +1,20 @@
 import { List } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import { navLinks, genres, roles } from '../../common/constants/enums'
+import { navLinks, Genre, Role } from '../../common/constants/enums'
 import { enumMappings } from '../../common/constants/constants'
 import { NavLinks } from './navLinks/NavLinks'
 import { NavStyle } from '../../common/utils/newStyle'
 
-type ListButtonProps = {
-  label: string
-  filter?: string
-  path: string
-}
-
-const orderedLinks: ((typeof genres)[number] | (typeof roles)[number])[] = [
-  'animation',
-  'documentary',
-  'director_of_photography',
-  'director_producer',
-  'series',
-]
-
 export function NavList() {
   const navigate = useNavigate()
 
-  const combinedLinks: ListButtonProps[] = navLinks.map(item => ({
-    label: item.label,
-    path: item.route,
-  }))
+  const orderedLinks: (Genre | Role)[] = [
+    'animation',
+    'documentary',
+    'director_of_photography',
+    'director_producer',
+    'series',
+  ]
 
   const secondNavLinks = orderedLinks.map(linkEnum => (
     <NavLinks
@@ -46,11 +35,11 @@ export function NavList() {
         }}
         component="nav"
       >
-        {combinedLinks.map((item, index) => (
+        {navLinks.map((item, index) => (
           <NavLinks
             key={index}
             label={item.label}
-            onClick={() => navigate(item.path)}
+            onClick={() => navigate(item.route)}
           />
         ))}
       </List>
