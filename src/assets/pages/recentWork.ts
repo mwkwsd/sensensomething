@@ -15,7 +15,7 @@ export const recentWorkPageInfo: RecentWorkPageType = {
     'series',
   ],
   videoTitles: [
-    'The Indicators',
+    // 'The Indicators',
     'Peak Performance: Flying the Fire Boss',
     'How Corporations Raided Medicare',
     "What Energy Compnaies Don't Want You To Know",
