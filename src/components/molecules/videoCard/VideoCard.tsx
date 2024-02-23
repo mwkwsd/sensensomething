@@ -2,7 +2,6 @@ import { Button, Card, CardContent } from '@mui/material'
 import { useContext, useMemo } from 'react'
 import { Genre, Role } from '../../../common/constants/enums'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
-import { Video } from '../../atoms/video/Video'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
@@ -19,7 +18,7 @@ export function VideoCard({
   pageType,
 }: VideoCardProps) {
   const { showModal } = useContext(ModalContext)
-  const videoComponent = useMemo(() => <Video url={url} />, [url])
+
   const videoTitle = useMemo(
     () => <VideoTitle title={title} sx={{ marginBottom: '8px' }} />,
     [title]
