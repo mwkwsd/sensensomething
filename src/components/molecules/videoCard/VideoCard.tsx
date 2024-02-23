@@ -1,11 +1,12 @@
-import { Card, CardContent, CardMedia } from '@mui/material'
-import { useMemo } from 'react'
+import { Button, Card, CardContent } from '@mui/material'
+import { useContext, useMemo } from 'react'
+import { Genre, Role } from '../../../common/constants/enums'
+import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { Video } from '../../atoms/video/Video'
-import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
-import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
-import { Genre, Role } from '../../../common/constants/enums'
+import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
+import { ModalContext } from '../../organisms/modal/ModalProvider'
 
 type VideoCardProps = {
   video: IVideoInfo
@@ -17,6 +18,7 @@ export function VideoCard({
   video: { url, title, clientName, roles, genres },
   pageType,
 }: VideoCardProps) {
+  const { showModal } = useContext(ModalContext)
   const videoComponent = useMemo(() => <Video url={url} />, [url])
   const videoTitle = useMemo(
     () => <VideoTitle title={title} sx={{ marginBottom: '8px' }} />,
@@ -49,8 +51,11 @@ export function VideoCard({
 
   return (
     <Card>
-      <CardMedia>{videoComponent}</CardMedia>
+      {/* <CardMedia>{videoComponent}</CardMedia> */}
       <CardContent>
+        <Button
+          onClick={() => showModal(url)}
+        >{`Click me for ${title} video!`}</Button>
         {videoTitle}
         {clientComponent}
         {rolesGenres}
