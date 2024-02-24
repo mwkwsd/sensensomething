@@ -14,13 +14,18 @@ export function SeriesDetailEpisodes({
 }: SeriesDetailEpisodesProps) {
   const [shouldSeeAllEpisodes, setShouldSeeAllEpisodes] = useState(false)
 
-  const numberOfEpisodesToShow = shouldSeeAllEpisodes
-    ? seriesInfo.orderedVideoTitles.length
-    : Math.min(3, seriesInfo.orderedVideoTitles.length)
+  const [sanitizedVideos, numberOfVideos] = useMemo(() => {
+    const videos = seriesInfo.orderedVideoTitles
+      .map(getVideoInfoForTitle)
+      .filter((videoInfo): videoInfo is IVideoInfo => !!videoInfo)
+    return [videos, videos.length]
+  }, [seriesInfo.orderedVideoTitles])
 
-  const videos = seriesInfo.orderedVideoTitles
-    .map(getVideoInfoForTitle)
-    .filter((videoInfo): videoInfo is IVideoInfo => !!videoInfo)
+  const numberOfEpisodesToShow = shouldSeeAllEpisodes
+    ? numberOfVideos
+    : Math.min(numberOfVideos, 3)
+
+  const videos = sanitizedVideos
     .slice(0, numberOfEpisodesToShow)
     .map((videoInfo, index) => {
       const episodeNumber = index + 1
@@ -40,7 +45,7 @@ export function SeriesDetailEpisodes({
 
   const seeAllEpisodesButton = useMemo(() => {
     if (shouldSeeAllEpisodes) return null
-    if (seriesInfo.orderedVideoTitles.length <= 3) return null
+    if (numberOfVideos <= 3) return null
 
     return (
       <Container
@@ -52,7 +57,7 @@ export function SeriesDetailEpisodes({
         />
       </Container>
     )
-  }, [shouldSeeAllEpisodes, seriesInfo.orderedVideoTitles.length])
+  }, [shouldSeeAllEpisodes, numberOfVideos])
 
   return (
     <Box sx={{ paddingTop: '16px' }}>
