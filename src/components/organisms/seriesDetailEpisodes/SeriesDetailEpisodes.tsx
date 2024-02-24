@@ -1,10 +1,10 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
+import { useMemo, useState } from 'react'
 import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
-import { getVideoInfoForTitle } from '../../../common/utils/utils'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
+import { getVideoInfoForTitle } from '../../../common/utils/utils'
 import { UnderlinedButton } from '../../atoms/buttons/UnderlinedButton'
 import { SeriesVideoCard } from '../../molecules/seriesVideoCard/SeriesVideoCard'
-import { useMemo, useState } from 'react'
 
 type SeriesDetailEpisodesProps = {
   seriesInfo: ISeriesDetail
@@ -14,10 +14,14 @@ export function SeriesDetailEpisodes({
 }: SeriesDetailEpisodesProps) {
   const [shouldSeeAllEpisodes, setShouldSeeAllEpisodes] = useState(false)
 
+  const numberOfEpisodesToShow = shouldSeeAllEpisodes
+    ? seriesInfo.orderedVideoTitles.length
+    : Math.min(3, seriesInfo.orderedVideoTitles.length)
+
   const videos = seriesInfo.orderedVideoTitles
     .map(getVideoInfoForTitle)
     .filter((videoInfo): videoInfo is IVideoInfo => !!videoInfo)
-    .slice(0, shouldSeeAllEpisodes ? seriesInfo.orderedVideoTitles.length : 3)
+    .slice(0, numberOfEpisodesToShow)
     .map((videoInfo, index) => {
       const episodeNumber = index + 1
       const episodeLabel = 'episode ' + episodeNumber
@@ -25,6 +29,8 @@ export function SeriesDetailEpisodes({
         <Grid
           item
           sx={{ width: '100%' }}
+          xs={12}
+          md={6}
           key={`grid-item-${seriesInfo.name}-ep-${episodeNumber}`}
         >
           <SeriesVideoCard videoInfo={videoInfo} episodeCount={episodeLabel} />
@@ -34,6 +40,7 @@ export function SeriesDetailEpisodes({
 
   const seeAllEpisodesButton = useMemo(() => {
     if (shouldSeeAllEpisodes) return null
+    if (seriesInfo.orderedVideoTitles.length <= 3) return null
 
     return (
       <Container
@@ -52,7 +59,9 @@ export function SeriesDetailEpisodes({
       <Typography variant="h1" sx={{ paddingX: '16px' }}>
         EPISODES
       </Typography>
-      <Grid container children={videos} />
+      <Grid container spacing={2}>
+        {videos}
+      </Grid>
       {seeAllEpisodesButton}
     </Box>
   )
