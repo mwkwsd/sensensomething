@@ -52,7 +52,7 @@ export function SeriesDetailEpisodes({
         />
       </Container>
     )
-  }, [shouldSeeAllEpisodes])
+  }, [shouldSeeAllEpisodes, seriesInfo.orderedVideoTitles.length])
 
   return (
     <Box sx={{ paddingTop: '16px' }}>
