@@ -5,14 +5,14 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material'
-import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
-import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
-import { getVideoInfoForSeriesDetail } from '../../../common/utils/utils'
-import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
-import { Video } from '../../atoms/video/Video'
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
+import { getVideoInfoForSeriesDetail } from '../../../common/utils/utils'
 import { UnderlinedButton } from '../../atoms/buttons/UnderlinedButton'
+import { Video } from '../../atoms/video/Video'
+import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
+import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 
 type SeriesListCardProps = {
   seriesInfo: ISeriesDetail
@@ -24,7 +24,7 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
 
   const rolesGenresChips = (
     <VideoInfoWithLink
-      linkableInfo={[...roles, ...genres]}
+      linkableInfo={[...roles, ...genres].filter(tag => tag !== 'series')}
       sx={{ paddingBottom: '8px' }}
     />
   )
