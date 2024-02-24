@@ -44,8 +44,7 @@ export function SeriesDetailEpisodes({
     })
 
   const seeAllEpisodesButton = useMemo(() => {
-    if (shouldSeeAllEpisodes) return null
-    if (numberOfVideos <= 3) return null
+    if (shouldSeeAllEpisodes || numberOfVideos <= 3) return null
 
     return (
       <Container
