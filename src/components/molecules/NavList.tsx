@@ -5,16 +5,16 @@ import { enumMappings } from '../../common/constants/constants'
 import { NavLinks } from './navLinks/NavLinks'
 import { NavStyle } from '../../common/utils/newStyle'
 
+const orderedLinks: (Genre | Role)[] = [
+  'animation',
+  'documentary',
+  'director_of_photography',
+  'director_producer',
+  'series',
+]
+
 export function NavList() {
   const navigate = useNavigate()
-
-  const orderedLinks: (Genre | Role)[] = [
-    'animation',
-    'documentary',
-    'director_of_photography',
-    'director_producer',
-    'series',
-  ]
 
   const secondNavLinks = orderedLinks.map(linkEnum => (
     <NavLinks
