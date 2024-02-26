@@ -24,7 +24,7 @@ export function ModalCloseButton({ onClick }: CloseButtonProps) {
         alignItems: 'center',
       }}
     >
-      <IoCloseSharp style={{ fontSize: '32px' }} />
+      <IoCloseSharp style={{ fontSize: '2rem' }} />
     </IconButton>
   )
 }
