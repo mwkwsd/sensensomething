@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
 import { getVideoInfoForSeriesDetail } from '../../../common/utils/utils'
 import { UnderlinedButton } from '../../atoms/buttons/UnderlinedButton'
-import { Video } from '../../atoms/video/Video'
+import { PreModalImage } from '../../atoms/preModalImage/PreModalImage'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 
@@ -30,15 +30,15 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
   )
   const videoInfo = getVideoInfoForSeriesDetail(seriesInfo)
 
-  const mediaCardVideo = useMemo(() => {
+  const cardMediaImage = useMemo(() => {
     if (!videoInfo) return null
-    return <Video url={videoInfo.url} />
+    return <PreModalImage videoInfo={videoInfo} />
   }, [videoInfo])
 
   return (
     <Card>
       <CardContent>
-        <VideoTitle title={name} sx={{ paddingBottom: '8px' }}></VideoTitle>
+        <VideoTitle title={name} sx={{ paddingBottom: '8px' }} />
         {shortDescription && (
           <Typography variant="body1" sx={{ paddingBottom: '8px' }}>
             {shortDescription}
@@ -46,7 +46,7 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
         )}
         {rolesGenresChips}
       </CardContent>
-      <CardMedia>{mediaCardVideo}</CardMedia>
+      <CardMedia>{cardMediaImage}</CardMedia>
       <CardActions sx={{ justifyContent: 'center' }}>
         <UnderlinedButton
           label="Explore the Series"
