@@ -1,64 +1,55 @@
 import { List } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import { SubheaderLinks } from './subheaderLinks/SubheaderLinks'
-import {
-  Genre,
-  Role,
-  genres,
-  navLinks,
-  roles,
-} from '../../common/constants/enums'
+import { navLinks, Genre, Role } from '../../common/constants/enums'
 import { enumMappings } from '../../common/constants/constants'
 import { NavLinks } from './navLinks/NavLinks'
 import { NavStyle } from '../../common/utils/newStyle'
 
-type ListButtonProps = {
-  label: string
-  filter: string
-  path: string
-}
-type SubheaderLinksProps = {
-  items: readonly (Genre | Role)[]
-  navigate: (route: string) => void
-}
+const orderedLinks: (Genre | Role)[] = [
+  'animation',
+  'documentary',
+  'director_of_photography',
+  'director_producer',
+  'series',
+]
 
 export function NavList() {
   const navigate = useNavigate()
 
-  const generateButtons = (
-    items: readonly (Genre | Role)[]
-  ): ListButtonProps[] =>
-    items.map(item => ({
-      label: enumMappings[item].label,
-      filter: item,
-      path: enumMappings[item].url, 
-    }));
-
-  const subheaderLinkItems: SubheaderLinksProps[] = [
-    { items: roles, navigate },
-    { items: genres, navigate },
-  ]
+  const secondNavLinks = orderedLinks.map(linkEnum => (
+    <NavLinks
+      key={`${linkEnum}`}
+      label={enumMappings[linkEnum].label}
+      onClick={() => navigate(enumMappings[linkEnum].url)}
+    />
+  ))
 
   return (
-    <List
-      sx={{ width: '100%', height: '100%', maxWidth: 360, ...NavStyle }}
-      component="nav"
-    >
-      {navLinks.map(item => (
-        <NavLinks
-          key={item.route}
-          route={item.route}
-          label={item.label}
-          onClick={() => navigate(item.route)}
-        />
-      ))}
+    <div>
+      <List
+        sx={{
+          width: '100%',
+          paddingBottom: '20px',
+          maxWidth: 360,
+          ...NavStyle,
+        }}
+        component="nav"
+      >
+        {navLinks.map((item, index) => (
+          <NavLinks
+            key={index}
+            label={item.label}
+            onClick={() => navigate(item.route)}
+          />
+        ))}
+      </List>
 
-      {subheaderLinkItems.map(item => (
-        <SubheaderLinks
-          links={generateButtons(item.items)}
-          navigate={navigate}
-        />
-      ))}
-    </List>
+      <List
+        sx={{ width: '100%', height: '100%', maxWidth: 360, ...NavStyle }}
+        component="nav"
+      >
+        {secondNavLinks}
+      </List>
+    </div>
   )
 }

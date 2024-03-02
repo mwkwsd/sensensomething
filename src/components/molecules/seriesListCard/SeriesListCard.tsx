@@ -24,7 +24,7 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
 
   const rolesGenresChips = (
     <VideoInfoWithLink
-      linkableInfo={[...roles, ...genres]}
+      linkableInfo={[...roles, ...genres].filter(tag => tag !== 'series')}
       sx={{ paddingBottom: '8px' }}
     />
   )
