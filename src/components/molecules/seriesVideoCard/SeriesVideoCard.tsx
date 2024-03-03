@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
-import { Video } from '../../atoms/video/Video'
+import { PreModalImage } from '../../atoms/preModalImage/PreModalImage'
 
 type SeriesVideoCardProps = {
   videoInfo: IVideoInfo
@@ -8,9 +8,10 @@ type SeriesVideoCardProps = {
 }
 
 export function SeriesVideoCard({
-  videoInfo: { description, title, url },
+  videoInfo,
   episodeCount,
 }: SeriesVideoCardProps) {
+  const { title, description } = videoInfo
   return (
     <Card>
       <CardContent>
@@ -19,7 +20,7 @@ export function SeriesVideoCard({
         {description && <Typography variant="h3">{description}</Typography>}
       </CardContent>
       <CardMedia>
-        <Video url={url} />
+        <PreModalImage videoInfo={videoInfo} />
       </CardMedia>
     </Card>
   )

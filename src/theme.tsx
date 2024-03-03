@@ -33,6 +33,9 @@ const theme = createTheme({
       lineHeight: '35.57px',
       color: '#F8F9FA',
     },
+    h4: {
+      color: '#F8F9FA',
+    },
     body1: {
       color: 'white',
       textDecoration: 'none',

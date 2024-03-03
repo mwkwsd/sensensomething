@@ -1,11 +1,11 @@
 import { Card, CardContent, CardMedia } from '@mui/material'
 import { useMemo } from 'react'
-import { Video } from '../../atoms/video/Video'
-import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
+import { Genre, Role } from '../../../common/constants/enums'
+import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
+import { PreModalImage } from '../../atoms/preModalImage/PreModalImage'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
-import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
-import { Genre, Role } from '../../../common/constants/enums'
+import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 
 type VideoCardProps = {
   video: IVideoInfo
@@ -13,11 +13,9 @@ type VideoCardProps = {
 }
 
 // TODO: Video needs to take full width of Card
-export function VideoCard({
-  video: { url, title, clientName, roles, genres },
-  pageType,
-}: VideoCardProps) {
-  const videoComponent = useMemo(() => <Video url={url} />, [url])
+export function VideoCard({ video, pageType }: VideoCardProps) {
+  const { title, clientName, roles, genres } = video
+
   const videoTitle = useMemo(
     () => <VideoTitle title={title} sx={{ marginBottom: '8px' }} />,
     [title]
@@ -49,7 +47,9 @@ export function VideoCard({
 
   return (
     <Card>
-      <CardMedia>{videoComponent}</CardMedia>
+      <CardMedia>
+        <PreModalImage videoInfo={video} />
+      </CardMedia>
       <CardContent>
         {videoTitle}
         {clientComponent}

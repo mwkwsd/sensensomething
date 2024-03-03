@@ -1,17 +1,18 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home } from './components/templates/Home'
-import { VideoListPage } from './components/templates/VideoListPage'
 import { ThemeProvider } from '@mui/material/styles'
-import { kurtTheme } from './theme'
-import { KurtApp } from './components/pages/kurtApp/KurtApp'
-import { SeriesDetailPage } from './components/templates/SeriesDetailPage'
-import { SeriesListPage } from './components/templates/SeriesListPage'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import {
   getSeriesDetailFromSeriesPath,
   getVideoPageFromVideosPath,
 } from './common/utils/utils'
+import { ModalProvider } from './components/organisms/modal/ModalProvider'
+import { KurtApp } from './components/pages/kurtApp/KurtApp'
 import { About } from './components/templates/About'
 import { ErrorBoundary } from './components/templates/ErrorBoundary'
+import { Home } from './components/templates/Home'
+import { SeriesDetailPage } from './components/templates/SeriesDetailPage'
+import { SeriesListPage } from './components/templates/SeriesListPage'
+import { VideoListPage } from './components/templates/VideoListPage'
+import { kurtTheme } from './theme'
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <ThemeProvider theme={kurtTheme}>
-      <RouterProvider router={router}></RouterProvider>
+      <ModalProvider>
+        <RouterProvider router={router} />
+      </ModalProvider>
     </ThemeProvider>
   )
 }
