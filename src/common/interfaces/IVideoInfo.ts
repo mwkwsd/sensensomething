@@ -4,6 +4,7 @@ import { Genre, Role } from '../constants/enums'
 export interface IVideoInfo {
   readonly url: string // The URL of the video
   readonly title: string // The title of the video
+  readonly thumbnailPath?: string
   readonly description?: string // Used on series detail page
   readonly clientName?: string // The name of the client
   readonly roles: readonly Role[] // The roles Kurt was for this video
