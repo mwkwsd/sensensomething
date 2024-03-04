@@ -18,8 +18,9 @@ function buildImageComponentWithSource(
   return <img src={source} alt={title} width={'100%'} />
 }
 
-export function PreModalImage({ videoInfo }: PreModalImageProps) {
-  const { thumbnailPath, title, url } = videoInfo
+export function PreModalImage({
+  videoInfo: { thumbnailPath, title, url },
+}: PreModalImageProps) {
   const { showModal } = useContext(ModalContext)
 
   // TODO Fix the below in #93
@@ -28,7 +29,7 @@ export function PreModalImage({ videoInfo }: PreModalImageProps) {
     if (thumbnailPath) {
       return buildImageComponentWithSource(thumbnailPath, title)
     }
-    const [provider, id] = getVideoProviderAndId(videoInfo.url)
+    const [provider, id] = getVideoProviderAndId(url)
     if (provider === 'unknown') {
       return <Typography>{title}</Typography>
     }
@@ -37,7 +38,7 @@ export function PreModalImage({ videoInfo }: PreModalImageProps) {
       getVideoThumnailUrl(provider, id),
       title
     )
-  }, [videoInfo])
+  }, [thumbnailPath, title, url])
 
   return <Box onClick={() => showModal(url)}>{imageComponent}</Box>
 }
