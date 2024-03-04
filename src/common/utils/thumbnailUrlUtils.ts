@@ -8,7 +8,7 @@ const vimeoRegex = /(?:https?:\/\/)?(?:www\.)?(?:player\.)?vimeo\.com\/(?:video\
 /**
  * Accepts url from IVideoData as an arg and returns a tuple of the VideoProvider and the Id
  */
-export function getVideoProviderAndId(videoInfo: IVideoInfo): [VideoProvider | 'unknown', string | null] {
+export function getVideoProviderAndId(videoInfo: IVideoInfo): [VideoProvider, string] | ['unknown', null] {
   const youtubeMatch = videoInfo.url.match(youtubeRegex);
   const vimeoMatch = videoInfo.url.match(vimeoRegex);
 
