@@ -13,7 +13,7 @@ export function Home() {
     <>
       <LandingPageLinks pages={[...recentWorkPageInfo.orderedPages]} />
       <VideoList videos={videos} pageType="recent" />
-      <Contact />
+      <Contact id="contact" />
     </>
   )
 }

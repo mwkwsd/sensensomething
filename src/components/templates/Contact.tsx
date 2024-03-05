@@ -1,9 +1,13 @@
 import { Card, Typography } from '@mui/material'
 import { ContactForm } from '../molecules/contactForm/ContactForm'
 
-export function Contact() {
+interface ContactProps {
+  id: string
+}
+
+export function Contact({ id }: ContactProps) {
   return (
-    <Card sx={{ paddingY: 4 }}>
+    <Card id={id} sx={{ paddingY: 4 }}>
       <Typography variant="h3" sx={{ padding: '0px 16px' }}>
         GET IN TOUCH
       </Typography>
@@ -11,4 +15,3 @@ export function Contact() {
     </Card>
   )
 }
-
