@@ -23,9 +23,10 @@ export function VideoModal() {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: '100%',
+          width: '80%',
           aspectRatio: '16/9',
-          border: '48px solid',
+          borderLeft: '48px solid black', 
+          borderRight: '48px solid black', 
         }}
       >
         <ModalCloseButton onClick={hideModal} />
