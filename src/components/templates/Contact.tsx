@@ -1,6 +1,5 @@
 import { Card, Typography } from '@mui/material'
 import { ContactForm } from '../molecules/contactForm/ContactForm'
-import { Link } from "react-router-dom";
 
 export function Contact() {
   return (
