@@ -1,7 +1,7 @@
 import { Container, SxProps, Typography } from '@mui/material'
 
 type PageTitleProps = {
-  title: string
+  title?: string
   titleUnderlineColor?: string
   subheaderText?: string
   sx?: SxProps
@@ -28,7 +28,7 @@ export function PageTitle({
   return (
     <Container sx={{ ...sx }} disableGutters={true}>
       <Typography variant="h1" sx={titleUnderline}>
-        {title.toLocaleUpperCase()}
+        {title?.toLocaleUpperCase()}
       </Typography>
       {subheaderText && (
         <Typography variant="body1">{subheaderText}</Typography>
