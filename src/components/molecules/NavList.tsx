@@ -1,5 +1,5 @@
 import { List } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { navLinks, Genre, Role } from '../../common/constants/enums'
 import { enumMappings } from '../../common/constants/constants'
 import { NavLinks } from './navLinks/NavLinks'
@@ -40,6 +40,8 @@ export function NavList() {
             key={index}
             label={item.label}
             onClick={() => navigate(item.route)}
+            component={Link}
+            to={item.route}
           />
         ))}
       </List>

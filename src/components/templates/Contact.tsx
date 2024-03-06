@@ -1,13 +1,10 @@
 import { Card, Typography } from '@mui/material'
 import { ContactForm } from '../molecules/contactForm/ContactForm'
+import { Link } from "react-router-dom";
 
-interface ContactProps {
-  id: string
-}
-
-export function Contact({ id }: ContactProps) {
+export function Contact() {
   return (
-    <Card id={id} sx={{ paddingY: 4 }}>
+    <Card id="contact" sx={{ paddingY: 4 }}>
       <Typography variant="h3" sx={{ padding: '0px 16px' }}>
         GET IN TOUCH
       </Typography>
