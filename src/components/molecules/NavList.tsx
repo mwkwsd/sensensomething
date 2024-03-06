@@ -1,5 +1,5 @@
 import { List } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { navLinks, Genre, Role } from '../../common/constants/enums'
 import { enumMappings } from '../../common/constants/constants'
 import { NavLinks } from './navLinks/NavLinks'
@@ -14,12 +14,14 @@ const orderedLinks: (Genre | Role)[] = [
 
 export function NavList() {
   const navigate = useNavigate()
+  const location = useLocation()
 
   const secondNavLinks = orderedLinks.map(linkEnum => (
     <NavLinks
       key={`${linkEnum}`}
       label={enumMappings[linkEnum].label}
       onClick={() => navigate(enumMappings[linkEnum].url)}
+      isSelected={location.pathname === enumMappings[linkEnum].url}
     />
   ))
 
@@ -33,6 +35,8 @@ export function NavList() {
         fontSize: 20,
         textAlign: 'right',
         overflowY: 'hidden',
+        paddingLeft: 10,
+        paddingRight: 10,
       }}
     >
       <List
@@ -48,12 +52,17 @@ export function NavList() {
             key={index}
             label={item.label}
             onClick={() => navigate(item.route)}
+            isSelected={location.pathname === item.route}
           />
         ))}
       </List>
 
       <List
-        sx={{ width: '100%', height: '100%', maxWidth: 360 }}
+        sx={{
+          width: '100%',
+          height: '100%',
+          maxWidth: 360,
+        }}
         component="nav"
       >
         {secondNavLinks}
