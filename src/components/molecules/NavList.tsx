@@ -12,14 +12,17 @@ const orderedLinks: (Genre | Role)[] = [
   'series',
 ]
 
-export function NavList() {
+export function NavList({ onClose }: { onClose: () => void }) {
   const navigate = useNavigate()
 
   const secondNavLinks = orderedLinks.map(linkEnum => (
     <NavLinks
       key={`${linkEnum}`}
       label={enumMappings[linkEnum].label}
-      onClick={() => navigate(enumMappings[linkEnum].url)}
+      onClick={() => {
+        navigate(enumMappings[linkEnum].url)
+        onClose()
+      }}
     />
   ))
 
@@ -47,7 +50,10 @@ export function NavList() {
           <NavLinks
             key={index}
             label={item.label}
-            onClick={() => navigate(item.route)}
+            onClick={() => {
+              navigate(item.route)
+              onClose()
+            }}
           />
         ))}
       </List>
