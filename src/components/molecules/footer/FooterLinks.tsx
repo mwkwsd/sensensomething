@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Typography } from '@mui/material'
 
 type FooterLinksProps = {
@@ -6,6 +6,13 @@ type FooterLinksProps = {
 }
 
 export function FooterLinks({ items }: FooterLinksProps) {
+  const navigate = useNavigate()
+
+  const handleLinkClick = (link: string) => {
+    navigate(link)
+    window.scrollTo(0, 0);
+  }
+
   return (
     <div
       style={{
@@ -20,6 +27,7 @@ export function FooterLinks({ items }: FooterLinksProps) {
         <Link
           key={index}
           to={item.link}
+          onClick={() => handleLinkClick(item.link)}
           style={{
             textDecoration: 'none',
             color: 'white',
