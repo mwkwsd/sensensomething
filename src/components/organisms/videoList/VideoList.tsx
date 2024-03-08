@@ -3,6 +3,7 @@ import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { PageTitle } from '../../atoms/pageTitle/PageTitle'
 import { VideoCard } from '../../molecules/videoCard/VideoCard'
 import { ShowMoreButton } from '../../atoms/buttons/ShowMoreButton'
+import { HireMeButton } from '../../atoms/buttons/HireMeButton'
 import { useState } from 'react'
 
 type VideoListProps = {
@@ -17,12 +18,18 @@ export function VideoList({ videos, pageType }: VideoListProps) {
   )
 
   const handleShowMore = () => {
-    const currentVisibleCount = visibleVideos.length;
-    const nextVisibleVideos = videos.slice(currentVisibleCount, currentVisibleCount + videosPerPage);
-    setVisibleVideos((prevVisibleVideos: IVideoInfo[]) => [...prevVisibleVideos, ...nextVisibleVideos]);
-  };
+    const currentVisibleCount = visibleVideos.length
+    const nextVisibleVideos = videos.slice(
+      currentVisibleCount,
+      currentVisibleCount + videosPerPage
+    )
+    setVisibleVideos((prevVisibleVideos: IVideoInfo[]) => [
+      ...prevVisibleVideos,
+      ...nextVisibleVideos,
+    ])
+  }
 
-  const allVideosDisplayed = visibleVideos.length === videos.length;
+  const allVideosDisplayed = visibleVideos.length === videos.length
 
   const videoComponents = visibleVideos.map((video: IVideoInfo) => (
     <Grid item xs={12} md={6} key={`grid-item-video-list-${video.title}`}>
@@ -43,9 +50,8 @@ export function VideoList({ videos, pageType }: VideoListProps) {
       <Grid container spacing={2}>
         {videoComponents}
       </Grid>
-      {!allVideosDisplayed && (
-        <ShowMoreButton onClick={handleShowMore} />
-      )}
+      {!allVideosDisplayed && <ShowMoreButton onClick={handleShowMore} />}
+      <HireMeButton />
     </>
   )
 }
