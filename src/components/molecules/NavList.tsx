@@ -2,7 +2,6 @@ import { List } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { enumMappings } from '../../common/constants/constants'
 import { Genre, Role, navLinks } from '../../common/constants/enums'
-import { NavStyle } from '../../common/utils/newStyle'
 import { NavLinks } from './navLinks/NavLinks'
 
 const orderedLinks: (Genre | Role)[] = [
@@ -32,13 +31,22 @@ export function NavList() {
   })
 
   return (
-    <div>
+    <div
+      style={{
+        height: '100%',
+        backgroundColor: 'black',
+        fontWeight: 'bold',
+        color: 'white',
+        fontSize: 20,
+        textAlign: 'right',
+        overflowY: 'hidden',
+      }}
+    >
       <List
         sx={{
           width: '100%',
           paddingBottom: '20px',
           maxWidth: 360,
-          ...NavStyle,
         }}
         component="nav"
       >
@@ -55,7 +63,7 @@ export function NavList() {
       </List>
 
       <List
-        sx={{ width: '100%', height: '100%', maxWidth: 360, ...NavStyle }}
+        sx={{ width: '100%', height: '100%', maxWidth: 360 }}
         component="nav"
       >
         {secondNavLinks}
