@@ -1,5 +1,7 @@
 {
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
-  }
+  },
+  "javascript.format.semicolons": "remove",
+  "typescript.format.semicolons": "remove"
 }
