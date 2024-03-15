@@ -1,14 +1,7 @@
 import { Button } from '@mui/material'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export function HireMeButton() {
-  const location = useLocation()
-  const isHomePage = location.pathname === '/'
-
-  if (isHomePage) {
-    return null
-  }
-
   return (
     <Button
       component={Link}

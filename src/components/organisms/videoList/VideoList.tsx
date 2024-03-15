@@ -5,28 +5,25 @@ import { VideoCard } from '../../molecules/videoCard/VideoCard'
 import { ShowMoreButton } from '../../atoms/buttons/ShowMoreButton'
 import { HireMeButton } from '../../atoms/buttons/HireMeButton'
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 type VideoListProps = {
   videos: IVideoInfo[]
   pageType: 'genre' | 'role' | 'recent'
 }
 
+const videosPerPage = 3
+
 export function VideoList({ videos, pageType }: VideoListProps) {
-  const videosPerPage = 3
+  const location = useLocation()
+  const isHomePage = location.pathname === '/'
+
   const [visibleVideos, setVisibleVideos] = useState(
     videos.slice(0, videosPerPage)
   )
 
   const handleShowMore = () => {
-    const currentVisibleCount = visibleVideos.length
-    const nextVisibleVideos = videos.slice(
-      currentVisibleCount,
-      currentVisibleCount + videosPerPage
-    )
-    setVisibleVideos((prevVisibleVideos: IVideoInfo[]) => [
-      ...prevVisibleVideos,
-      ...nextVisibleVideos,
-    ])
+    setVisibleVideos(videos.slice(0, visibleVideos.length + videosPerPage))
   }
 
   const allVideosDisplayed = visibleVideos.length === videos.length
@@ -50,8 +47,8 @@ export function VideoList({ videos, pageType }: VideoListProps) {
       <Grid container spacing={2}>
         {videoComponents}
       </Grid>
+      {!isHomePage && <HireMeButton />}
       {!allVideosDisplayed && <ShowMoreButton onClick={handleShowMore} />}
-      <HireMeButton />
     </>
   )
 }
