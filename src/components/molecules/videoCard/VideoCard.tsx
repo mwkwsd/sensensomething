@@ -6,6 +6,8 @@ import { PreModalImage } from '../../atoms/preModalImage/PreModalImage'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
+import { FaCircle } from 'react-icons/fa'
+import { BiSolidRightArrow } from 'react-icons/bi'
 
 type VideoCardProps = {
   video: IVideoInfo
@@ -48,7 +50,29 @@ export function VideoCard({ video, pageType }: VideoCardProps) {
   return (
     <Card>
       <CardMedia>
-        <PreModalImage videoInfo={video} />
+        <div style={{ position: 'relative' }}>
+          <PreModalImage videoInfo={video} />
+          <FaCircle
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              fontSize: '48px',
+              color: 'rgba(105, 105, 105, 0.75)',
+            }}
+          />
+          <BiSolidRightArrow
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              fontSize: '30px',
+              color: '#303030',
+            }}
+          />
+        </div>
       </CardMedia>
       <CardContent>
         {videoTitle}
