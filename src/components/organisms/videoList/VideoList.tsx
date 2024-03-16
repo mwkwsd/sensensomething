@@ -17,7 +17,6 @@ export function VideoList({ videos, pageType }: VideoListProps) {
   return (
     <>
       <PageTitle
-        title="RECENT WORK"
         sx={{ padding: '32px 16px 16px', fontSize: '1.75rem', fontWeight: '400' }}
       />
       <Grid container spacing={2}>
