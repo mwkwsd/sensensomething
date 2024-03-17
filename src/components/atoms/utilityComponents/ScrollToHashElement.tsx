@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 * https://dev.to/mindactuate/scroll-to-anchor-element-with-react-router-v6-38op
 */
 
-export function ScrollToHashElement(): React.ReactNode {
+export function ScrollToHashElement() {
   const location = useLocation()
   const lastHash = useRef('')
 
