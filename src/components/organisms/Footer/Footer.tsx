@@ -1,27 +1,26 @@
-import { FooterLinks } from '../../molecules/footer/FooterLinks'
+import { enumMappings } from '../../../common/constants/constants'
 import {
+  Genre,
+  Role,
+  genres,
   navLinks,
   roles,
-  genres,
-  Role,
-  Genre,
 } from '../../../common/constants/enums'
 import { BottomIcons } from '../../molecules/footer/BottomIcons'
-import { enumMappings } from '../../../common/constants/constants'
+import { FooterLinks } from '../../molecules/footer/FooterLinks'
+
+function generateColumnData(
+  enumValues: readonly Genre[] | readonly Role[]
+): { label: string; link: string }[] {
+  return enumValues.map(value => ({
+    label: enumMappings[value].label,
+    link: enumMappings[value].url,
+  }))
+}
 
 export function Footer() {
-  const generateColumnData = (
-    enumValues: readonly Genre[] | readonly Role[],
-  ) => {
-    const items = enumValues.map(value => ({
-      label: enumMappings[value].label,
-      link: enumMappings[value].url,
-    }))
-    return { items }
-  }
-
-  const roleColumnData = generateColumnData(roles )
-  const genreColumnData = generateColumnData(genres )
+  const roleColumnData = generateColumnData(roles)
+  const genreColumnData = generateColumnData(genres)
 
   const transformedNavLinks = navLinks.map(({ route, label }) => ({
     label,
@@ -47,14 +46,9 @@ export function Footer() {
       >
         <FooterLinks items={transformedNavLinks} />
 
-        <FooterLinks
-          items={roleColumnData.items}
-        />
+        <FooterLinks items={roleColumnData} />
 
-
-        <FooterLinks
-          items={genreColumnData.items}
-        />
+        <FooterLinks items={genreColumnData} />
       </div>
 
       <BottomIcons />

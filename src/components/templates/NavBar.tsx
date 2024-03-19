@@ -20,7 +20,6 @@ export function NavBar() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* styles WIP */}
       <AppBar position="sticky">
         <Toolbar>
           <Typography
@@ -45,6 +44,7 @@ export function NavBar() {
       </AppBar>
 
       <Drawer
+        disableRestoreFocus
         component="nav"
         variant="temporary"
         anchor="right"
