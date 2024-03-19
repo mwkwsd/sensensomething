@@ -1,7 +1,7 @@
 import { List } from '@mui/material'
-import { useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { navLinks, Genre, Role } from '../../common/constants/enums'
 import { enumMappings } from '../../common/constants/constants'
-import { Genre, Role, navLinks } from '../../common/constants/enums'
 import { NavLinks } from './navLinks/NavLinks'
 
 const orderedLinks: (Genre | Role)[] = [
@@ -12,26 +12,19 @@ const orderedLinks: (Genre | Role)[] = [
   'series',
 ]
 
-export function NavList() {
-  const secondNavLinks = useMemo(
-    () =>
-      orderedLinks.map(linkEnum => {
-        const navLink = {
-          route: enumMappings[linkEnum].url,
-          label: enumMappings[linkEnum].label,
-        }
-        return <NavLinks navLink={navLink} key={`nav-link-${linkEnum}`} />
-      }),
-    []
-  )
+export function NavList({ onClose }: { onClose: () => void }) {
+  const navigate = useNavigate()
 
-  const firstNavLinks = useMemo(
-    () =>
-      navLinks.map((item, index) => (
-        <NavLinks key={`nav-link-${item.label}-${index}`} navLink={item} />
-      )),
-    []
-  )
+  const secondNavLinks = orderedLinks.map(linkEnum => (
+    <NavLinks
+      key={`${linkEnum}`}
+      label={enumMappings[linkEnum].label}
+      onClick={() => {
+        navigate(enumMappings[linkEnum].url)
+        onClose()
+      }}
+    />
+  ))
 
   return (
     <div
@@ -53,7 +46,16 @@ export function NavList() {
         }}
         component="nav"
       >
-        {firstNavLinks}
+        {navLinks.map((item, index) => (
+          <NavLinks
+            key={index}
+            label={item.label}
+            onClick={() => {
+              navigate(item.route)
+              onClose()
+            }}
+          />
+        ))}
       </List>
 
       <List
