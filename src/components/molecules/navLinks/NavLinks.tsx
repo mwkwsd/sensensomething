@@ -1,18 +1,14 @@
 import { ListItemButton, ListItemText } from '@mui/material'
-import { Link } from 'react-router-dom'
 
 type NavLinksProps = {
-  navLink: { route: string; label: string }
+  label: string
+  onClick: () => void
 }
 
-export function NavLinks({ navLink }: NavLinksProps) {
+export function NavLinks({ label, onClick }: NavLinksProps) {
   return (
-    <ListItemButton
-      component={Link}
-      to={navLink.route}
-      sx={{ textAlign: 'right' }}
-    >
-      <ListItemText primary={navLink.label} />
+    <ListItemButton onClick={onClick} sx={{ textAlign: 'right' }}>
+      <ListItemText primary={label} />
     </ListItemButton>
   )
 }
