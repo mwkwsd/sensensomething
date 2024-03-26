@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 type NavLinksProps = {
   navLink: { route: string; label: string }
-  isSelected?: boolean
+  isSelected: boolean
 }
 
 export function NavLinks({ navLink, isSelected }: NavLinksProps) {
