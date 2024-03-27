@@ -1,8 +1,8 @@
-import { Box, Button, Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Box, Typography } from '@mui/material'
 import { Kurt } from '../../../assets/personalInfo/personalInfo'
 import { PageTitle } from '../../atoms/pageTitle/PageTitle'
 import { useTheme } from '@mui/material'
+import { Contact } from '../../templates/Contact'
 
 export function AboutPage() {
   const theme = useTheme()
@@ -29,9 +29,7 @@ export function AboutPage() {
           />
         </Box>
       ))}
-      <Button component={Link} to="/#contact">
-        Like my work?
-      </Button>
+      <Contact />
     </>
   )
 }
