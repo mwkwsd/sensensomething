@@ -1,19 +1,35 @@
-import { Box, Button, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import { Kurt } from "../../../assets/personalInfo/personalInfo";
+import { Box, Typography } from '@mui/material'
+import { Kurt } from '../../../assets/personalInfo/personalInfo'
+import { PageTitle } from '../../atoms/pageTitle/PageTitle'
+import { useTheme } from '@mui/material'
+import { Contact } from '../../templates/Contact'
 
 export function AboutPage() {
-  const title = Kurt.title
-  const description = Kurt.description
-  
+  const theme = useTheme()
+
   return (
     <>
-      <Typography variant="h3">{title}</Typography>
-      <Typography>{description}</Typography>
-      <Box display="flex" alignContent="center" justifyContent="center">
-        {Kurt.photos.map((photo) => <img src={photo.path} alt={photo.alt} style={{height: "100%", width: "100%"}}/>)}
-      </Box>
-      <Button component={Link} to="/#contact">Like my work?</Button> 
+      <PageTitle
+        title="About"
+        titleUnderlineColor={theme.palette.series.main}
+        fullWidth={true}
+      />
+      {Kurt.map((item, index) => (
+        <Box key={index}>
+          <Typography>{item.description}</Typography>
+          <img
+            src={item.photo.path}
+            alt={item.photo.alt}
+            style={{
+              height: '100%',
+              width: '100%',
+              paddingTop: '15px',
+              paddingBottom: '15px',
+            }}
+          />
+        </Box>
+      ))}
+      <Contact />
     </>
   )
 }

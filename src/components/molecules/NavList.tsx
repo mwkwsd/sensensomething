@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 import { enumMappings } from '../../common/constants/constants'
 import { Genre, Role, navLinks } from '../../common/constants/enums'
 import { NavLinks } from './navLinks/NavLinks'
+import { useLocation } from 'react-router-dom'
 
 const orderedLinks: (Genre | Role)[] = [
   'animation',
@@ -13,6 +14,8 @@ const orderedLinks: (Genre | Role)[] = [
 ]
 
 export function NavList() {
+  const location = useLocation()
+
   const secondNavLinks = useMemo(
     () =>
       orderedLinks.map(linkEnum => {
@@ -20,17 +23,27 @@ export function NavList() {
           route: enumMappings[linkEnum].url,
           label: enumMappings[linkEnum].label,
         }
-        return <NavLinks navLink={navLink} key={`nav-link-${linkEnum}`} />
+        return (
+          <NavLinks
+            navLink={navLink}
+            key={`nav-link-${linkEnum}`}
+            isSelected={location.pathname === enumMappings[linkEnum].url}
+          />
+        )
       }),
-    []
+    [location.pathname]
   )
 
   const firstNavLinks = useMemo(
     () =>
       navLinks.map((item, index) => (
-        <NavLinks key={`nav-link-${item.label}-${index}`} navLink={item} />
+        <NavLinks
+          key={`nav-link-${item.label}-${index}`}
+          navLink={item}
+          isSelected={location.pathname === item.route}
+        />
       )),
-    []
+    [location.pathname]
   )
 
   return (
@@ -43,6 +56,8 @@ export function NavList() {
         fontSize: 20,
         textAlign: 'right',
         overflowY: 'hidden',
+        paddingLeft: 10,
+        paddingRight: 10,
       }}
     >
       <List
@@ -57,7 +72,11 @@ export function NavList() {
       </List>
 
       <List
-        sx={{ width: '100%', height: '100%', maxWidth: 360 }}
+        sx={{
+          width: '100%',
+          height: '100%',
+          maxWidth: 360,
+        }}
         component="nav"
       >
         {secondNavLinks}

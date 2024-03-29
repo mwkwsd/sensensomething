@@ -5,6 +5,7 @@ type PageTitleProps = {
   titleUnderlineColor?: string
   subheaderText?: string
   sx?: SxProps
+  fullWidth?: boolean
 }
 
 export function PageTitle({
@@ -12,15 +13,17 @@ export function PageTitle({
   titleUnderlineColor,
   subheaderText,
   sx,
+  fullWidth
 }: PageTitleProps) {
   const titleUnderline: SxProps = titleUnderlineColor
     ? {
         paddingBottom: '16px',
+        width: fullWidth ? '100%' : '40px',
         ':after': {
           border: `1px solid ${titleUnderlineColor}`,
           display: 'block',
           content: '""',
-          width: '40px',
+          width: fullWidth ? '100%' : '40px',
         },
       }
     : { paddingBottom: '16px' }
