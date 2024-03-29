@@ -36,6 +36,8 @@ export function NavList({ onClose }: { onClose: () => void }) {
         fontSize: 20,
         textAlign: 'right',
         overflowY: 'hidden',
+        paddingLeft: 10,
+        paddingRight: 10,
       }}
     >
       <List
@@ -59,7 +61,11 @@ export function NavList({ onClose }: { onClose: () => void }) {
       </List>
 
       <List
-        sx={{ width: '100%', height: '100%', maxWidth: 360 }}
+        sx={{
+          width: '100%',
+          height: '100%',
+          maxWidth: 360,
+        }}
         component="nav"
       >
         {secondNavLinks}
