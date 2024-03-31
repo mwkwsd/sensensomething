@@ -33,6 +33,6 @@ export function getVideoThumnailUrl(
   if (provider === 'vimeo') {
     return `https://vumbnail.com/${id}.jpg`
   } /*provider === 'youtube' */ else {
-    return `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+    return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
   }
 }
