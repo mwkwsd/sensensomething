@@ -13,7 +13,7 @@ export function PageTitle({
   titleUnderlineColor,
   subheaderText,
   sx,
-  fullWidth
+  fullWidth,
 }: PageTitleProps) {
   const titleUnderline: SxProps = titleUnderlineColor
     ? {
@@ -24,9 +24,10 @@ export function PageTitle({
           display: 'block',
           content: '""',
           width: fullWidth ? '100%' : '40px',
+          marginTop: '10px',
         },
       }
-    : { paddingBottom: '16px' }
+    : { paddingBottom: '16px', marginTop: '10px' }
 
   return (
     <Container sx={{ ...sx }} disableGutters={true}>
