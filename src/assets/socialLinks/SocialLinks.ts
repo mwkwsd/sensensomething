@@ -7,6 +7,6 @@ interface SocialLinks {
 }
 
 export const socialLinks: SocialLinks = {
-  vimeo: 'https://www.vimeo.com/',
-  instagram: 'https://www.instagram.com/',
+  vimeo: 'https://vimeo.com/ksensenb',
+  instagram: 'https://www.instagram.com/sensen.something/',
 }
