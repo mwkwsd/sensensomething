@@ -15,12 +15,15 @@ export function PageTitle({
   sx,
   fullWidth,
 }: PageTitleProps) {
+
   const titleUnderline: SxProps = titleUnderlineColor
     ? {
-        paddingBottom: '16px',
+        paddingBottom: subheaderText ? '16px' : '0',
         width: fullWidth ? '100%' : '40px',
         ':after': {
-          border: `1px solid ${titleUnderlineColor}`,
+            border: titleUnderlineColor
+              ? `1px solid ${titleUnderlineColor}`
+              : 'none',
           display: 'block',
           content: '""',
           width: fullWidth ? '100%' : '40px',
@@ -31,7 +34,10 @@ export function PageTitle({
 
   return (
     <Container sx={{ ...sx }} disableGutters={true}>
-      <Typography variant="h1" sx={titleUnderline}>
+      <Typography
+        variant="h1"
+        sx={titleUnderline}
+      >
         {title?.toLocaleUpperCase()}
       </Typography>
       {subheaderText && (
