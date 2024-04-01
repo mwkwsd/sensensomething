@@ -1,14 +1,24 @@
 import { ListItemButton, ListItemText } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 type NavLinksProps = {
-  label: string
-  onClick: () => void
+  navLink: { route: string; label: string }
+  isSelected: boolean
 }
 
-export function NavLinks({ label, onClick }: NavLinksProps) {
+export function NavLinks({ navLink, isSelected }: NavLinksProps) {
   return (
-    <ListItemButton onClick={onClick} sx={{ textAlign: 'right' }}>
-      <ListItemText primary={label} />
+    <ListItemButton
+      component={Link}
+      to={navLink.route}
+      sx={{
+        textAlign: 'right',
+        borderBottom: isSelected
+          ? '2px solid #FFB74D'
+          : '2px solid transparent',
+      }}
+    >
+      <ListItemText primary={navLink.label} />
     </ListItemButton>
   )
 }

@@ -54,7 +54,7 @@ export function NavBar() {
           keepMounted: true,
         }}
       >
-        <NavList onClose={handleDrawerToggle} />
+        <NavList />
       </Drawer>
     </Box>
   )
