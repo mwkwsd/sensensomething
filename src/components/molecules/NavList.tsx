@@ -13,7 +13,7 @@ const orderedLinks: (Genre | Role)[] = [
   'series',
 ]
 
-export function NavList() {
+export function NavList({ onClose }: { onClose: () => void }) {
   const location = useLocation()
 
   const secondNavLinks = useMemo(
@@ -28,10 +28,11 @@ export function NavList() {
             navLink={navLink}
             key={`nav-link-${linkEnum}`}
             isSelected={location.pathname === enumMappings[linkEnum].url}
+            onClose={onClose}
           />
         )
       }),
-    [location.pathname]
+    [location.pathname, onClose]
   )
 
   const firstNavLinks = useMemo(
@@ -41,9 +42,10 @@ export function NavList() {
           key={`nav-link-${item.label}-${index}`}
           navLink={item}
           isSelected={location.pathname === item.route}
+          onClose={onClose}
         />
       )),
-    [location.pathname]
+    [location.pathname, onClose]
   )
 
   return (
