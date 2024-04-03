@@ -14,7 +14,7 @@ export function VideoModal() {
     <Modal
       open
       onClose={hideModal}
-      slotProps={{ backdrop: { sx: { backgroundColor: 'rgba(0,0,0,0.9)' } } }}
+      slotProps={{ backdrop: { sx: { backgroundColor: '#0C0D0D' } } }}
     >
       <Card
         sx={{
@@ -22,7 +22,7 @@ export function VideoModal() {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: '100%',
+          width: '80%',
           aspectRatio: '16/9',
         }}
       >
