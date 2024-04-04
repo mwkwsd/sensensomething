@@ -7,7 +7,7 @@ import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 import { FaCircle } from 'react-icons/fa'
-import { BiSolidRightArrow } from 'react-icons/bi'
+import { GrPlayFill } from 'react-icons/gr'
 
 type VideoCardProps = {
   video: IVideoInfo
@@ -62,7 +62,7 @@ export function VideoCard({ video, pageType }: VideoCardProps) {
               color: 'rgba(105, 105, 105, 0.75)',
             }}
           />
-          <BiSolidRightArrow
+          <GrPlayFill
             style={{
               position: 'absolute',
               top: '50%',
