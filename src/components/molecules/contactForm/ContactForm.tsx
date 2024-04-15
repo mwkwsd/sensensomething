@@ -72,7 +72,7 @@ export function ContactForm() {
       Object.entries(fieldStates).forEach(([key, value]) => {
         setFieldErrors((currentFieldErrors) => ({
           ...currentFieldErrors,
-          [key]: value === '' ? "error" : "",
+          [key]: value == '' ? "error" : "",
         }))
       })
     }
@@ -123,7 +123,7 @@ export function ContactForm() {
                   updateFieldState(i, e.target.value)
                 }
               />
-              {fieldErrors[i] == "error" && <FieldError message="Please fill out this field."/>}
+              {fieldErrors[i] === "error" && <FieldError message="Please fill out this field."/>}
             </Grid>
           ))}
           <Grid item xs={2.5} marginLeft={'auto'}>
