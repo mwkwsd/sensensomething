@@ -1,8 +1,9 @@
 import { List } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import { navLinks, Genre, Role } from '../../common/constants/enums'
+import { useMemo } from 'react'
 import { enumMappings } from '../../common/constants/constants'
+import { Genre, Role, navLinks } from '../../common/constants/enums'
 import { NavLinks } from './navLinks/NavLinks'
+import { useLocation } from 'react-router-dom'
 
 const orderedLinks: (Genre | Role)[] = [
   'animation',
@@ -13,18 +14,39 @@ const orderedLinks: (Genre | Role)[] = [
 ]
 
 export function NavList({ onClose }: { onClose: () => void }) {
-  const navigate = useNavigate()
+  const location = useLocation()
 
-  const secondNavLinks = orderedLinks.map(linkEnum => (
-    <NavLinks
-      key={`${linkEnum}`}
-      label={enumMappings[linkEnum].label}
-      onClick={() => {
-        navigate(enumMappings[linkEnum].url)
-        onClose()
-      }}
-    />
-  ))
+  const secondNavLinks = useMemo(
+    () =>
+      orderedLinks.map(linkEnum => {
+        const navLink = {
+          route: enumMappings[linkEnum].url,
+          label: enumMappings[linkEnum].label,
+        }
+        return (
+          <NavLinks
+            navLink={navLink}
+            key={`nav-link-${linkEnum}`}
+            isSelected={location.pathname === enumMappings[linkEnum].url}
+            onClose={onClose}
+          />
+        )
+      }),
+    [location.pathname, onClose]
+  )
+
+  const firstNavLinks = useMemo(
+    () =>
+      navLinks.map((item, index) => (
+        <NavLinks
+          key={`nav-link-${item.label}-${index}`}
+          navLink={item}
+          isSelected={location.pathname === item.route}
+          onClose={onClose}
+        />
+      )),
+    [location.pathname, onClose]
+  )
 
   return (
     <div
@@ -48,16 +70,7 @@ export function NavList({ onClose }: { onClose: () => void }) {
         }}
         component="nav"
       >
-        {navLinks.map((item, index) => (
-          <NavLinks
-            key={index}
-            label={item.label}
-            onClick={() => {
-              navigate(item.route)
-              onClose()
-            }}
-          />
-        ))}
+        {firstNavLinks}
       </List>
 
       <List
