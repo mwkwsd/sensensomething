@@ -7,6 +7,7 @@ const colorGuide = {
   animation: '#F8CAFF',
   documentary: '#79DFC1',
   email: '#FFB74D',
+  error: '#D32F2F'
 } as const
 
 const theme = createTheme({
@@ -128,6 +129,10 @@ export const kurtTheme = createTheme(theme, {
     email: theme.palette.augmentColor({
       color: { main: colorGuide.email },
       name: 'email',
+    }),
+    error: theme.palette.augmentColor({
+      color: { main: colorGuide.error },
+      name: 'error',
     }),
   },
 })
