@@ -72,7 +72,7 @@ export function ContactForm() {
       Object.entries(fieldStates).forEach(([key, value]) => {
         setFieldErrors((currentFieldErrors) => ({
           ...currentFieldErrors,
-          [key]: value == '' ? "error" : "",
+          [key]: value === '' ? "error" : "",
         }))
       })
     }
