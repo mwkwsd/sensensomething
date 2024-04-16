@@ -15,7 +15,7 @@ function getMoreImportantScreenValue(
 
 export function VideoModal() {
   const { innerHeight: height, innerWidth: width } = window
-  const [_windowWidth, setWindowWidth] = useState(width)
+  const [, setWindowWidth] = useState(width)
   const { videoUrl, hideModal } = useContext(ModalContext)
 
   useEffect(() => {
