@@ -1,6 +1,7 @@
 import emailjs from '@emailjs/browser'
-import { Button, Grid, TextFieldProps } from '@mui/material'
+import { Button, Container, Grid, TextFieldProps, Typography } from '@mui/material'
 import { useMemo, useRef, useState } from 'react'
+import { FieldError } from '../../atoms/formInput/FieldError'
 import { TextInput } from '../../atoms/formInput/TextInput'
 
 const inputs = ['name', 'email_address', 'message'] as const
@@ -23,6 +24,8 @@ const defaultFieldState: { [key in Input]: string } = inputs.reduce(
 
 export function ContactForm() {
   const [fieldStates, setFieldStates] = useState(defaultFieldState)
+  const [fieldErrors, setFieldErrors] = useState(defaultFieldState)
+  const [formError, setFormError] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   function updateFieldState(field: Input, value: string) {
@@ -49,27 +52,53 @@ export function ContactForm() {
       !process.env.REACT_APP_EMAIL_PUBLIC_ID
     )
       return // don't love this, but otherwise my sendForm() errors
-
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAIL_SERVICE_ID,
-        process.env.REACT_APP_EMAIL_TEMPLATE_ID,
-        currentForm,
-        process.env.REACT_APP_EMAIL_PUBLIC_ID
-      )
-      .then(
-        () => {
-          setFormSubmitted(true)
-        },
-        error => {
-          console.log(error.text) // We should figure out what we want to show for "Your email didn't send"
-        }
-      )
+    if (allFieldsFilledIn) {
+      emailjs
+        .sendForm(
+          process.env.REACT_APP_EMAIL_SERVICE_ID,
+          process.env.REACT_APP_EMAIL_TEMPLATE_ID,
+          currentForm,
+          process.env.REACT_APP_EMAIL_PUBLIC_ID
+        )
+        .then(
+          () => {
+            setFormSubmitted(true)
+          },
+          error => {
+            setFormError(true)
+          }
+        )
+    } else {
+      Object.entries(fieldStates).forEach(([key, value]) => {
+        setFieldErrors((currentFieldErrors) => ({
+          ...currentFieldErrors,
+          [key]: value === '' ? "error" : "",
+        }))
+      })
+    }
   }
 
   const thankYouComponent = useMemo(() => {
     if (!formSubmitted) return null
-    return <div>Thank you for the inquiry! I'll reach out soon!</div>
+    return (
+      <Container sx={{ textAlign: "center" }} disableGutters={true}>
+        <Typography
+          sx={{paddingY: "12px", marginY: "24px"}}
+          variant="body1"
+        >
+          Thank you for the inquiry! I'll reach out soon!
+        </Typography>
+        <Button
+          disableElevation
+          onClick={() => setFormSubmitted(false)}
+          variant="outlined"
+          color="email"
+          sx={{ paddingY: "12px" }}
+        >
+          Send Another Message
+        </Button>
+      </Container>
+    )
   }, [formSubmitted])
 
   const allFieldsFilledIn = Object.values(fieldStates).every(val => val !== '')
@@ -94,6 +123,7 @@ export function ContactForm() {
                   updateFieldState(i, e.target.value)
                 }
               />
+              {fieldErrors[i] === "error" && <FieldError message="Please fill out this field."/>}
             </Grid>
           ))}
           <Grid item xs={2.5} marginLeft={'auto'}>
@@ -102,12 +132,12 @@ export function ContactForm() {
               type="submit"
               variant="outlined"
               color="email"
-              disabled={!allFieldsFilledIn}
-              sx={{ width: '100%' }}
+              sx={{ width: '100%', paddingY: "12px" }}
             >
               Submit
             </Button>
           </Grid>
+          {formError && <FieldError message="Something went wrong and the form was not submitted. Please try again."/>}
         </Grid>
       )}
       {thankYouComponent}

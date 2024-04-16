@@ -13,7 +13,7 @@ export function PageTitle({
   titleUnderlineColor,
   subheaderText,
   sx,
-  fullWidth,
+  fullWidth
 }: PageTitleProps) {
 
   const titleUnderline: SxProps = titleUnderlineColor
