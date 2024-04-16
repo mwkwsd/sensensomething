@@ -49,7 +49,7 @@ export function VideoModal() {
     <Modal
       open
       onClose={hideModal}
-      slotProps={{ backdrop: { sx: { backgroundColor: 'rgba(0,0,0,0.9)' } } }}
+      slotProps={{ backdrop: { sx: { backgroundColor: '#OC0D0D' } } }}
     >
       <Card
         raised={false}
