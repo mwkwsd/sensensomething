@@ -70,6 +70,7 @@ export function VideoCard({ video, pageType }: VideoCardProps) {
               transform: 'translate(-50%, -50%)',
               fontSize: '30px',
               color: '#303030',
+              paddingLeft: '5px'
             }}
           />
         </div>
