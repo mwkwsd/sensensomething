@@ -50,8 +50,10 @@ export function ContactForm() {
       !process.env.REACT_APP_EMAIL_SERVICE_ID ||
       !process.env.REACT_APP_EMAIL_TEMPLATE_ID ||
       !process.env.REACT_APP_EMAIL_PUBLIC_ID
-    )
-      return // don't love this, but otherwise my sendForm() errors
+    ){
+      setFormError(true)
+      return
+    } // don't love this, but otherwise my sendForm() errors
     if (allFieldsFilledIn) {
       emailjs
         .sendForm(
