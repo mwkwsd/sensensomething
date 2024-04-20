@@ -26,7 +26,7 @@ export function getVideoProviderAndId(
   return ['unknown', null]
 }
 
-export function getVideoThumnailUrl(
+export function getVideoThumbnailUrl(
   provider: VideoProvider,
   id: string
 ): string {

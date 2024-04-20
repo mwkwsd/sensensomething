@@ -3,7 +3,7 @@ import { ReactNode, useContext, useMemo } from 'react'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import {
   getVideoProviderAndId,
-  getVideoThumnailUrl,
+  getVideoThumbnailUrl,
 } from '../../../common/utils/thumbnailUrlUtils'
 import { ModalContext } from '../../organisms/modal/ModalProvider'
 
@@ -35,7 +35,7 @@ export function PreModalImage({
     }
 
     return buildImageComponentWithSource(
-      getVideoThumnailUrl(provider, id),
+      getVideoThumbnailUrl(provider, id),
       title
     )
   }, [thumbnailPath, title, url])
