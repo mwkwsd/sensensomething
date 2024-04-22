@@ -1,32 +1,65 @@
-import { Card, CardMedia, Modal } from '@mui/material'
-import { useContext } from 'react'
+import { Card, CardMedia, Modal, SxProps } from '@mui/material'
+import { useContext, useEffect, useState } from 'react'
+import { ModalCloseButton } from '../../atoms/buttons/ModalCloseButton'
 import { Video } from '../../atoms/video/Video'
 import { ModalContext } from './ModalProvider'
-import { ModalCloseButton } from '../../atoms/buttons/ModalCloseButton'
+
+const sixteenByNineRatio = 16 / 9
+
+function getMoreImportantScreenValue(
+  height: number,
+  width: number
+): 'width' | 'height' {
+  return width / height > sixteenByNineRatio ? 'height' : 'width'
+}
 
 export function VideoModal() {
+  const { innerHeight: height, innerWidth: width } = window
+  const [, setWindowWidth] = useState(width)
   const { videoUrl, hideModal } = useContext(ModalContext)
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   if (!videoUrl) {
     return null
   }
 
+  const importantScreenValue = getMoreImportantScreenValue(height, width)
+
+  const sxHeightWidth: SxProps =
+    importantScreenValue === 'height'
+      ? {
+          height: height - 20,
+        }
+      : {
+          width: width - 10,
+        }
+
   return (
     <Modal
       open
       onClose={hideModal}
-      slotProps={{ backdrop: { sx: { backgroundColor: 'rgba(0,0,0,0.9)' } } }}
+      slotProps={{ backdrop: { sx: { backgroundColor: '#OC0D0D' } } }}
     >
       <Card
+        raised={false}
         sx={{
+          ...sxHeightWidth,
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: '80%',
-          aspectRatio: '16/9',
-          borderLeft: '48px solid black', 
-          borderRight: '48px solid black', 
+          aspectRatio: '16/9 !important',
         }}
       >
         <ModalCloseButton onClick={hideModal} />

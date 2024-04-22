@@ -1,5 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import { ReactNode, useContext, useMemo } from 'react'
+import { FaCircle } from 'react-icons/fa'
+import { GrPlayFill } from 'react-icons/gr'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import {
   getVideoProviderAndId,
@@ -40,5 +42,29 @@ export function PreModalImage({
     )
   }, [thumbnailPath, title, url])
 
-  return <Box onClick={() => showModal(url)}>{imageComponent}</Box>
+  return (
+    <div style={{ position: 'relative' }} onClick={() => showModal(url)}>
+      <Box children={imageComponent} />
+      <FaCircle
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          fontSize: '48px',
+          color: 'rgba(105, 105, 105, 0.75)',
+        }}
+      />
+      <GrPlayFill
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          fontSize: '30px',
+          color: '#303030',
+        }}
+      />
+    </div>
+  )
 }
