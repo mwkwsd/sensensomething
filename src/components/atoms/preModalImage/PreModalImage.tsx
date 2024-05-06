@@ -7,7 +7,7 @@ import {
   getVideoThumbnailUrl,
 } from '../../../common/utils/thumbnailUrlUtils'
 import { ModalContext } from '../../organisms/modal/ModalProvider'
-import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
+import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded'
 
 type PreModalImageProps = {
   videoInfo: IVideoInfo
@@ -54,7 +54,7 @@ export function PreModalImage({
           fontSize: '64px',
           color: '#FFB74D',
           opacity: '0.8',
-          zIndex: 1, 
+          zIndex: 1,
         }}
       />
       <PlayArrowRoundedIcon
@@ -65,10 +65,9 @@ export function PreModalImage({
           transform: 'translate(-50%, -50%)',
           fontSize: '50px',
           color: '#303030',
-          zIndex: 2, 
+          zIndex: 2,
         }}
       />
     </div>
   )
 }
-
