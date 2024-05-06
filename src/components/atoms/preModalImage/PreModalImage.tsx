@@ -1,14 +1,13 @@
 import { Box, Typography } from '@mui/material'
 import { ReactNode, useContext, useMemo } from 'react'
-// import { FaCircle } from 'react-icons/fa'
+import { FaCircle } from 'react-icons/fa'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import {
   getVideoProviderAndId,
   getVideoThumbnailUrl,
 } from '../../../common/utils/thumbnailUrlUtils'
 import { ModalContext } from '../../organisms/modal/ModalProvider'
-// import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
-import PlayButtonImage from '../../../assets/Play Button.png'
+import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 
 type PreModalImageProps = {
   videoInfo: IVideoInfo
@@ -46,18 +45,30 @@ export function PreModalImage({
   return (
     <div style={{ position: 'relative' }} onClick={() => showModal(url)}>
       <Box children={imageComponent} />
-      <img
-        src={PlayButtonImage} 
-        alt="Play Button"
+      <FaCircle
         style={{
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: '75px', 
-          height: '75px',
+          fontSize: '64px',
+          color: '#FFB74D',
+          opacity: '0.8',
+          zIndex: 1, 
+        }}
+      />
+      <PlayArrowRoundedIcon
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          fontSize: '50px',
+          color: '#303030',
+          zIndex: 2, 
         }}
       />
     </div>
   )
 }
+
