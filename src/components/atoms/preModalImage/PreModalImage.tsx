@@ -1,13 +1,14 @@
 import { Box, Typography } from '@mui/material'
 import { ReactNode, useContext, useMemo } from 'react'
-import { FaCircle } from 'react-icons/fa'
-import { GrPlayFill } from 'react-icons/gr'
+// import { FaCircle } from 'react-icons/fa'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import {
   getVideoProviderAndId,
   getVideoThumbnailUrl,
 } from '../../../common/utils/thumbnailUrlUtils'
 import { ModalContext } from '../../organisms/modal/ModalProvider'
+// import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
+import PlayButtonImage from '../../../assets/Play Button.png'
 
 type PreModalImageProps = {
   videoInfo: IVideoInfo
@@ -45,24 +46,16 @@ export function PreModalImage({
   return (
     <div style={{ position: 'relative' }} onClick={() => showModal(url)}>
       <Box children={imageComponent} />
-      <FaCircle
+      <img
+        src={PlayButtonImage} 
+        alt="Play Button"
         style={{
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          fontSize: '48px',
-          color: 'rgba(105, 105, 105, 0.75)',
-        }}
-      />
-      <GrPlayFill
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          fontSize: '30px',
-          color: '#303030',
+          width: '75px', 
+          height: '75px',
         }}
       />
     </div>
