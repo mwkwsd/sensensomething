@@ -19,7 +19,7 @@ export const Kurt: IPersonalInfoItem[] = [
   
   Kurt has a Master of Fine Arts in Documentary Studies and Production from Hofstra University and a Bachelor of Fine Arts in Film from the University of Wisconsin-Milwaukee.`,
     photo: {
-      path: "/images/kurt_profile.jpeg",
+      path: "/images/kurt_profile.png",
       alt: "Kurt Sensenbrenner flying an airplane"
     }
   },
@@ -28,14 +28,14 @@ export const Kurt: IPersonalInfoItem[] = [
 
     Dolor lacus mauris varius est orci condimentum. Mi interdum purus sit egestas elementum enim. Egestas vitae condimentum lorem sollicitudin aenean feugiat. `,
     photo: {
-      path: "/images/kurt_and_friend.jpg",
+      path: "/images/kurt_and_friend.png",
       alt: "Kurt Sensenbrenner and a friend"
     }
   },
   {
     description: `Nec morbi nisi tortor elit rutrum fringilla. Felis aliquam magna scelerisque tempus donec mollis. Viverra mauris suscipit interdum tristique porttitor vestibulum. Eu neque integer consequat ipsum elementum posuere vel non in. Pulvinar tincidunt laoreet ac est id orci sed sociis. Fringilla aliquam mi mattis dictum. Dolor in mauris enim risus.`,
     photo: {
-      path: "/images/kurt_and_people.jpeg",
+      path: "/images/kurt_and_people.png",
       alt: "Kurt Sensenbrenner and people smiling"
     }
   },
