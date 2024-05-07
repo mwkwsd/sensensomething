@@ -3,7 +3,6 @@ import {
   TextField,
   TextFieldProps,
   useTheme,
-  Typography,
 } from '@mui/material'
 import { Input } from '../../molecules/contactForm/ContactForm'
 import { WithRequired } from '../../../common/utils/typescriptUtils'

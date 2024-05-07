@@ -105,6 +105,18 @@ const theme = createTheme({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Manrope',
+          fontSize: '0.75rem',
+          fontWeight: 500,
+          lineHeight: '1.024rem',
+          letterSpacing: '0.02em',
+          textAlign: 'left'
+        },
+      },
+    },
   },
   palette: { background: { default: '#0C0D0D' } },
 })
