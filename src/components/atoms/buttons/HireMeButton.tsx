@@ -6,20 +6,23 @@ export function HireMeButton() {
     <Button
       component={Link}
       to="/#contact"
+      size="small"
       sx={{
-        color: 'white',
+        color: '#79DFC1',
         margin: '16px auto',
-        display: 'block',
+        display: 'flex', // Use flexbox
+        justifyContent: 'center', // Center horizontally
+        alignItems: 'center', // Center vertically
         position: 'relative',
         textAlign: 'center',
-        paddingBottom: '1rem',
+        padding: '6px 8px 16px 8px',
+        whiteSpace: 'nowrap'
       }}
     >
       <div
         style={{
-          borderBottom: '1px solid white',
-          display: 'inline',
-          padding: '0 10px 10px',
+          border: '1px solid #79DFC1',
+          padding: '10px 40px 10px',
         }}
       >
         READY TO HIRE ME?

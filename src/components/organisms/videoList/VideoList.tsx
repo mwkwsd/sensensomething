@@ -39,8 +39,10 @@ export function VideoList({ videos, pageType }: VideoListProps) {
       <Grid container spacing={2}>
         {videoComponents}
       </Grid>
-      {!isHomePage && <HireMeButton />}
-      {!allVideosDisplayed && <ShowMoreButton onClick={handleShowMore} />}
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        {!isHomePage && <HireMeButton />}
+        {!allVideosDisplayed && <ShowMoreButton onClick={handleShowMore} />}
+      </div>
     </>
   )
 }

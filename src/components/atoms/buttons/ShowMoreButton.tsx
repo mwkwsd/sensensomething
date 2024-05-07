@@ -11,19 +11,22 @@ export function ShowMoreButton({ onClick }: ShowMoreButtonProps) {
       sx={{
         color: 'white',
         margin: '16px auto',
-        display: 'block',
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
         position: 'relative',
-        paddingBottom: '1rem',
+        textAlign: 'center',
+        padding: '6px 8px 16px 8px',
+        whiteSpace: 'nowrap'
       }}
     >
       <div
         style={{
-          borderBottom: '1px solid white',
-          display: 'inline',
-          padding: '0 10px 10px',
+          border: '1px solid white',
+          padding: '10px 40px 10px',
         }}
       >
-        KEEP SHOWING MORE
+        LOAD MORE VIDEOS
       </div>
     </Button>
   )
