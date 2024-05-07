@@ -7,7 +7,7 @@ const colorGuide = {
   animation: '#F8CAFF',
   documentary: '#79DFC1',
   email: '#FFB74D',
-  error: '#D32F2F'
+  error: '#D32F2F',
 } as const
 
 const theme = createTheme({
@@ -22,7 +22,7 @@ const theme = createTheme({
       color: '#FFFFFF',
       fontWeight: 400,
       lineHeight: '2.964rem',
-      textAlign: 'left'
+      textAlign: 'left',
     },
     h2: {
       fontWeight: 700,
@@ -35,7 +35,7 @@ const theme = createTheme({
       fontSize: '1.5rem',
       lineHeight: '2.223rem',
       color: '#F8F9FA',
-      textAlign: 'left'
+      textAlign: 'left',
     },
     h4: {
       color: '#F8F9FA',
@@ -61,6 +61,13 @@ const theme = createTheme({
       lineHeight: '22px',
       fontSize: '0.8125rem',
       letterSpacing: '0.46px',
+    },
+    subtitle1: {
+      fontFamily: 'Manrope',
+      fontSize: '0.75rem',
+      fontWeight: '400',
+      lineHeight: '1.024rem',
+      textAlign: 'left',
     },
   },
   components: {
@@ -113,7 +120,7 @@ const theme = createTheme({
           fontWeight: 500,
           lineHeight: '1.024rem',
           letterSpacing: '0.02em',
-          textAlign: 'left'
+          textAlign: 'left',
         },
       },
     },
