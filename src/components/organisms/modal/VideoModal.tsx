@@ -3,15 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import { ModalCloseButton } from '../../atoms/buttons/ModalCloseButton'
 import { Video } from '../../atoms/video/Video'
 import { ModalContext } from './ModalProvider'
-
-const sixteenByNineRatio = 16 / 9
-
-function getMoreImportantScreenValue(
-  height: number,
-  width: number
-): 'width' | 'height' {
-  return width / height > sixteenByNineRatio ? 'height' : 'width'
-}
+import { getMoreImportantScreenValue } from '../../atoms/utilityComponents/GetMoreImportantScreenValue'
 
 export function VideoModal() {
   const { innerHeight: height, innerWidth: width } = window
