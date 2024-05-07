@@ -41,7 +41,7 @@ export function PageTitle({
         {title?.toLocaleUpperCase()}
       </Typography>
       {subheaderText && (
-        <Typography variant="body1">{subheaderText}</Typography>
+        <Typography variant="body2">{subheaderText}</Typography>
       )}
     </Container>
   )

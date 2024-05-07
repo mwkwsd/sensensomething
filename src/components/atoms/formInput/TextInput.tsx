@@ -1,4 +1,10 @@
-import { InputProps, TextField, TextFieldProps, useTheme } from '@mui/material'
+import {
+  InputProps,
+  TextField,
+  TextFieldProps,
+  useTheme,
+  Typography,
+} from '@mui/material'
 import { Input } from '../../molecules/contactForm/ContactForm'
 import { WithRequired } from '../../../common/utils/typescriptUtils'
 
@@ -17,6 +23,14 @@ export function TextInput({ fieldName, label, ...rest }: TextInputProps) {
         border: `1px solid ${theme.palette.email.main}`,
         display: 'block',
         width: '100%',
+      },
+      '& input': {
+        color: 'white',
+        fontWeight: 400,
+        fontSize: '1rem',
+        lineHeight: '1.4rem',
+        fontFamily: 'Manrope',
+        textAlign: 'left',
       },
     },
   }

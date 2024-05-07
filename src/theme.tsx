@@ -18,9 +18,11 @@ const theme = createTheme({
     },
     fontFamily: ['Oswald', 'Roboto', 'sans-serif'].join(','),
     h1: {
-      fontSize: '1.75rem',
+      fontSize: '2rem',
       color: '#FFFFFF',
-      fontWeight: 700,
+      fontWeight: 400,
+      lineHeight: '2.964rem',
+      textAlign: 'left'
     },
     h2: {
       fontWeight: 700,
@@ -29,10 +31,11 @@ const theme = createTheme({
     },
     // Home Page image overlay text
     h3: {
-      weight: 400,
+      fontWeight: 400,
       fontSize: '1.5rem',
-      lineHeight: '35.57px',
+      lineHeight: '2.223rem',
       color: '#F8F9FA',
+      textAlign: 'left'
     },
     h4: {
       color: '#F8F9FA',
@@ -45,10 +48,12 @@ const theme = createTheme({
       fontWeight: 400,
     },
     body2: {
-      color: '#212529',
+      color: 'white',
       fontWeight: 400,
-      fontSize: '0.75rem',
-      lineHeight: '14px',
+      fontSize: '1rem',
+      lineHeight: '1.4rem',
+      fontFamily: 'Manrope',
+      textAlign: 'left',
     },
     button: {
       // EXPLORE THE SERIES
