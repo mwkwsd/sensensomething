@@ -58,9 +58,12 @@ const theme = createTheme({
     button: {
       // EXPLORE THE SERIES
       color: '#FFFFFF',
-      lineHeight: '22px',
-      fontSize: '0.8125rem',
-      letterSpacing: '0.46px',
+      lineHeight: '1.024rem',
+      fontSize: '0.75rem',
+      letterSpacing: '0.02em',
+      fontFamily: 'Manrope',
+      fontWeight: '500',
+      textAlign: 'left',
     },
     subtitle1: {
       fontFamily: 'Manrope',

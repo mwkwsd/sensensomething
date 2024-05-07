@@ -23,6 +23,7 @@ const defaultFieldState: { [key in Input]: string } = inputs.reduce(
 )
 
 export function ContactForm() {
+
   const [fieldStates, setFieldStates] = useState(defaultFieldState)
   const [fieldErrors, setFieldErrors] = useState(defaultFieldState)
   const [formError, setFormError] = useState(false)
@@ -136,7 +137,7 @@ export function ContactForm() {
               color="email"
               sx={{ width: '100%', paddingY: "12px" }}
             >
-              Submit
+              SUBMIT
             </Button>
           </Grid>
           {formError && <FieldError message="Something went wrong and the form was not submitted. Please try again."/>}
