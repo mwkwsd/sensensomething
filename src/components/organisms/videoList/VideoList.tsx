@@ -32,15 +32,23 @@ export function VideoList({ videos, pageType }: VideoListProps) {
       <VideoCard video={video} pageType={pageType} />
     </Grid>
   ))
-  console.log(videoComponents)
 
   return (
     <>
       <Grid container spacing={2}>
         {videoComponents}
       </Grid>
-      {!isHomePage && <HireMeButton />}
-      {!allVideosDisplayed && <ShowMoreButton onClick={handleShowMore} />}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          paddingLeft: '16px',
+          paddingRight: '16px',
+        }}
+      >
+        {!isHomePage && <HireMeButton />}
+        {!allVideosDisplayed && <ShowMoreButton onClick={handleShowMore} />}
+      </div>
     </>
   )
 }
