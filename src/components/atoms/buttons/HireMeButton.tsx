@@ -9,24 +9,15 @@ export function HireMeButton() {
       size="small"
       sx={{
         color: '#79DFC1',
-        margin: '16px auto',
-        display: 'flex', // Use flexbox
-        justifyContent: 'center', // Center horizontally
-        alignItems: 'center', // Center vertically
-        position: 'relative',
-        textAlign: 'center',
-        padding: '6px 8px 16px 8px',
-        whiteSpace: 'nowrap'
+        marginRight: '8px',
+        fontSize: '0.8rem',
+        whiteSpace: 'nowrap',
+        border: '1px solid #79DFC1',
+        borderRadius: '0',
+        padding: '10px 20px',
       }}
     >
-      <div
-        style={{
-          border: '1px solid #79DFC1',
-          padding: '10px 40px 10px',
-        }}
-      >
-        READY TO HIRE ME?
-      </div>
+      READY TO HIRE ME?
     </Button>
   )
 }
