@@ -128,15 +128,26 @@ export function ContactForm() {
               {fieldErrors[i] === "error" && <FieldError message="Please fill out this field."/>}
             </Grid>
           ))}
-          <Grid item xs={2.5} marginLeft={'auto'}>
+          <Grid item xs={2.5} marginLeft={'auto'} marginRight={'45px'}>
             <Button
               disableElevation
               type="submit"
               variant="outlined"
               color="email"
-              sx={{ width: '100%', paddingY: "12px" }}
+              sx={{
+                width: 'auto',
+                minWidth: '94px',
+                height: 'auto',
+                minHeight: '40px',
+                border: '1px solid',
+                padding: '12px 24px',
+                gap: '8px',
+                marginRight: '16px',
+                borderRadius: '0'
+              }}
+          
             >
-              Submit
+              SUBMIT
             </Button>
           </Grid>
           {formError && <FieldError message="Something went wrong and the form was not submitted. Please try again."/>}
