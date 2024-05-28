@@ -11,7 +11,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { NavList } from '../molecules/NavList'
 
-const KurtLogo = `${process.env.PUBLIC_URL}/images/kurt_logo.png`;
+const KurtLogo = `${process.env.PUBLIC_URL}/images/kurt_logo.png`
 
 export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -31,7 +31,15 @@ export function NavBar() {
             noWrap
             sx={{ textDecoration: 'none' }}
           >
-            <img src={KurtLogo} alt="Logo" style={{ height: '60px', width: 'auto' }} />
+            <img
+              src={KurtLogo}
+              alt="Logo"
+              style={{
+                height: '60px',
+                width: 'auto',
+                padding: '16px 0 16px 0',
+              }}
+            />
           </Typography>
           <IconButton
             color="inherit"
