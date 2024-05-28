@@ -13,8 +13,7 @@ const colorGuide = {
 const theme = createTheme({
   typography: {
     allVariants: {
-      font: 'Oswald',
-      fontFamily: 'Oswald',
+      fontFamily: 'Oswald, Roboto, sans-serif',
     },
     fontFamily: ['Oswald', 'Roboto', 'sans-serif'].join(','),
     h1: {
@@ -29,7 +28,6 @@ const theme = createTheme({
       color: '#FFFFFF',
       fontSize: '1.5rem',
     },
-    // Home Page image overlay text
     h3: {
       fontWeight: 400,
       fontSize: '1.5rem',
@@ -52,23 +50,22 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: '1rem',
       lineHeight: '1.4rem',
-      fontFamily: 'Manrope',
+      fontFamily: 'Manrope, sans-serif',
       textAlign: 'left',
     },
     button: {
-      // EXPLORE THE SERIES
       color: '#FFFFFF',
       lineHeight: '1.024rem',
       fontSize: '0.75rem',
       letterSpacing: '0.02em',
-      fontFamily: 'Manrope',
-      fontWeight: '500',
+      fontFamily: 'Manrope, sans-serif',
+      fontWeight: 500,
       textAlign: 'left',
     },
     subtitle1: {
-      fontFamily: 'Manrope',
+      fontFamily: 'Manrope, sans-serif',
       fontSize: '0.75rem',
-      fontWeight: '400',
+      fontWeight: 400,
       lineHeight: '1.024rem',
       textAlign: 'left',
     },
@@ -118,7 +115,7 @@ const theme = createTheme({
     MuiChip: {
       styleOverrides: {
         root: {
-          fontFamily: 'Manrope',
+          fontFamily: 'Manrope, sans-serif',
           fontSize: '0.75rem',
           fontWeight: 500,
           lineHeight: '1.024rem',
