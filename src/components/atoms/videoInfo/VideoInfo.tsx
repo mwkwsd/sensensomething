@@ -8,7 +8,7 @@ type VideoInfoProps = {
 
 export function VideoInfo({ label, info, sx }: VideoInfoProps) {
   return (
-    <Typography variant="body1" sx={{ ...sx }}>
+    <Typography variant="body2" sx={{ ...sx }}>
       <b>{label}: </b>
       {info}
     </Typography>
