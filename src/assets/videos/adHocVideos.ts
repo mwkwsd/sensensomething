@@ -9,7 +9,7 @@ export const adHocVideos = [
     roles: ['director_of_photography'],
   },
   {
-    title: "What Energy Compnaies Don't Want You To Know",
+    title: "What Energy Companies Don't Want You To Know",
     url: 'https://www.youtube.com/embed/LTxnsj__zfE?si=uS6GLnSYEFhFTXm7',
     clientName: 'More Perfect Union',
     genres: [],
