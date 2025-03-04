@@ -7,32 +7,33 @@ const colorGuide = {
   animation: '#F8CAFF',
   documentary: '#79DFC1',
   email: '#FFB74D',
-  error: '#D32F2F'
+  error: '#D32F2F',
 } as const
 
 const theme = createTheme({
   typography: {
     allVariants: {
-      font: 'Oswald',
-      fontFamily: 'Oswald',
+      fontFamily: 'Oswald, Roboto, sans-serif',
     },
     fontFamily: ['Oswald', 'Roboto', 'sans-serif'].join(','),
     h1: {
-      fontSize: '1.75rem',
+      fontSize: '2rem',
       color: '#FFFFFF',
-      fontWeight: 700,
+      fontWeight: 400,
+      lineHeight: '2.964rem',
+      textAlign: 'left',
     },
     h2: {
       fontWeight: 700,
       color: '#FFFFFF',
       fontSize: '1.5rem',
     },
-    // Home Page image overlay text
     h3: {
-      weight: 400,
+      fontWeight: 400,
       fontSize: '1.5rem',
-      lineHeight: '35.57px',
+      lineHeight: '2.223rem',
       color: '#F8F9FA',
+      textAlign: 'left',
     },
     h4: {
       color: '#F8F9FA',
@@ -45,17 +46,28 @@ const theme = createTheme({
       fontWeight: 400,
     },
     body2: {
-      color: '#212529',
+      color: 'white',
       fontWeight: 400,
-      fontSize: '0.75rem',
-      lineHeight: '14px',
+      fontSize: '1rem',
+      lineHeight: '1.4rem',
+      fontFamily: 'Manrope, sans-serif',
+      textAlign: 'left',
     },
     button: {
-      // EXPLORE THE SERIES
       color: '#FFFFFF',
-      lineHeight: '22px',
-      fontSize: '0.8125rem',
-      letterSpacing: '0.46px',
+      lineHeight: '1.024rem',
+      fontSize: '0.75rem',
+      letterSpacing: '0.02em',
+      fontFamily: 'Manrope, sans-serif',
+      fontWeight: 500,
+      textAlign: 'left',
+    },
+    subtitle1: {
+      fontFamily: 'Manrope, sans-serif',
+      fontSize: '0.75rem',
+      fontWeight: 400,
+      lineHeight: '1.024rem',
+      textAlign: 'left',
     },
   },
   components: {
@@ -97,6 +109,18 @@ const theme = createTheme({
           position: 'absolute',
           bottom: 0,
           borderBottom: '16px',
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Manrope, sans-serif',
+          fontSize: '0.75rem',
+          fontWeight: 500,
+          lineHeight: '1.024rem',
+          letterSpacing: '0.02em',
+          textAlign: 'left',
         },
       },
     },
