@@ -1,6 +1,5 @@
 import { Card, CardMedia, Modal, SxProps } from '@mui/material'
 import { useContext, useEffect, useState } from 'react'
-import { ModalCloseButton } from '../../atoms/buttons/ModalCloseButton'
 import { Video } from '../../atoms/video/Video'
 import { ModalContext } from './ModalProvider'
 import { getMoreImportantScreenValue } from '../../atoms/utilityComponents/GetMoreImportantScreenValue'
@@ -54,7 +53,6 @@ export function VideoModal() {
           aspectRatio: '16/9 !important',
         }}
       >
-        <ModalCloseButton onClick={hideModal} />
         <CardMedia>
           <Video url={videoUrl} />
         </CardMedia>
