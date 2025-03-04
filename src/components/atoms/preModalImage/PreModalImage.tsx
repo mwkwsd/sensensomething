@@ -1,13 +1,13 @@
 import { Box, Typography } from '@mui/material'
 import { ReactNode, useContext, useMemo } from 'react'
 import { FaCircle } from 'react-icons/fa'
-import { GrPlayFill } from 'react-icons/gr'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import {
   getVideoProviderAndId,
   getVideoThumbnailUrl,
 } from '../../../common/utils/thumbnailUrlUtils'
 import { ModalContext } from '../../organisms/modal/ModalProvider'
+import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded'
 
 type PreModalImageProps = {
   videoInfo: IVideoInfo
@@ -51,18 +51,21 @@ export function PreModalImage({
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          fontSize: '48px',
-          color: 'rgba(105, 105, 105, 0.75)',
+          fontSize: '64px',
+          color: '#FFB74D',
+          opacity: '0.8',
+          zIndex: 1,
         }}
       />
-      <GrPlayFill
+      <PlayArrowRoundedIcon
         style={{
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          fontSize: '30px',
+          fontSize: '50px',
           color: '#303030',
+          zIndex: 2,
         }}
       />
     </div>
