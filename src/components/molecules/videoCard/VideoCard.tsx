@@ -1,6 +1,5 @@
 import { Card, CardContent, CardMedia } from '@mui/material'
 import { useMemo } from 'react'
-import { Genre, Role } from '../../../common/constants/enums'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { PreModalImage } from '../../atoms/preModalImage/PreModalImage'
 import { VideoInfo } from '../../atoms/videoInfo/VideoInfo'
@@ -14,35 +13,16 @@ type VideoCardProps = {
 
 // TODO: Video needs to take full width of Card
 export function VideoCard({ video, pageType }: VideoCardProps) {
-  const { title, clientName, roles, genres } = video
-
-  const videoTitle = useMemo(
-    () => <VideoTitle title={title} sx={{ marginBottom: '8px' }} />,
-    [title]
-  )
-
-  const clientComponent = useMemo(() => {
-    if (!clientName) return null
-    return (
-      <VideoInfo
-        label="Client"
-        info={clientName}
-        sx={{ marginBottom: '8px' }}
-      />
-    )
-  }, [clientName])
+  const { title, clientName, roles, genres, clientUrl } = video
 
   const rolesGenres = useMemo(() => {
-    let rolesGenres: (Role | Genre)[]
     if (pageType === 'genre') {
-      rolesGenres = [...roles]
+      return [...roles]
     } else if (pageType === 'role') {
-      rolesGenres = [...genres]
+      return [...genres]
     } else {
-      rolesGenres = [...roles, ...genres]
+      return [...roles, ...genres]
     }
-
-    return <VideoInfoWithLink linkableInfo={rolesGenres} />
   }, [roles, genres, pageType])
 
   return (
@@ -51,9 +31,16 @@ export function VideoCard({ video, pageType }: VideoCardProps) {
         <PreModalImage videoInfo={video} />
       </CardMedia>
       <CardContent>
-        {videoTitle}
-        {clientComponent}
-        {rolesGenres}
+        <VideoTitle title={title} sx={{ marginBottom: '8px' }} />
+        {clientName && (
+          <VideoInfo
+            label="Client"
+            info={clientName}
+            url={clientUrl}
+            sx={{ marginBottom: '8px' }}
+          />
+        )}
+        <VideoInfoWithLink linkableInfo={rolesGenres} />
       </CardContent>
     </Card>
   )

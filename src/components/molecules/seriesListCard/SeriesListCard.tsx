@@ -22,18 +22,12 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
   const { name, genres, roles, shortDescription } = seriesInfo
   const navigate = useNavigate()
 
-  const rolesGenresChips = (
-    <VideoInfoWithLink
-      linkableInfo={[...roles, ...genres].filter(tag => tag !== 'series')}
-      sx={{ paddingBottom: '8px' }}
-    />
+  const linkableInfo = useMemo(
+    () => [...roles, ...genres].filter(tag => tag !== 'series'),
+    [roles, genres]
   )
-  const videoInfo = getVideoInfoForSeriesDetail(seriesInfo)
 
-  const cardMediaImage = useMemo(() => {
-    if (!videoInfo) return null
-    return <PreModalImage videoInfo={videoInfo} />
-  }, [videoInfo])
+  const videoInfo = getVideoInfoForSeriesDetail(seriesInfo)
 
   return (
     <Card>
@@ -44,9 +38,16 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
             {shortDescription}
           </Typography>
         )}
-        {rolesGenresChips}
+        <VideoInfoWithLink
+          linkableInfo={linkableInfo}
+          sx={{ paddingBottom: '8px' }}
+        />
       </CardContent>
-      <CardMedia>{cardMediaImage}</CardMedia>
+      {videoInfo && (
+        <CardMedia>
+          <PreModalImage videoInfo={videoInfo} />
+        </CardMedia>
+      )}
       <CardActions sx={{ justifyContent: 'center' }}>
         <UnderlinedButton
           label="Explore the Series"
