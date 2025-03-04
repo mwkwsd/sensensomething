@@ -11,7 +11,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { NavList } from '../molecules/NavList'
 
-const KurtLogo = `${process.env.PUBLIC_URL}/images/kurt_logo.png`
+const KurtLogo = `${process.env.PUBLIC_URL}/images/kurt_logo.svg`
 
 export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
