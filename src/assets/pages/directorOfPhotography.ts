@@ -4,7 +4,7 @@ export const directorOfPhotographyPageInfo: IVideoListPageInfo = {
   pageTitle: 'Director of Photography',
   videoTitles: [
     'How Corporations Raided Medicare',
-    "What Energy Compnaies Don't Want You To Know",
+    "What Energy Companies Don't Want You To Know",
     'From Mass to the Mountain',
     'Peak Performance: Flying the Fire Boss',
     'Real Pilot Story: Hidden Hazard',
