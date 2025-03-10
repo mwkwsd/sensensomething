@@ -17,8 +17,8 @@ export function NavLink({ navLink, isSelected, onClose }: NavLinksProps) {
         ':last-child': { paddingBottom: '0rem' },
         paddingY: '0.125rem',
         paddingX: '0rem',
-        marginBottom: '-0.125rem',
-        borderBottom: `0.125rem solid ${borderColor}`,
+        marginBottom: '-0.0625rem', // Kinda hacky way to add a border w/o increasing component size
+        borderBottom: `0.0625rem solid ${borderColor}`,
       }}
     >
       <ListItemButton
