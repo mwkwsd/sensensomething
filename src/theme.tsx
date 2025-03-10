@@ -69,6 +69,14 @@ const theme = createTheme({
       lineHeight: '1.024rem',
       textAlign: 'left',
     },
+    // NavLink
+    subtitle2: {
+      fontSize: '1.25rem',
+      fontStyle: 'normal',
+      fontWeight: '400',
+      lineHeight: 'normal',
+      textTransform: 'uppercase',
+    },
   },
   components: {
     MuiAppBar: {

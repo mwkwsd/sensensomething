@@ -26,11 +26,11 @@ export function NavLink({ navLink, isSelected, onClose }: NavLinksProps) {
         to={navLink.route}
         disableGutters
         disableRipple
-        sx={{ textAlign: 'left', paddingY: '0px' }}
+        sx={{ paddingY: '0px' }}
         onClick={onClose}
       >
         <Typography
-          variant="body1"
+          variant="subtitle2"
           component="span"
           sx={{
             paddingLeft: '0.625rem',

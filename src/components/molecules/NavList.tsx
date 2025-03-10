@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 import { enumMappings } from '../../common/constants/constants'
 import { Genre, Role, navLinks } from '../../common/constants/enums'
-import { NavLink } from './navLinks/NavLinks'
+import { NavLink } from './navLinks/NavLink'
 
 const orderedLinks: (Genre | Role)[] = [
   'animation',
