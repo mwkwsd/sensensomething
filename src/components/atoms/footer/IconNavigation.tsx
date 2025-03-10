@@ -1,4 +1,5 @@
 import { BottomNavigationAction } from '@mui/material'
+import { ReactElement } from 'react'
 
 type IconNavigationProps = {
   icon: React.ReactNode
@@ -10,7 +11,7 @@ export function IconNavigation({
   icon,
   href,
   sx,
-}: IconNavigationProps): JSX.Element {
+}: IconNavigationProps): ReactElement {
   return (
     <BottomNavigationAction
       icon={icon}

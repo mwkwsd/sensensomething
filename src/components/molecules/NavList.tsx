@@ -1,9 +1,9 @@
 import { List } from '@mui/material'
 import { useMemo } from 'react'
+import { useLocation } from 'react-router-dom'
 import { enumMappings } from '../../common/constants/constants'
 import { Genre, Role, navLinks } from '../../common/constants/enums'
 import { NavLinks } from './navLinks/NavLinks'
-import { useLocation } from 'react-router-dom'
 
 const orderedLinks: (Genre | Role)[] = [
   'animation',

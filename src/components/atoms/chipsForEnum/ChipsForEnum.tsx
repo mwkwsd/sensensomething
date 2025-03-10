@@ -1,9 +1,10 @@
 import { Chip, useTheme } from '@mui/material'
+import { ReactNode } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { enumMappings } from '../../../common/constants/constants'
 import { Genre, Role } from '../../../common/constants/enums'
 
-export function ChipsForEnum({ value }: { value: Genre | Role }): JSX.Element {
+export function ChipsForEnum({ value }: { value: Genre | Role }): ReactNode {
   const { label, url } = enumMappings[value]
   const navigate = useNavigate()
   const theme = useTheme()
