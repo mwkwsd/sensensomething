@@ -65,7 +65,7 @@ const theme = createTheme({
     subtitle1: {
       fontFamily: 'Manrope, sans-serif',
       fontSize: '0.75rem',
-      fontWeight: 400,
+      fontWeight: 200,
       lineHeight: '1.024rem',
       textAlign: 'left',
     },
@@ -130,6 +130,11 @@ const theme = createTheme({
           letterSpacing: '0.02em',
           textAlign: 'left',
         },
+      },
+    },
+    MuiStack: {
+      defaultProps: {
+        useFlexGap: true,
       },
     },
   },

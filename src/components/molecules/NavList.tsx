@@ -1,5 +1,5 @@
 import CloseIcon from '@mui/icons-material/Close'
-import { Box, Grid2, List } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import { useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 import { enumMappings } from '../../common/constants/constants'
@@ -50,12 +50,11 @@ export function NavList({ onClose }: { onClose: () => void }) {
   )
 
   return (
-    <Grid2
-      container
+    <Stack
       direction="column"
       justifyContent="flex-start"
       alignItems="flex-start"
-      spacing={'32px'}
+      spacing="2rem"
       style={{
         height: '100%',
         backgroundColor: 'black',
@@ -66,24 +65,30 @@ export function NavList({ onClose }: { onClose: () => void }) {
         padding: 16,
       }}
     >
-      <Grid2 size={12}>
+      <Box sx={{ width: '100%' }}>
         <Box
           sx={{ height: 44, width: 44, float: 'right', textAlign: 'center' }}
           onClick={onClose}
         >
           <CloseIcon fontSize="large" sx={{ padding: '4.5px' }} />
         </Box>
-      </Grid2>
-      <Grid2 size={12} component="nav">
-        <List sx={{ width: '100%', maxWidth: 360, padding: 0 }}>
-          {firstNavLinks}
-        </List>
-      </Grid2>
-      <Grid2 size={12} component="nav">
-        <List sx={{ width: '100%', maxWidth: 360, padding: 0 }}>
-          {secondNavLinks}
-        </List>
-      </Grid2>
-    </Grid2>
+      </Box>
+
+      <Stack
+        component="nav"
+        spacing="0.125rem"
+        sx={{ width: '100%', maxWidth: 360, padding: 0 }}
+      >
+        {firstNavLinks}
+      </Stack>
+
+      <Stack
+        component="nav"
+        spacing="0.125rem"
+        sx={{ width: '100%', maxWidth: 360, padding: 0 }}
+      >
+        {secondNavLinks}
+      </Stack>
+    </Stack>
   )
 }

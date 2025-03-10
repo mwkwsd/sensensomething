@@ -1,4 +1,4 @@
-import { ListItem, ListItemButton, Typography } from '@mui/material'
+import { Box, ListItemButton, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 type NavLinksProps = {
@@ -11,14 +11,12 @@ export function NavLink({ navLink, isSelected, onClose }: NavLinksProps) {
   const borderColor = isSelected ? '#FFB74D' : 'transparent'
 
   return (
-    <ListItem
+    <Box
       sx={{
-        ':first-child': { paddingTop: '0rem' },
-        ':last-child': { paddingBottom: '0rem' },
-        paddingY: '0.125rem',
-        paddingX: '0rem',
-        marginBottom: '-0.0625rem', // Kinda hacky way to add a border w/o increasing component size
-        borderBottom: `0.0625rem solid ${borderColor}`,
+        marginBottom: '-2px', // Kinda hacky way to add a border w/o increasing component size
+        borderBottom: `2px solid ${borderColor}`,
+        height: '50px',
+        ':hover': { borderBottom: `2px solid #FFB74D` },
       }}
     >
       <ListItemButton
@@ -26,23 +24,22 @@ export function NavLink({ navLink, isSelected, onClose }: NavLinksProps) {
         to={navLink.route}
         disableGutters
         disableRipple
-        sx={{ paddingY: '0px' }}
+        sx={{
+          paddingY: '0px',
+          position: 'relative',
+          top: '50%',
+          transform: 'translateY(-50%)',
+        }}
         onClick={onClose}
       >
         <Typography
           variant="subtitle2"
           component="span"
-          sx={{
-            paddingLeft: '0.625rem',
-            fontSize: '1.25rem',
-            lineHeight: '100%',
-            paddingY: '0.625rem',
-            textTransform: 'uppercase',
-          }}
+          sx={{ paddingX: '0.625rem' }}
         >
           {navLink.label}
         </Typography>
       </ListItemButton>
-    </ListItem>
+    </Box>
   )
 }
