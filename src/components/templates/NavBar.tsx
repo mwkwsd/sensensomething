@@ -60,9 +60,8 @@ export function NavBar() {
         anchor="right"
         open={menuOpen}
         onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
+        ModalProps={{ keepMounted: true }}
+        slotProps={{ paper: { sx: { background: 'none' } } }}
       >
         <NavList onClose={handleDrawerToggle} />
       </Drawer>
