@@ -15,9 +15,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-a {
-  text-decoration: inherit;
-  color: inherit;
-  cursor: auto;
-}
