@@ -1,9 +1,10 @@
-import { List } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
+import { Box, Stack } from '@mui/material'
 import { useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 import { enumMappings } from '../../common/constants/constants'
 import { Genre, Role, navLinks } from '../../common/constants/enums'
-import { NavLinks } from './navLinks/NavLinks'
+import { NavLink } from './navLinks/NavLink'
 
 const orderedLinks: (Genre | Role)[] = [
   'animation',
@@ -16,6 +17,19 @@ const orderedLinks: (Genre | Role)[] = [
 export function NavList({ onClose }: { onClose: () => void }) {
   const location = useLocation()
 
+  const firstNavLinks = useMemo(
+    () =>
+      navLinks.map(item => (
+        <NavLink
+          key={`nav-link-${item.label}`}
+          navLink={item}
+          isSelected={location.pathname === item.route}
+          onClose={onClose}
+        />
+      )),
+    [location.pathname, onClose]
+  )
+
   const secondNavLinks = useMemo(
     () =>
       orderedLinks.map(linkEnum => {
@@ -24,7 +38,7 @@ export function NavList({ onClose }: { onClose: () => void }) {
           label: enumMappings[linkEnum].label,
         }
         return (
-          <NavLinks
+          <NavLink
             navLink={navLink}
             key={`nav-link-${linkEnum}`}
             isSelected={location.pathname === enumMappings[linkEnum].url}
@@ -35,54 +49,46 @@ export function NavList({ onClose }: { onClose: () => void }) {
     [location.pathname, onClose]
   )
 
-  const firstNavLinks = useMemo(
-    () =>
-      navLinks.map((item, index) => (
-        <NavLinks
-          key={`nav-link-${item.label}-${index}`}
-          navLink={item}
-          isSelected={location.pathname === item.route}
-          onClose={onClose}
-        />
-      )),
-    [location.pathname, onClose]
-  )
-
   return (
-    <div
+    <Stack
+      direction="column"
+      justifyContent="flex-start"
+      alignItems="flex-start"
+      spacing="2rem"
       style={{
         height: '100%',
         backgroundColor: 'black',
         fontWeight: 'bold',
         color: 'white',
         fontSize: 20,
-        textAlign: 'right',
         overflowY: 'hidden',
-        paddingLeft: 10,
-        paddingRight: 10,
+        padding: 16,
       }}
     >
-      <List
-        sx={{
-          width: '100%',
-          paddingBottom: '20px',
-          maxWidth: 360,
-        }}
+      <Box sx={{ width: '100%' }}>
+        <Box
+          sx={{ height: 44, width: 44, float: 'right', textAlign: 'center' }}
+          onClick={onClose}
+        >
+          <CloseIcon fontSize="large" sx={{ padding: '4.5px' }} />
+        </Box>
+      </Box>
+
+      <Stack
         component="nav"
+        spacing="0.125rem"
+        sx={{ width: '100%', maxWidth: 360, padding: 0 }}
       >
         {firstNavLinks}
-      </List>
+      </Stack>
 
-      <List
-        sx={{
-          width: '100%',
-          height: '100%',
-          maxWidth: 360,
-        }}
+      <Stack
         component="nav"
+        spacing="0.125rem"
+        sx={{ width: '100%', maxWidth: 360, padding: 0 }}
       >
         {secondNavLinks}
-      </List>
-    </div>
+      </Stack>
+    </Stack>
   )
 }
