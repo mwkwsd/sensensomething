@@ -5,6 +5,7 @@ export const lowPheLofeSeriesInfo: ISeriesDetail = {
   name: 'The Low-Phe Life',
   genres: ['animation'],
   roles: ['director_producer'],
+  imageUrl: '/images/placeholder.png',
   orderedVideoTitles: [
     'The Low-Phe Life: The Stain',
     'The Low-Phe Life: The Box',
@@ -13,7 +14,6 @@ export const lowPheLofeSeriesInfo: ISeriesDetail = {
     'The Low-Phe Life: The Taste',
     'The Low-Phe Life: The Conversation',
   ],
-  highlightTitle: 'The Low-Phe Life: The Stain',
   shortDescription: 'Short Description for Low-Phe Life',
   fullDescription:
     'Much longer description for the animation seies "The Low-Phe Life"',

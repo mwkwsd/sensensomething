@@ -10,39 +10,45 @@ const colorGuide = {
   error: '#D32F2F',
 } as const
 
+const fonts = ['Oswald', 'Roboto', 'sans-serif'].join(',')
+
 const theme = createTheme({
   typography: {
-    allVariants: {
-      fontFamily: 'Oswald, Roboto, sans-serif',
-    },
-    fontFamily: ['Oswald', 'Roboto', 'sans-serif'].join(','),
+    allVariants: { fontFamily: fonts },
+    fontFamily: fonts,
+    // page titles
     h1: {
       fontSize: '2rem',
       color: '#FFFFFF',
       fontWeight: 400,
       lineHeight: '2.964rem',
       textAlign: 'left',
+      textTransform: 'uppercase',
     },
     h2: {
       fontWeight: 700,
       color: '#FFFFFF',
       fontSize: '1.5rem',
     },
+    // video/series titles
     h3: {
       fontWeight: 400,
       fontSize: '1.5rem',
       lineHeight: '2.223rem',
       color: '#F8F9FA',
       textAlign: 'left',
+      textTransform: 'uppercase',
     },
     h4: {
       color: '#F8F9FA',
     },
+    // page/video descriptions
     body1: {
-      color: 'white',
+      color: '#F8F9FA',
       textDecoration: 'none',
       lineHeight: '18.75px',
       fontSize: '1rem',
+      fontFamily: 'Manrope, sans-serif',
       fontWeight: 400,
     },
     body2: {
@@ -50,7 +56,6 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: '1rem',
       lineHeight: '1.4rem',
-      fontFamily: 'Manrope, sans-serif',
       textAlign: 'left',
     },
     button: {
@@ -75,6 +80,16 @@ const theme = createTheme({
       fontStyle: 'normal',
       fontWeight: '400',
       lineHeight: 'normal',
+      textTransform: 'uppercase',
+    },
+    // seriesList image overlay
+    caption: {
+      fontSize: '1.5rem',
+      fontFamily: 'Oswald',
+      color: '#F8F9FA',
+      fontStyle: 'normal',
+      lineHeight: 'normal',
+      fontWeight: 400,
       textTransform: 'uppercase',
     },
   },

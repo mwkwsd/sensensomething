@@ -52,17 +52,3 @@ export function getVideoInfoForTitle(title: string): IVideoInfo | null {
   return videos.find(video => video.title === title) ?? null
 }
 
-export function getVideoInfoForSeriesDetail(
-  seriesDetail: ISeriesDetail
-): IVideoInfo | null {
-  const highlightVideo = seriesDetail.highlightTitle
-    ? getVideoInfoForTitle(seriesDetail.highlightTitle)
-    : null
-  if (highlightVideo) {
-    return highlightVideo
-  }
-
-  return seriesDetail.orderedVideoTitles[0]
-    ? getVideoInfoForTitle(seriesDetail.orderedVideoTitles[0])
-    : null
-}

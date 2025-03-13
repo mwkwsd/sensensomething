@@ -14,6 +14,6 @@ export const realPilotStorySeriesInfo: ISeriesDetail = {
   fullDescription:
     "Some Long description of the 'Real Pilot Story' series. It's a good one!",
   shortDescription: 'Real Pilots - Real Stories',
-  genres: ['series'],
+  genres: ['series', 'documentary'],
   roles: ['director_of_photography', 'director_producer'],
 }
