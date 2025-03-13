@@ -1,7 +1,7 @@
 import { ImageListItem, ImageListItemBar, useTheme } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import { PageEnum, enumMappings } from '../../../common/constants/constants'
 import { ImageOverlayText } from '../../atoms/imageOverlayText/ImageOverlayText'
-import { useNavigate } from 'react-router-dom'
 
 type EnumImageListItemProps = {
   pageEnum: PageEnum
@@ -28,7 +28,7 @@ export function EnumImageListItem({ pageEnum }: EnumImageListItemProps) {
         sx={{ height: '100%', width: '100%' }}
         title={
           <ImageOverlayText
-            text={enumMappings[pageEnum].label.toLocaleUpperCase()}
+            text={enumMappings[pageEnum].label}
             borderColor={borderColor}
           />
         }

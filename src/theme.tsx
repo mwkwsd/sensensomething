@@ -34,6 +34,7 @@ const theme = createTheme({
       lineHeight: '2.223rem',
       color: '#F8F9FA',
       textAlign: 'left',
+      textTransform: 'uppercase',
     },
     h4: {
       color: '#F8F9FA',
@@ -45,6 +46,7 @@ const theme = createTheme({
       fontSize: '1rem',
       fontWeight: 400,
     },
+    // video descriptions
     body2: {
       color: 'white',
       fontWeight: 400,
