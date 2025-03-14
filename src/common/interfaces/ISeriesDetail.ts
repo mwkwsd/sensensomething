@@ -6,7 +6,6 @@ export interface ISeriesDetail {
   name: string
   imageUrl?: string
   orderedVideoTitles: VideoTitle[]
-  highlightTitle?: VideoTitle // used on series list page
   shortDescription?: string
   fullDescription?: string
   genres: Genre[]

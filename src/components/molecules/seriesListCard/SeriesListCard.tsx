@@ -1,16 +1,7 @@
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography,
-} from '@mui/material'
+import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material'
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
-import { getVideoInfoForSeriesDetail } from '../../../common/utils/utils'
-import { UnderlinedButton } from '../../atoms/buttons/UnderlinedButton'
-import { PreModalImage } from '../../atoms/preModalImage/PreModalImage'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 import { VideoTitle } from '../../atoms/videoTitle/VideoTitle'
 
@@ -18,8 +9,10 @@ type SeriesListCardProps = {
   seriesInfo: ISeriesDetail
 }
 
+const PLACEHOLDER_IMAGE_URL = '/images/placeholder.png'
+
 export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
-  const { name, genres, roles, shortDescription } = seriesInfo
+  const { name, genres, roles, shortDescription, imageUrl } = seriesInfo
   const navigate = useNavigate()
 
   const linkableInfo = useMemo(
@@ -27,33 +20,42 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
     [roles, genres]
   )
 
-  const videoInfo = getVideoInfoForSeriesDetail(seriesInfo)
+  // const videoInfo = getVideoInfoForSeriesDetail(seriesInfo)
 
   return (
     <Card>
       <CardContent>
-        <VideoTitle title={name} sx={{ paddingBottom: '8px' }} />
+        <VideoTitle title={name} sx={{ paddingBottom: '0.75rem' }} />
         {shortDescription && (
-          <Typography variant="body1" sx={{ paddingBottom: '8px' }}>
+          <Typography variant="body1" sx={{ paddingBottom: '0.5rem' }}>
             {shortDescription}
           </Typography>
         )}
-        <VideoInfoWithLink
-          linkableInfo={linkableInfo}
-          sx={{ paddingBottom: '8px' }}
-        />
+        <VideoInfoWithLink linkableInfo={linkableInfo} />
       </CardContent>
-      {videoInfo && (
-        <CardMedia>
-          <PreModalImage videoInfo={videoInfo} />
-        </CardMedia>
-      )}
-      <CardActions sx={{ justifyContent: 'center' }}>
-        <UnderlinedButton
-          label="Explore the Series"
+      <CardMedia
+        image={imageUrl || PLACEHOLDER_IMAGE_URL}
+        sx={{
+          aspectRatio: '16/9',
+          border: '0px',
+          transition: "transform 0.15s ease-in-out",
+          ':hover': { transform: 'scale3d(1.05, 1.05, 1.05)' },
+        }}
+      >
+        <Box
           onClick={() => navigate(`/series/${seriesInfo.path}`)}
-        />
-      </CardActions>
+          sx={{
+            width: '100%',
+            height: '100%',
+            opacity: '60%',
+            backgroundColor: '#000000',
+            alignContent: 'center',
+            textAlign: 'center',
+          }}
+        >
+          <Typography variant="caption">Explore the Series</Typography>
+        </Box>
+      </CardMedia>
     </Card>
   )
 }

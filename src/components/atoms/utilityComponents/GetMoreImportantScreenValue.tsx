@@ -1,7 +1,8 @@
+const SIXTEEN_BY_NINE_RATIO = 16 / 9
+
 export function getMoreImportantScreenValue(
   height: number,
   width: number
 ): 'width' | 'height' {
-  const sixteenByNineRatio = 16 / 9
-  return width / height > sixteenByNineRatio ? 'height' : 'width'
+  return width / height > SIXTEEN_BY_NINE_RATIO ? 'height' : 'width'
 }

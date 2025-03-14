@@ -14,7 +14,7 @@ export function SeriesListPage() {
         title="Series"
         titleUnderlineColor={theme.palette.series.main}
         subheaderText={seriesListSubheaderText}
-        sx={{ padding: '16px 16px 24px' }}
+        sx={{ padding: '1rem 1rem 1.5rem' }}
       />
       <SeriesList series={allSeriesInfo} />
     </>

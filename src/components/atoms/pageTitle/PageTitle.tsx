@@ -13,30 +13,31 @@ export function PageTitle({
   titleUnderlineColor,
   subheaderText,
   sx,
-  fullWidth,
+  fullWidth: _fullWidth,
 }: PageTitleProps) {
-  const titleUnderline = {
-    paddingBottom: '16px',
+  const titleUnderline: SxProps = {
+    marginBottom: '1rem',
     position: 'relative',
     ':after': {
-      border: titleUnderlineColor ? `1px solid ${titleUnderlineColor}` : 'none',
+      border: titleUnderlineColor
+        ? `0.125rem solid ${titleUnderlineColor}`
+        : 'none',
       content: '""',
       display: 'block',
       position: 'absolute',
       bottom: '0',
       left: '0',
-      width: fullWidth ? '100%' : '40px',
-      marginTop: '10px',
+      width: '100%',
     },
   }
 
   return (
-    <Container sx={{ ...sx }} disableGutters={true}>
+    <Container sx={{ ...sx }} disableGutters>
       <Typography variant="h1" sx={titleUnderline}>
-        {title?.toLocaleUpperCase()}
+        {title}
       </Typography>
       {subheaderText && (
-        <Typography variant="body2">{subheaderText}</Typography>
+        <Typography variant="body1">{subheaderText}</Typography>
       )}
     </Container>
   )
