@@ -102,6 +102,7 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
+          borderRadius: '0',
           backgroundColor: '#0C0D0D',
         },
       },
