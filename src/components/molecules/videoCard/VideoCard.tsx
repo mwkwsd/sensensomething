@@ -26,7 +26,7 @@ export function VideoCard({ video, pageType }: VideoCardProps) {
   }, [roles, genres, pageType])
 
   return (
-    <Card>
+    <Card sx={{ borderRadius: 0 }} >
       <CardMedia>
         <PreModalImage videoInfo={video} />
       </CardMedia>
