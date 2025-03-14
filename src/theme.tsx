@@ -63,7 +63,7 @@ const theme = createTheme({
       lineHeight: '1.024rem',
       fontSize: '0.75rem',
       letterSpacing: '0.02em',
-      fontFamily: 'Manrope, sans-serif',
+      fontFamily: 'Oswald, sans-serif',
       fontWeight: 500,
       textAlign: 'left',
     },

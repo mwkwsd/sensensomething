@@ -42,7 +42,7 @@ export function VideoList({ videos, pageType }: VideoListProps) {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          gap: '8px',
+          gap: '2px',
           paddingLeft: '16px',
           paddingRight: '16px',
         }}
