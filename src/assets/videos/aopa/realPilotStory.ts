@@ -4,6 +4,7 @@ export const realPilotStoryVideos = [
   {
     title: 'Real Pilot Story: Hidden Hazard',
     url: 'https://www.youtube.com/embed/6ebhig-vr9o?si=zcpJaIheST-ztnij',
+    description: 'Those hazards sure are hard to see!',
     genres: ['series'],
     roles: ['director_producer', 'director_of_photography'],
     clientName: 'AOPA Air Safety Institute',
@@ -12,6 +13,8 @@ export const realPilotStoryVideos = [
   {
     title: 'Real Pilot Story: The Heat of the Moment',
     url: 'https://www.youtube.com/embed/hguX8DbJTGw?si=ZRRYG_XqArikqW41',
+    description:
+      'It is hot now! But it was cool then? Strange how those things can happen? Will it be cold tomorrow?',
     genres: ['series'],
     roles: ['director_producer', 'director_of_photography'],
     clientName: 'AOPA Air Safety Institute',

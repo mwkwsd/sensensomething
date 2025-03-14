@@ -51,6 +51,7 @@ const theme = createTheme({
       fontFamily: 'Manrope, sans-serif',
       fontWeight: 400,
     },
+    // video descriptions
     body2: {
       color: 'white',
       fontWeight: 400,

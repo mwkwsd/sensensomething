@@ -7,7 +7,7 @@ type VideoTitleProps = {
 
 export function VideoTitle({ title, sx }: VideoTitleProps) {
   return (
-    <Typography variant="h3" sx={{ ...sx, textTransform: 'uppercase' }}>
+    <Typography variant="h3" sx={{ ...sx }}>
       {title}
     </Typography>
   )

@@ -8,7 +8,7 @@ type ImageOverlayTextProps = {
 }
 
 export function ImageOverlayText({ text, borderColor }: ImageOverlayTextProps) {
-  const borderCss = `1px solid ${borderColor}`
+  const borderCss = `0.125rem solid ${borderColor}`
 
   return (
     <Typography
@@ -18,7 +18,7 @@ export function ImageOverlayText({ text, borderColor }: ImageOverlayTextProps) {
           border: borderCss,
           display: 'block',
           content: '""',
-          width: '40px',
+          width: '60px',
         },
       }}
     >
