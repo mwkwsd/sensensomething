@@ -16,7 +16,8 @@ export function PageTitle({
   fullWidth: _fullWidth,
 }: PageTitleProps) {
   const titleUnderline: SxProps = {
-    paddingBottom: '8px',
+    paddingBottom: '0.5rem',
+    marginBottom: '0.5rem',
     position: 'relative',
     ':after': {
       border: titleUnderlineColor
