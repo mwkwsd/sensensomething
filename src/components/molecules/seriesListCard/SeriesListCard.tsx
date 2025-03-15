@@ -23,7 +23,7 @@ export function SeriesListCard({ seriesInfo }: SeriesListCardProps) {
   // const videoInfo = getVideoInfoForSeriesDetail(seriesInfo)
 
   return (
-    <Card>
+    <Card >
       <CardContent>
         <VideoTitle title={name} sx={{ paddingBottom: '0.75rem' }} />
         {shortDescription && (
