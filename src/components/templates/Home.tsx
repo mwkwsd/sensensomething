@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { recentWorkPageInfo } from '../../assets/pages/recentWork'
 import { IVideoInfo } from '../../common/interfaces/IVideoInfo'
 import { getVideoInfoForTitle } from '../../common/utils/utils'
@@ -12,6 +13,7 @@ export function Home() {
   return (
     <>
       <LandingPageLinks pages={[...recentWorkPageInfo.orderedPages]} />
+      <Typography variant="h2" sx={{ margin: '32px 0px 16px 16px' }}>Recent Work</Typography>
       <VideoList videos={videos} pageType="recent" />
       <Contact />
     </>

@@ -25,10 +25,12 @@ const theme = createTheme({
       textAlign: 'left',
       textTransform: 'uppercase',
     },
+    // section title like Recent Work
     h2: {
-      fontWeight: 700,
+      fontWeight: 400,
       color: '#FFFFFF',
-      fontSize: '1.5rem',
+      fontSize: '1.75rem',
+      textTransform: 'uppercase'
     },
     // video/series titles
     h3: {
