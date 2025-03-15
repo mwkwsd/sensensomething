@@ -41,7 +41,8 @@ export function VideoList({ videos, pageType }: VideoListProps) {
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
+          gap: '2px',
           paddingLeft: '16px',
           paddingRight: '16px',
         }}
