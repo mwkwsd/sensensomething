@@ -1,3 +1,4 @@
+import { clients, IClientInfo } from '../../assets/clients/clients'
 import { directorOfPhotographyPageInfo } from '../../assets/pages/directorOfPhotography'
 import { directorProducerPageInfo } from '../../assets/pages/directorProducer'
 import { documentaryPageInfo } from '../../assets/pages/documentary'
@@ -52,3 +53,9 @@ export function getVideoInfoForTitle(title: string): IVideoInfo | null {
   return videos.find(video => video.title === title) ?? null
 }
 
+export function getClientByName(
+  clientName: string | undefined
+): IClientInfo | null {
+  if (!clientName) return null
+  return clients.find(client => client.name === clientName) ?? null
+}

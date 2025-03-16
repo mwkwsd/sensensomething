@@ -8,7 +8,6 @@ export const realPilotStoryVideos = [
     genres: ['series'],
     roles: ['director_producer', 'director_of_photography'],
     clientName: 'AOPA Air Safety Institute',
-    clientUrl: 'https://www.aopa.org/',
   },
   {
     title: 'Real Pilot Story: The Heat of the Moment',
@@ -18,7 +17,6 @@ export const realPilotStoryVideos = [
     genres: ['series'],
     roles: ['director_producer', 'director_of_photography'],
     clientName: 'AOPA Air Safety Institute',
-    clientUrl: 'https://www.aopa.org/',
   },
   {
     title: 'Real Pilot Story: Lost Elevator',
@@ -26,7 +24,6 @@ export const realPilotStoryVideos = [
     genres: ['series'],
     roles: ['director_producer', 'director_of_photography'],
     clientName: 'AOPA Air Safety Institute',
-    clientUrl: 'https://www.aopa.org/',
   },
   {
     title: 'Real Pilot Story: Pressure Over the Atlantic',
@@ -34,7 +31,6 @@ export const realPilotStoryVideos = [
     genres: ['series'],
     roles: ['director_producer', 'director_of_photography'],
     clientName: 'AOPA Air Safety Institute',
-    clientUrl: 'https://www.aopa.org/',
   },
   {
     title: 'Real Pilot Story: No Go-Around',
@@ -42,7 +38,6 @@ export const realPilotStoryVideos = [
     genres: ['series'],
     roles: ['director_producer', 'director_of_photography'],
     clientName: 'AOPA Air Safety Institute',
-    clientUrl: 'https://www.aopa.org/',
   },
   {
     title: 'Real Pilot Story: Powerless Over Paris',
@@ -50,6 +45,5 @@ export const realPilotStoryVideos = [
     genres: ['series'],
     roles: ['director_producer', 'director_of_photography'],
     clientName: 'AOPA Air Safety Institute',
-    clientUrl: 'https://www.aopa.org/',
   },
 ] as const satisfies Readonly<IVideoInfo[]>

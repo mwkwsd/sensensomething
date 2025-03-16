@@ -18,7 +18,6 @@ export const adHocVideos = [
   {
     title: 'From Mass to the Mountain',
     url: 'https://vimeo.com/121707380',
-    clientName: 'Self',
     genres: ['documentary'],
     roles: ['director_producer', 'director_of_photography'],
   },
