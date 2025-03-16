@@ -12,8 +12,7 @@ export function BottomIcons() {
   return (
     <BottomNavigation
       sx={{
-        backgroundColor: '#191B1B',
-        marginTop: 'auto',
+        backgroundColor: 'inherit',
         display: 'flex',
         justifyContent: 'center',
       }}

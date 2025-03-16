@@ -1,3 +1,4 @@
+import { Stack } from '@mui/material'
 import { enumMappings } from '../../../common/constants/constants'
 import {
   Genre,
@@ -28,30 +29,20 @@ export function Footer() {
   }))
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '10px',
-        marginTop: '16px',
-        backgroundColor: '#191B1B',
-      }}
+    <Stack
+      spacing={1.5}
+      sx={{ backgroundColor: '#191B1B', padding: '2.5rem 1rem 2rem' }}
+      direction="column"
     >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginBottom: '10px',
-        }}
-      >
+      <Stack direction="row" spacing={3} justifyContent="space-between">
         <FooterLinks items={transformedNavLinks} />
 
         <FooterLinks items={roleColumnData} />
 
         <FooterLinks items={genreColumnData} />
-      </div>
+      </Stack>
 
       <BottomIcons />
-    </div>
+    </Stack>
   )
 }
