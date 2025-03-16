@@ -3,8 +3,8 @@ import {
   BottomNavigationAction,
   useTheme,
 } from '@mui/material'
-import { RiVimeoFill } from 'react-icons/ri'
 import { FaInstagram } from 'react-icons/fa'
+import { RiVimeoFill } from 'react-icons/ri'
 import { socialLinks } from '../../../assets/socialLinks/SocialLinks'
 
 export function BottomIcons() {
@@ -22,6 +22,7 @@ export function BottomIcons() {
         icon={<RiVimeoFill />}
         href={socialLinks.vimeo}
         target="_blank"
+        rel="noopener noreferrer"
         sx={{
           alignItems: 'flex-end',
           fontSize: '30px',
@@ -32,6 +33,7 @@ export function BottomIcons() {
         icon={<FaInstagram />}
         href={socialLinks.instagram}
         target="_blank"
+        rel="noopener noreferrer"
         sx={{
           alignItems: 'flex-start',
           fontSize: '30px',

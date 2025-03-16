@@ -8,23 +8,17 @@ export function ShowMoreButton({ onClick }: ShowMoreButtonProps) {
   return (
     <Button
       onClick={onClick}
+      size="small"
       sx={{
         color: 'white',
-        margin: '16px auto',
-        display: 'block',
-        position: 'relative',
-        paddingBottom: '1rem',
+        fontSize: '0.8rem',
+        whiteSpace: 'nowrap',
+        border: '1px solid white',
+        borderRadius: '0',
+        padding: '10px 20px',
       }}
     >
-      <div
-        style={{
-          borderBottom: '1px solid white',
-          display: 'inline',
-          padding: '0 10px 10px',
-        }}
-      >
-        KEEP SHOWING MORE
-      </div>
+      LOAD MORE VIDEOS
     </Button>
   )
 }

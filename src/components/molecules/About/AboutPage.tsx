@@ -1,7 +1,6 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useTheme } from '@mui/material'
 import { Kurt } from '../../../assets/personalInfo/personalInfo'
 import { PageTitle } from '../../atoms/pageTitle/PageTitle'
-import { useTheme } from '@mui/material'
 import { Contact } from '../../templates/Contact'
 
 export function AboutPage() {
@@ -16,7 +15,7 @@ export function AboutPage() {
       />
       {Kurt.map((item, index) => (
         <Box key={index}>
-          <Typography>{item.description}</Typography>
+          <Typography variant="body1">{item.description}</Typography>
           <img
             src={item.photo.path}
             alt={item.photo.alt}

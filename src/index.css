@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -5,11 +7,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #0c0d0d;
 }
+
 html {
   font-size: 16px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+/*
+Got to learn a bit about this history html/css rendering here.
+*/
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }

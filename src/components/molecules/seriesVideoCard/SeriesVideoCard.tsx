@@ -4,20 +4,17 @@ import { PreModalImage } from '../../atoms/preModalImage/PreModalImage'
 
 type SeriesVideoCardProps = {
   videoInfo: IVideoInfo
-  episodeCount: string
 }
 
-export function SeriesVideoCard({
-  videoInfo,
-  episodeCount,
-}: SeriesVideoCardProps) {
+export function SeriesVideoCard({ videoInfo }: SeriesVideoCardProps) {
   const { title, description } = videoInfo
   return (
     <Card>
       <CardContent>
-        <Typography variant="h4">{episodeCount.toLocaleUpperCase()}</Typography>
-        <Typography variant="h3">{title}</Typography>
-        {description && <Typography variant="h3">{description}</Typography>}
+        <Typography variant="h3" sx={{ paddingBottom: '0.5rem' }}>
+          {title}
+        </Typography>
+        {description && <Typography variant="body1">{description}</Typography>}
       </CardContent>
       <CardMedia>
         <PreModalImage videoInfo={videoInfo} />

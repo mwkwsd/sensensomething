@@ -18,6 +18,6 @@ export const recentWorkPageInfo: RecentWorkPageType = {
     // 'The Indicators',
     'Peak Performance: Flying the Fire Boss',
     'How Corporations Raided Medicare',
-    "What Energy Compnaies Don't Want You To Know",
+    "What Energy Companies Don't Want You To Know",
   ],
 } as const

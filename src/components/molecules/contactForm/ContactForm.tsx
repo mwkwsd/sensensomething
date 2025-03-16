@@ -1,5 +1,11 @@
 import emailjs from '@emailjs/browser'
-import { Button, Container, Grid, TextFieldProps, Typography } from '@mui/material'
+import {
+  Button,
+  Container,
+  Grid2,
+  TextFieldProps,
+  Typography,
+} from '@mui/material'
 import { useMemo, useRef, useState } from 'react'
 import { FieldError } from '../../atoms/formInput/FieldError'
 import { TextInput } from '../../atoms/formInput/TextInput'
@@ -50,7 +56,7 @@ export function ContactForm() {
       !process.env.REACT_APP_EMAIL_SERVICE_ID ||
       !process.env.REACT_APP_EMAIL_TEMPLATE_ID ||
       !process.env.REACT_APP_EMAIL_PUBLIC_ID
-    ){
+    ) {
       setFormError(true)
       return
     } // don't love this, but otherwise my sendForm() errors
@@ -72,9 +78,9 @@ export function ContactForm() {
         )
     } else {
       Object.entries(fieldStates).forEach(([key, value]) => {
-        setFieldErrors((currentFieldErrors) => ({
+        setFieldErrors(currentFieldErrors => ({
           ...currentFieldErrors,
-          [key]: value === '' ? "error" : "",
+          [key]: value === '' ? 'error' : '',
         }))
       })
     }
@@ -83,11 +89,8 @@ export function ContactForm() {
   const thankYouComponent = useMemo(() => {
     if (!formSubmitted) return null
     return (
-      <Container sx={{ textAlign: "center" }} disableGutters={true}>
-        <Typography
-          sx={{paddingY: "12px", marginY: "24px"}}
-          variant="body1"
-        >
+      <Container sx={{ textAlign: 'center' }} disableGutters={true}>
+        <Typography sx={{ paddingY: '12px', marginY: '24px' }} variant="body1">
           Thank you for the inquiry! I'll reach out soon!
         </Typography>
         <Button
@@ -95,7 +98,7 @@ export function ContactForm() {
           onClick={() => setFormSubmitted(false)}
           variant="outlined"
           color="email"
-          sx={{ paddingY: "12px" }}
+          sx={{ paddingY: '12px' }}
         >
           Send Another Message
         </Button>
@@ -107,7 +110,7 @@ export function ContactForm() {
   return (
     <>
       {!formSubmitted && (
-        <Grid
+        <Grid2
           id="contact"
           container
           spacing={1.5}
@@ -117,7 +120,7 @@ export function ContactForm() {
           sx={{ paddingX: '16px' }}
         >
           {inputs.map(i => (
-            <Grid item key={`${i}-input-key`} xs={12}>
+            <Grid2 key={`${i}-input-key`} size={{ xs: 12 }}>
               <TextInput
                 sx={{ width: '100%' }}
                 {...inputToFormProps[i]}
@@ -125,33 +128,26 @@ export function ContactForm() {
                   updateFieldState(i, e.target.value)
                 }
               />
-              {fieldErrors[i] === "error" && <FieldError message="Please fill out this field."/>}
-            </Grid>
+              {fieldErrors[i] === 'error' && (
+                <FieldError message="Please fill out this field." />
+              )}
+            </Grid2>
           ))}
-          <Grid item xs={2.5} marginLeft={'auto'} marginRight={'45px'}>
+          <Grid2 size={{ xs: 2.5 }} marginLeft={'auto'}>
             <Button
               disableElevation
               type="submit"
               variant="outlined"
               color="email"
-              sx={{
-                width: 'auto',
-                minWidth: '94px',
-                height: 'auto',
-                minHeight: '40px',
-                border: '1px solid',
-                padding: '12px 24px',
-                gap: '8px',
-                marginRight: '16px',
-                borderRadius: '0'
-              }}
-          
+              sx={{ width: '100%', paddingY: '12px' }}
             >
               SUBMIT
             </Button>
-          </Grid>
-          {formError && <FieldError message="Something went wrong and the form was not submitted. Please try again."/>}
-        </Grid>
+          </Grid2>
+          {formError && (
+            <FieldError message="Something went wrong and the form was not submitted. Please try again." />
+          )}
+        </Grid2>
       )}
       {thankYouComponent}
     </>

@@ -1,26 +1,23 @@
 import { Box, Typography } from '@mui/material'
+import { useMemo } from 'react'
 import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
 import { PageTitle } from '../../atoms/pageTitle/PageTitle'
-import { useMemo } from 'react'
 import { VideoInfoWithLink } from '../../atoms/videoInfoWithLink/videoInfoWithLink'
 
 type SeriesDetailDescriptionProps = {
   seriesInfo: ISeriesDetail
 }
+
 export function SeriesDetailDescription({
   seriesInfo,
 }: SeriesDetailDescriptionProps) {
   const pageTitle = seriesInfo.name.toLocaleUpperCase()
-  const genresRolesChips = useMemo(
-    () => (
-      <VideoInfoWithLink
-        linkableInfo={[...seriesInfo.genres, ...seriesInfo.roles].filter(
-          roleGenre => roleGenre !== 'series'
-        )}
-        sx={{ paddingBottom: '16px' }}
-      />
-    ),
-    [seriesInfo]
+  const linkableInfo = useMemo(
+    () =>
+      [...seriesInfo.genres, ...seriesInfo.roles].filter(
+        roleGenre => roleGenre !== 'series'
+      ),
+    [seriesInfo.genres, seriesInfo.roles]
   )
   return (
     <Box sx={{ padding: '24px 16px 16px' }}>
@@ -34,7 +31,10 @@ export function SeriesDetailDescription({
         />
       )}
       <Box>
-        {genresRolesChips}
+        <VideoInfoWithLink
+          linkableInfo={linkableInfo}
+          sx={{ paddingBottom: '16px' }}
+        />
         <Typography variant="body1">{seriesInfo.fullDescription}</Typography>
       </Box>
     </Box>

@@ -13,32 +13,29 @@ export function PageTitle({
   titleUnderlineColor,
   subheaderText,
   sx,
-  fullWidth
+  fullWidth: _fullWidth,
 }: PageTitleProps) {
-
-  const titleUnderline: SxProps = titleUnderlineColor
-    ? {
-        paddingBottom: subheaderText ? '16px' : '0',
-        width: fullWidth ? '100%' : '40px',
-        ':after': {
-            border: titleUnderlineColor
-              ? `1px solid ${titleUnderlineColor}`
-              : 'none',
-          display: 'block',
-          content: '""',
-          width: fullWidth ? '100%' : '40px',
-          marginTop: '10px',
-        },
-      }
-    : { paddingBottom: '16px', marginTop: '10px' }
+  const titleUnderline: SxProps = {
+    paddingBottom: '0.5rem',
+    marginBottom: '1rem',
+    position: 'relative',
+    ':after': {
+      border: titleUnderlineColor
+        ? `0.125rem solid ${titleUnderlineColor}`
+        : 'none',
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      bottom: '0',
+      left: '0',
+      width: '100%',
+    },
+  }
 
   return (
-    <Container sx={{ ...sx }} disableGutters={true}>
-      <Typography
-        variant="h1"
-        sx={titleUnderline}
-      >
-        {title?.toLocaleUpperCase()}
+    <Container sx={{ ...sx }} disableGutters>
+      <Typography variant="h1" sx={titleUnderline}>
+        {title}
       </Typography>
       {subheaderText && (
         <Typography variant="body1">{subheaderText}</Typography>

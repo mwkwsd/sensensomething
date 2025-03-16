@@ -7,55 +7,93 @@ const colorGuide = {
   animation: '#F8CAFF',
   documentary: '#79DFC1',
   email: '#FFB74D',
-  error: '#D32F2F'
+  error: '#D32F2F',
 } as const
+
+const fonts = ['Oswald', 'Roboto', 'sans-serif'].join(',')
 
 const theme = createTheme({
   typography: {
-    allVariants: {
-      font: 'Oswald',
-      fontFamily: 'Oswald',
-    },
-    fontFamily: ['Oswald', 'Roboto', 'sans-serif'].join(','),
+    allVariants: { fontFamily: fonts },
+    fontFamily: fonts,
+    // page titles
     h1: {
-      fontSize: '1.75rem',
+      fontSize: '2rem',
       color: '#FFFFFF',
-      fontWeight: 700,
+      fontWeight: 400,
+      lineHeight: '2.964rem',
+      textAlign: 'left',
+      textTransform: 'uppercase',
     },
+    // section title like Recent Work
     h2: {
-      fontWeight: 700,
+      fontWeight: 400,
       color: '#FFFFFF',
-      fontSize: '1.5rem',
+      fontSize: '1.75rem',
+      textTransform: 'uppercase',
     },
-    // Home Page image overlay text
+    // video/series titles
     h3: {
-      weight: 400,
+      fontWeight: 400,
       fontSize: '1.5rem',
-      lineHeight: '35.57px',
+      lineHeight: '2.223rem',
       color: '#F8F9FA',
+      textAlign: 'left',
+      textTransform: 'uppercase',
     },
     h4: {
       color: '#F8F9FA',
     },
+    // Body/Regular in Figma - Page & Video descriptions. Pretty much non-title copy
     body1: {
-      color: 'white',
+      color: '#F8F9FA',
       textDecoration: 'none',
-      lineHeight: '18.75px',
+      lineHeight: '140%',
       fontSize: '1rem',
+      fontFamily: 'Manrope, sans-serif',
       fontWeight: 400,
     },
+    // video descriptions
     body2: {
-      color: '#212529',
+      color: 'white',
       fontWeight: 400,
-      fontSize: '0.75rem',
-      lineHeight: '14px',
+      fontSize: '1rem',
+      lineHeight: '1.4rem',
+      textAlign: 'left',
     },
     button: {
-      // EXPLORE THE SERIES
       color: '#FFFFFF',
-      lineHeight: '22px',
-      fontSize: '0.8125rem',
-      letterSpacing: '0.46px',
+      lineHeight: '1.024rem',
+      fontSize: '0.75rem',
+      letterSpacing: '0.02em',
+      fontFamily: 'Oswald, sans-serif',
+      fontWeight: 500,
+      textAlign: 'left',
+    },
+    subtitle1: {
+      fontFamily: 'Manrope, sans-serif',
+      fontSize: '0.75rem',
+      fontWeight: 200,
+      lineHeight: '1.024rem',
+      textAlign: 'left',
+    },
+    // NavLink
+    subtitle2: {
+      fontSize: '1.25rem',
+      fontStyle: 'normal',
+      fontWeight: '400',
+      lineHeight: 'normal',
+      textTransform: 'uppercase',
+    },
+    // seriesList image overlay
+    caption: {
+      fontSize: '1.5rem',
+      fontFamily: 'Oswald',
+      color: '#F8F9FA',
+      fontStyle: 'normal',
+      lineHeight: 'normal',
+      fontWeight: 400,
+      textTransform: 'uppercase',
     },
   },
   components: {
@@ -67,6 +105,7 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
+          borderRadius: '0',
           backgroundColor: '#0C0D0D',
         },
       },
@@ -98,6 +137,23 @@ const theme = createTheme({
           bottom: 0,
           borderBottom: '16px',
         },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Manrope, sans-serif',
+          fontSize: '0.75rem',
+          fontWeight: 500,
+          lineHeight: '1.024rem',
+          letterSpacing: '0.02em',
+          textAlign: 'left',
+        },
+      },
+    },
+    MuiStack: {
+      defaultProps: {
+        useFlexGap: true,
       },
     },
   },

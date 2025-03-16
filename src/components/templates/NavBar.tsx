@@ -1,15 +1,9 @@
 import MenuIcon from '@mui/icons-material/Menu'
-import {
-  AppBar,
-  Box,
-  Drawer,
-  IconButton,
-  Toolbar,
-  Typography,
-} from '@mui/material'
+import { AppBar, Box, Drawer, IconButton, Toolbar } from '@mui/material'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { NavList } from '../molecules/NavList'
+
+const KurtLogo = `${process.env.PUBLIC_URL}/images/kurt_logo.svg`
 
 export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -19,18 +13,20 @@ export function NavBar() {
   }
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', height: '5.75rem' }}>
       <AppBar position="sticky">
-        <Toolbar>
-          <Typography
-            component={Link}
-            to="/"
-            variant="h3"
-            noWrap
-            sx={{ textDecoration: 'none' }}
-          >
-            KURT SENSENBRENNER
-          </Typography>
+        <Toolbar sx={{ height: '100%' }}>
+          <Box
+            component="img"
+            src={KurtLogo}
+            alt="Logo"
+            style={{
+              height: '100%',
+              width: 'auto',
+              padding: '1rem 0',
+            }}
+          />
+
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -50,9 +46,8 @@ export function NavBar() {
         anchor="right"
         open={menuOpen}
         onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
+        ModalProps={{ keepMounted: true }}
+        slotProps={{ paper: { sx: { background: 'none' } } }}
       >
         <NavList onClose={handleDrawerToggle} />
       </Drawer>
