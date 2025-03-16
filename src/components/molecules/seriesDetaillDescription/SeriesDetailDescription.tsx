@@ -20,20 +20,25 @@ export function SeriesDetailDescription({
     [seriesInfo.genres, seriesInfo.roles]
   )
   return (
-    <Box sx={{ padding: '24px 16px 16px' }}>
+    <Box sx={{ padding: '1.5rem 1rem 1rem' }}>
       <PageTitle title={pageTitle} />
       {seriesInfo.imageUrl && (
-        <img
-          alt={`${seriesInfo.name}`}
+        <Box
+          component="img"
+          alt={seriesInfo.name}
           src={seriesInfo.imageUrl}
           width="100vw"
-          style={{ marginLeft: '-16px' }}
+          sx={{
+            marginLeft: '-1rem',
+            aspectRatio: '16/9',
+            marginBottom: '1rem',
+          }}
         />
       )}
       <Box>
         <VideoInfoWithLink
           linkableInfo={linkableInfo}
-          sx={{ paddingBottom: '16px' }}
+          sx={{ paddingBottom: '1rem' }}
         />
         <Typography variant="body1">{seriesInfo.fullDescription}</Typography>
       </Box>
