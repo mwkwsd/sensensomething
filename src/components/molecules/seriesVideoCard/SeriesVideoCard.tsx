@@ -14,7 +14,7 @@ export function SeriesVideoCard({ videoInfo }: SeriesVideoCardProps) {
         <Typography variant="h3" sx={{ paddingBottom: '0.5rem' }}>
           {title}
         </Typography>
-        {description && <Typography variant="body2">{description}</Typography>}
+        {description && <Typography variant="body1">{description}</Typography>}
       </CardContent>
       <CardMedia>
         <PreModalImage videoInfo={videoInfo} />

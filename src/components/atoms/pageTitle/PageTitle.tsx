@@ -24,7 +24,7 @@ export function PageTitle({
         ? `0.125rem solid ${titleUnderlineColor}`
         : 'none',
       content: '""',
-      display: 'block',
+      display: 'inline-block',
       position: 'absolute',
       bottom: '0',
       left: '0',

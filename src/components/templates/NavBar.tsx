@@ -1,14 +1,6 @@
 import MenuIcon from '@mui/icons-material/Menu'
-import {
-  AppBar,
-  Box,
-  Drawer,
-  IconButton,
-  Toolbar,
-  Typography,
-} from '@mui/material'
+import { AppBar, Box, Drawer, IconButton, Toolbar } from '@mui/material'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { NavList } from '../molecules/NavList'
 
 const KurtLogo = `${process.env.PUBLIC_URL}/images/kurt_logo.svg`
@@ -21,26 +13,20 @@ export function NavBar() {
   }
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', height: '5.75rem' }}>
       <AppBar position="sticky">
-        <Toolbar>
-          <Typography
-            component={Link}
-            to="/"
-            variant="h3"
-            noWrap
-            sx={{ textDecoration: 'none' }}
-          >
-            <img
-              src={KurtLogo}
-              alt="Logo"
-              style={{
-                height: '60px',
-                width: 'auto',
-                padding: '16px 0 16px 0',
-              }}
-            />
-          </Typography>
+        <Toolbar sx={{ height: '100%' }}>
+          <Box
+            component="img"
+            src={KurtLogo}
+            alt="Logo"
+            style={{
+              height: '100%',
+              width: 'auto',
+              padding: '1rem 0',
+            }}
+          />
+
           <IconButton
             color="inherit"
             aria-label="open drawer"

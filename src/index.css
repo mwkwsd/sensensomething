@@ -7,8 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #0c0d0d;
 }
+
 html {
   font-size: 16px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 code {
@@ -20,4 +24,13 @@ a {
   text-decoration: inherit;
   color: inherit;
   cursor: auto;
+}
+
+/*
+Got to learn a bit about this history html/css rendering here.
+*/
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
