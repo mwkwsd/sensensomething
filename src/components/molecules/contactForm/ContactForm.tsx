@@ -2,7 +2,7 @@ import emailjs from '@emailjs/browser'
 import {
   Button,
   Container,
-  Grid,
+  Grid2,
   TextFieldProps,
   Typography,
 } from '@mui/material'
@@ -110,7 +110,7 @@ export function ContactForm() {
   return (
     <>
       {!formSubmitted && (
-        <Grid
+        <Grid2
           id="contact"
           container
           spacing={1.5}
@@ -120,7 +120,7 @@ export function ContactForm() {
           sx={{ paddingX: '16px' }}
         >
           {inputs.map(i => (
-            <Grid item key={`${i}-input-key`} xs={12}>
+            <Grid2 key={`${i}-input-key`} size={{ xs: 12 }}>
               <TextInput
                 sx={{ width: '100%' }}
                 {...inputToFormProps[i]}
@@ -131,9 +131,9 @@ export function ContactForm() {
               {fieldErrors[i] === 'error' && (
                 <FieldError message="Please fill out this field." />
               )}
-            </Grid>
+            </Grid2>
           ))}
-          <Grid item xs={2.5} marginLeft={'auto'}>
+          <Grid2 size={{ xs: 2.5 }} marginLeft={'auto'}>
             <Button
               disableElevation
               type="submit"
@@ -143,11 +143,11 @@ export function ContactForm() {
             >
               SUBMIT
             </Button>
-          </Grid>
+          </Grid2>
           {formError && (
             <FieldError message="Something went wrong and the form was not submitted. Please try again." />
           )}
-        </Grid>
+        </Grid2>
       )}
       {thankYouComponent}
     </>

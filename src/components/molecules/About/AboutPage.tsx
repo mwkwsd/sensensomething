@@ -15,7 +15,7 @@ export function AboutPage() {
       />
       {Kurt.map((item, index) => (
         <Box key={index}>
-          <Typography variant="body2">{item.description}</Typography>
+          <Typography variant="body1">{item.description}</Typography>
           <img
             src={item.photo.path}
             alt={item.photo.alt}

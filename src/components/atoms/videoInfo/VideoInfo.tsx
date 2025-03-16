@@ -9,16 +9,16 @@ type VideoInfoProps = {
 
 export function VideoInfo({ label, info, sx, url }: VideoInfoProps) {
   return (
-    <Typography variant="body2" sx={{ ...sx }}>
-      <b>{label}: </b>
+    <Typography variant="body1" sx={{ ...sx }}>
+      {label}:
       {url && (
         <Link
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          variant="body2"
+          variant="body1"
           underline="hover"
-          sx={theme => ({ color: theme.typography.body2.color })}
+          sx={theme => ({ color: theme.typography.body1.color })}
         >
           {info}
         </Link>

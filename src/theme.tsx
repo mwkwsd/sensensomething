@@ -30,7 +30,7 @@ const theme = createTheme({
       fontWeight: 400,
       color: '#FFFFFF',
       fontSize: '1.75rem',
-      textTransform: 'uppercase'
+      textTransform: 'uppercase',
     },
     // video/series titles
     h3: {
@@ -44,11 +44,11 @@ const theme = createTheme({
     h4: {
       color: '#F8F9FA',
     },
-    // page/video descriptions
+    // Body/Regular in Figma - Page & Video descriptions. Pretty much non-title copy
     body1: {
       color: '#F8F9FA',
       textDecoration: 'none',
-      lineHeight: '18.75px',
+      lineHeight: '140%',
       fontSize: '1rem',
       fontFamily: 'Manrope, sans-serif',
       fontWeight: 400,
