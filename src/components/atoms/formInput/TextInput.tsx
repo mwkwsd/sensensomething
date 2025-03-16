@@ -1,11 +1,6 @@
-import {
-  InputProps,
-  TextField,
-  TextFieldProps,
-  useTheme,
-} from '@mui/material'
-import { Input } from '../../molecules/contactForm/ContactForm'
+import { InputProps, TextField, TextFieldProps, useTheme } from '@mui/material'
 import { WithRequired } from '../../../common/utils/typescriptUtils'
+import { Input } from '../../molecules/contactForm/ContactForm'
 
 export type TextInputProps = {
   fieldName: Input
@@ -42,8 +37,12 @@ export function TextInput({ fieldName, label, ...rest }: TextInputProps) {
       label={label}
       name={fieldName}
       rows={rest.multiline ? 5 : 1}
-      InputLabelProps={{ sx: { paddingLeft: '12px', fontSize: '16px' } }}
-      InputProps={inputProps}
+      slotProps={{
+        inputLabel: {
+          sx: { paddingLeft: '0.75rem', fontSize: '1rem' },
+        },
+        input: inputProps,
+      }}
       {...rest}
     />
   )

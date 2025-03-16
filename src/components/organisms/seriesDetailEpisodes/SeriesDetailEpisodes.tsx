@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { ISeriesDetail } from '../../../common/interfaces/ISeriesDetail'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { getVideoInfoForTitle } from '../../../common/utils/utils'
-import { UnderlinedButton } from '../../atoms/buttons/UnderlinedButton'
+import { OutlinedButton } from '../../atoms/buttons/OutlinedButton'
 import { SeriesVideoCard } from '../../molecules/seriesVideoCard/SeriesVideoCard'
 
 type SeriesDetailEpisodesProps = {
@@ -31,10 +31,15 @@ export function SeriesDetailEpisodes({
 
     return (
       <Container
-        sx={{ padding: '0px', display: 'flex', justifyContent: 'center' }}
+        sx={{
+          padding: '1.5rem 1rem 0',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
       >
-        <UnderlinedButton
-          label="See All Episodes"
+        <OutlinedButton
+          text="Show More Episodes"
+          color="#FFFFFF"
           onClick={() => setShouldSeeAllEpisodes(!shouldSeeAllEpisodes)}
         />
       </Container>
@@ -42,8 +47,8 @@ export function SeriesDetailEpisodes({
   }, [shouldSeeAllEpisodes, numberOfVideos])
 
   return (
-    <Box sx={{ paddingTop: '16px' }}>
-      <Typography variant="h1" sx={{ paddingX: '16px' }}>
+    <Box sx={{ paddingTop: '1rem' }}>
+      <Typography variant="h1" sx={{ paddingX: '1rem' }}>
         Episodes
       </Typography>
       <Grid2 container spacing={2}>
