@@ -1,5 +1,5 @@
+import { Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { Typography } from '@mui/material'
 
 type FooterLinksProps = {
   items: { label: string; link: string }[]
@@ -7,30 +7,16 @@ type FooterLinksProps = {
 
 export function FooterLinks({ items }: FooterLinksProps) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        color: 'white',
-        paddingTop: '30px',
-        maxWidth: '75px',
-      }}
-    >
+    <Stack flexDirection="column" flexGrow={1} justifyContent="space-between">
       {items.map((item, index) => (
-        <Link
-          key={index}
-          to={item.link}
-          style={{
-            textDecoration: 'none',
-            color: 'white',
-            padding: '0.25rem',
-          }}
+        <Typography
+          variant="subtitle1"
+          sx={{ textDecoration: 'none', paddingY: '0.75rem' }}
         >
-          <Typography variant="subtitle1" sx={{ fontSize: '0.75rem' }}>
-            {item.label}
-          </Typography>
-        </Link>
+          {item.label}
+          <Link key={`${index}-footer-nav`} to={item.link}></Link>
+        </Typography>
       ))}
-    </div>
+    </Stack>
   )
 }

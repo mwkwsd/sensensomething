@@ -4,8 +4,8 @@ const colorGuide = {
   director_of_photography: '#CA9FFF',
   director_producer: '#4BAEFF',
   series: '#FFB74D',
-  animation: '#F8CAFF',
-  documentary: '#79DFC1',
+  animation: '#E685B5',
+  documentary: '#FCFF85',
   email: '#FFB74D',
   error: '#D32F2F',
 } as const
@@ -71,10 +71,12 @@ const theme = createTheme({
       textAlign: 'left',
     },
     subtitle1: {
+      color: "#F8F9FA",
       fontFamily: 'Manrope, sans-serif',
-      fontSize: '0.75rem',
-      fontWeight: 200,
-      lineHeight: '1.024rem',
+      fontSize: '0.875rem',
+      fontWeight: 400,
+      lineHeight: '100%',
+      letterSpacing: '0%',
       textAlign: 'left',
     },
     // NavLink
