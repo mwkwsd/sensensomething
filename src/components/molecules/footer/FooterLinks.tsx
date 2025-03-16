@@ -8,14 +8,15 @@ type FooterLinksProps = {
 export function FooterLinks({ items }: FooterLinksProps) {
   return (
     <Stack flexDirection="column" flexGrow={1} justifyContent="space-between">
-      {items.map((item, index) => (
-        <Typography
-          variant="subtitle1"
-          sx={{ textDecoration: 'none', paddingY: '0.75rem' }}
-        >
-          {item.label}
-          <Link key={`${index}-footer-nav`} to={item.link}></Link>
-        </Typography>
+      {items.map(item => (
+        <Link key={`${item.label}-footer-nav`} to={item.link}>
+          <Typography
+            variant="subtitle1"
+            sx={{ textDecoration: 'none', paddingY: '0.75rem' }}
+          >
+            {item.label}
+          </Typography>
+        </Link>
       ))}
     </Stack>
   )
