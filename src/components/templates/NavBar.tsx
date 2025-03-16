@@ -1,11 +1,13 @@
 import MenuIcon from '@mui/icons-material/Menu'
 import { AppBar, Box, Drawer, IconButton, Toolbar } from '@mui/material'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { NavList } from '../molecules/NavList'
 
 const KurtLogo = `${process.env.PUBLIC_URL}/images/kurt_logo.svg`
 
 export function NavBar() {
+  const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
 
   const handleDrawerToggle = () => {
@@ -18,6 +20,7 @@ export function NavBar() {
         <Toolbar sx={{ height: '100%' }}>
           <Box
             component="img"
+            onClick={() => navigate('/')}
             src={KurtLogo}
             alt="Logo"
             style={{
