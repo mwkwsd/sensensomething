@@ -61,15 +61,19 @@ const theme = createTheme({
       lineHeight: '1.4rem',
       textAlign: 'left',
     },
+
+    // Ready to Hire / Submit / See more videos
     button: {
       color: '#FFFFFF',
-      lineHeight: '1.024rem',
+      lineHeight: '100%',
       fontSize: '0.75rem',
-      letterSpacing: '0.02em',
-      fontFamily: 'Oswald, sans-serif',
+      letterSpacing: '2%',
+      fontFamily: 'Manrope, sans-serif',
       fontWeight: 500,
-      textAlign: 'left',
+      textTransform: 'uppercase',
     },
+
+    // Footer Buttons
     subtitle1: {
       fontFamily: 'Manrope, sans-serif',
       fontSize: '0.75rem',
