@@ -1,4 +1,4 @@
-interface IClientInfo {
+export interface IClientInfo {
   name: string
   url?: string
 }
