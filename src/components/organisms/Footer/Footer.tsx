@@ -34,7 +34,12 @@ export function Footer() {
       sx={{ backgroundColor: '#191B1B', padding: '2.5rem 1rem 2rem' }}
       direction="column"
     >
-      <Stack direction="row" spacing={3} justifyContent="space-between">
+      <Stack
+        component="nav"
+        direction="row"
+        spacing={3}
+        justifyContent="space-between"
+      >
         <FooterLinks items={transformedNavLinks} />
 
         <FooterLinks items={roleColumnData} />
