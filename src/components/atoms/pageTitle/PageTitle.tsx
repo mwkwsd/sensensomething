@@ -17,7 +17,6 @@ export function PageTitle({
 }: PageTitleProps) {
   const titleUnderline: SxProps = {
     paddingBottom: '0.5rem',
-    marginBottom: '1rem',
     position: 'relative',
     ':after': {
       border: titleUnderlineColor
@@ -38,7 +37,9 @@ export function PageTitle({
         {title}
       </Typography>
       {subheaderText && (
-        <Typography variant="body1">{subheaderText}</Typography>
+        <Typography variant="body1" sx={{ paddingTop: '1rem' }}>
+          {subheaderText}
+        </Typography>
       )}
     </Container>
   )
