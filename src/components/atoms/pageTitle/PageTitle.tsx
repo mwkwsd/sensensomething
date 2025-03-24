@@ -37,7 +37,9 @@ export function PageTitle({
         {title}
       </Typography>
       {subheaderText && (
-        <Typography variant="body1">{subheaderText}</Typography>
+        <Typography variant="body1" sx={{ paddingTop: '1rem' }}>
+          {subheaderText}
+        </Typography>
       )}
     </Container>
   )
