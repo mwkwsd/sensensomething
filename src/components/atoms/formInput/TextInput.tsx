@@ -18,6 +18,12 @@ export function TextInput({ fieldName, label, ...rest }: TextInputProps) {
         display: 'block',
         width: '100%',
       },
+      '::after': {
+      content: '""',
+      borderBottom: `1px solid ${theme.palette.email.main}`, // Ensures it stays the same on focus
+      display: 'block',
+      width: '100%',
+      },
       '& input': {
         color: 'white',
         fontWeight: 400,
