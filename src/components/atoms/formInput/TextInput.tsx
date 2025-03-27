@@ -14,7 +14,7 @@ export function TextInput({ fieldName, label, ...rest }: TextInputProps) {
       color: '#FFFFFF',
       '::before': {
         content: '""',
-        border: `1px solid ${theme.palette.email.main}`,
+        border: `0.5px solid ${theme.palette.email.main}`,
         display: 'block',
         width: '100%',
       },
