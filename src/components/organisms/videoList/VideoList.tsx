@@ -41,7 +41,7 @@ export function VideoList({ videos, pageType }: VideoListProps) {
         direction="row"
         spacing={{ xs: 1 }}
         justifyContent="center"
-        sx={{ paddingTop: '1rem', paddingX: '1rem' }}
+        sx={{ paddingTop: '1rem', paddingBottom: '2rem', paddingX: '1rem' }}
       >
         {!isHomePage && (
           <OutlinedButton
