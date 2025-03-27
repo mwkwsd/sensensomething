@@ -32,7 +32,7 @@ export function SeriesDetailEpisodes({
     return (
       <Container
         sx={{
-          padding: '1.5rem 1rem 0',
+          padding: '1.5rem 1rem 2rem',
           display: 'flex',
           justifyContent: 'center',
         }}
