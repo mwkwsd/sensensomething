@@ -11,7 +11,7 @@ export function About() {
   return (
     <Card
       elevation={0}
-      sx={{ padding: '1rem', backgroundColor: backgroundColor }}
+      sx={{ backgroundColor: backgroundColor }}
     >
       <AboutPage />
     </Card>
