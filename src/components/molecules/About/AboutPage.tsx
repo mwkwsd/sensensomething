@@ -18,7 +18,7 @@ export function AboutPage() {
         fullWidth={true}
       />
       {Kurt.map((item, index) => (
-        <Box key={index} sx={{ paddingTop: '1rem' }}>
+        <Box key={`kurt-about-${index}`} sx={{ paddingTop: '1rem' }}>
           <Typography variant="body1">{item.description}</Typography>
           <Box
             component="img"

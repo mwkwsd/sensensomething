@@ -6,7 +6,7 @@ type RecentWorkPageType = {
   videoTitles: readonly VideoTitle[]
 }
 
-export const recentWorkPageInfo: RecentWorkPageType = {
+export const recentWorkPageInfo = {
   orderedPages: [
     'director_producer',
     'director_of_photography',
@@ -20,4 +20,4 @@ export const recentWorkPageInfo: RecentWorkPageType = {
     'How Corporations Raided Medicare',
     "What Energy Companies Don't Want You To Know",
   ],
-} as const
+} as const satisfies RecentWorkPageType
