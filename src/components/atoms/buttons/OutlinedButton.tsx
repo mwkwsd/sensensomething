@@ -7,6 +7,7 @@ type OutlinedButtonProps = {
   onClick?: () => void
   component?: React.ElementType
   to?: string
+  type?: string
 }
 export function OutlinedButton({
   color,
@@ -15,6 +16,7 @@ export function OutlinedButton({
   onClick,
   component,
   to,
+  type
 }: OutlinedButtonProps) {
   return (
     <Button
@@ -30,6 +32,7 @@ export function OutlinedButton({
         border: `1px solid ${color}`,
         ...sx,
       }}
+      type={type || "button"}
     >
       <Typography variant="button" sx={{ color }}>
         {text}

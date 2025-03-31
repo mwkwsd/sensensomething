@@ -51,12 +51,9 @@ export function ContactForm() {
 
     const currentForm = form.current
 
-    console.log('Current Form: %o', currentForm)
-
     // TODO: enValid package
     if (
       !currentForm ||
-      !process.env.REACT_APP_EMAIL_SERVICE_ID ||
       !process.env.REACT_APP_EMAIL_TEMPLATE_ID ||
       !process.env.REACT_APP_EMAIL_PUBLIC_ID
     ) {
@@ -66,16 +63,17 @@ export function ContactForm() {
     if (allFieldsFilledIn) {
       emailjs
         .sendForm(
-          process.env.REACT_APP_EMAIL_SERVICE_ID,
+          "default_service",
           process.env.REACT_APP_EMAIL_TEMPLATE_ID,
           currentForm,
-          process.env.REACT_APP_EMAIL_PUBLIC_ID
+          {publicKey: process.env.REACT_APP_EMAIL_PUBLIC_ID}
         )
         .then(
           () => {
             setFormSubmitted(true)
           },
           error => {
+            console.log(error)
             setFormError(true)
           }
         )
@@ -151,6 +149,7 @@ export function ContactForm() {
               }}
               text="Submit"
               color={theme.palette.email.main}
+              type='submit'
             />
           </Grid2>
           {formError && (
