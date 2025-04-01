@@ -49,9 +49,9 @@ export function ContactForm() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
+    const email_regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
     const currentForm = form.current
 
-    // TODO: enValid package
     if (
       !currentForm ||
       !process.env.REACT_APP_EMAIL_TEMPLATE_ID ||
@@ -59,8 +59,16 @@ export function ContactForm() {
     ) {
       setFormError(true)
       return
-    } // don't love this, but otherwise my sendForm() errors
+    }
     if (allFieldsFilledIn) {
+      if (!fieldStates["email_address"].match(email_regex)) {
+        setFieldErrors(currentFieldErrors => ({
+          ...currentFieldErrors,
+          "email_address": 'not_email',
+        }))
+        return
+      }
+
       emailjs
         .sendForm(
           "default_service",
@@ -71,6 +79,12 @@ export function ContactForm() {
         .then(
           () => {
             setFormSubmitted(true)
+            Object.entries(fieldStates).forEach(([key, value]) => {
+              setFieldStates(currentFieldStates => ({
+                ...currentFieldStates,
+                [key]: '',
+              }))
+            })
           },
           error => {
             console.log(error)
@@ -84,6 +98,13 @@ export function ContactForm() {
           [key]: value === '' ? 'error' : '',
         }))
       })
+
+      if (!fieldStates["email_address"].match(email_regex)) {
+        setFieldErrors(currentFieldErrors => ({
+          ...currentFieldErrors,
+          "email_address": 'not_email',
+        }))
+      }
     }
   }
 
@@ -131,6 +152,10 @@ export function ContactForm() {
               />
               {fieldErrors[i] === 'error' && (
                 <FieldError message="Please fill out this field." />
+              )}
+              {/* This will always display on the email field because we are setting not_email second */}
+              {fieldErrors[i] === 'not_email' && (
+                <FieldError message="Please use a valid email." />
               )}
             </Grid2>
           ))}
