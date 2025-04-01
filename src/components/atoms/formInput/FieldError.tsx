@@ -12,10 +12,10 @@ export function FieldError({ message }: FieldErrorProps) {
   return (
     <Container sx={{ bgcolor: theme.palette.error.main, textAlign: "center", marginTop: "8px"  }} disableGutters={true}>
       <Typography
-        sx={{paddingY: "12px"}}
-        variant="body1"
+        sx={{paddingY: "12px", textAlign: 'center'}}
+        variant="h5"
       >
-        <BsExclamationCircle color='white' style={{marginRight: "8px"}}/>
+        <BsExclamationCircle color='white' size={17} style={{marginRight: "8px"}}/>
         {message}
       </Typography>
     </Container>
