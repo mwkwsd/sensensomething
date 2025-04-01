@@ -49,7 +49,7 @@ export function ContactForm() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const email_regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+    const email_regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
     const currentForm = form.current
 
     if (
