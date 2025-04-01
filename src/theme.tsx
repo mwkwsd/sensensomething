@@ -44,6 +44,15 @@ const theme = createTheme({
     h4: {
       color: '#F8F9FA',
     },
+    // Error Text
+    h5: {
+      color: 'white',
+      fontFamily: 'Roboto, sans-serif',
+      fontSize: '0.875rem',
+      lineHeight: '143%',
+      fontWeight: 500,
+    },
+    
     // Body/Regular in Figma - Page & Video descriptions. Pretty much non-title copy
     body1: {
       color: '#F8F9FA',
@@ -66,7 +75,7 @@ const theme = createTheme({
     button: {
       color: '#FFFFFF',
       lineHeight: '100%',
-      fontSize: '0.75rem',
+      fontSize: '0.875rem',
       letterSpacing: '2%',
       fontFamily: 'Manrope, sans-serif',
       fontWeight: 500,
