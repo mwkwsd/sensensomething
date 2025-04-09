@@ -24,7 +24,7 @@ export function Home() {
         >
           Recent Work
         </Typography>
-        <VideoList videos={videos} pageType="recent" />
+        <VideoList videos={videos} pageCategory="recent" />
       </Box>
       <Contact />
     </Box>

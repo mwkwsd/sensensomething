@@ -10,13 +10,13 @@ import { VideoList } from '../organisms/videoList/VideoList'
  * @returns Page for showing video lists for Roles (Director & Producer, Director of Photography) and Documentary
  */
 export function VideoListPage() {
-  const [videoPageInfo, pageEnum, pageType] = useLoaderData<VideoPageArgs>()
+  const [videoPageInfo, pageEnum, pageCategory] = useLoaderData<VideoPageArgs>()
   const theme = useTheme()
 
   const videosForPage = useMemo(
     () =>
       videoPageInfo.videoTitles
-        .map(videoTitle => getVideoInfoForTitle(videoTitle))
+        .map(getVideoInfoForTitle)
         .filter((video): video is IVideoInfo => !!video),
     [videoPageInfo.videoTitles]
   )
@@ -32,9 +32,10 @@ export function VideoListPage() {
         sx={{ padding: '1rem 1rem 1.5rem' }}
       />
       <VideoList
-        key={`video-list-${pageType}`}
+        key={`video-list-${pageEnum}`}
         videos={videosForPage}
-        pageType={pageType}
+        pageType={pageEnum}
+        pageCategory={pageCategory}
       />
     </>
   )

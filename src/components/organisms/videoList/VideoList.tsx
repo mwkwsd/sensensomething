@@ -1,18 +1,20 @@
 import { Grid2, Stack } from '@mui/material'
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { Genre, Role } from '../../../common/constants/enums'
 import { IVideoInfo } from '../../../common/interfaces/IVideoInfo'
 import { OutlinedButton } from '../../atoms/buttons/OutlinedButton'
 import { VideoCard } from '../../molecules/videoCard/VideoCard'
 
 type VideoListProps = {
   videos: IVideoInfo[]
-  pageType: 'genre' | 'role' | 'recent'
+  pageCategory: 'genre' | 'role' | 'recent'
+  pageType?: Role | Genre
 }
 
 const VIDEOS_PER_PAGE = 3
 
-export function VideoList({ videos, pageType }: VideoListProps) {
+export function VideoList({ videos, pageType, pageCategory }: VideoListProps) {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
 
@@ -28,7 +30,11 @@ export function VideoList({ videos, pageType }: VideoListProps) {
 
   const videoComponents = visibleVideos.map((video: IVideoInfo) => (
     <Grid2 size={{ xs: 12, md: 6 }} key={`grid-item-video-list-${video.title}`}>
-      <VideoCard video={video} pageType={pageType} />
+      <VideoCard
+        video={video}
+        pageType={pageType}
+        pageCategory={pageCategory}
+      />
     </Grid2>
   ))
 
