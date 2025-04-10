@@ -30,6 +30,17 @@ export function GearPage() {
           </Box>
         ))}
       </Box>
+
+      <Typography
+        variant="body1"
+        sx={{ textAlign: 'center', marginTop: '1rem', paddingX: '1rem' }}
+      >
+        A list of camera support options, grip gear, etc. is available upon
+        request.
+        <br />
+        Please contact me with any questions and to discuss rates.
+      </Typography>
+
       <Contact />
     </>
   )
