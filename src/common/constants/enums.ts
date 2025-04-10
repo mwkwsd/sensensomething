@@ -14,4 +14,5 @@ export const navLinks = [
   { route: '/#recent-work', label: 'Recent Work' },
   { route: '/about', label: 'About' },
   { route: '/#contact', label: 'Contact' },
+  { route: '/gear', label: 'Gear'}
 ] as const
