@@ -7,6 +7,7 @@ import {
 import { ModalProvider } from './components/organisms/modal/ModalProvider'
 import { KurtApp } from './components/pages/kurtApp/KurtApp'
 import { About } from './components/templates/About'
+import { Gear } from './components/templates/Gear'
 import { ErrorBoundary } from './components/templates/ErrorBoundary'
 import { Home } from './components/templates/Home'
 import { SeriesDetailPage } from './components/templates/SeriesDetailPage'
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />,
+      },
+      {
+        path: '/gear',
+        element: <Gear />,
       },
       {
         element: <Home />,
