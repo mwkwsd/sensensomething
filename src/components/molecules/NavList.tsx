@@ -19,14 +19,16 @@ export function NavList({ onClose }: { onClose: () => void }) {
 
   const firstNavLinks = useMemo(
     () =>
-      navLinks.map(item => (
-        <NavLink
-          key={`nav-link-${item.label}`}
-          navLink={item}
-          isSelected={location.pathname === item.route}
-          onClose={onClose}
-        />
-      )),
+      navLinks
+        .filter(item => item.route !== '/gear') 
+        .map(item => (
+          <NavLink
+            key={`nav-link-${item.label}`}
+            navLink={item}
+            isSelected={location.pathname === item.route}
+            onClose={onClose}
+          />
+        )),
     [location.pathname, onClose]
   )
 
