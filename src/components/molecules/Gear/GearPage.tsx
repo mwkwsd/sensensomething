@@ -1,13 +1,20 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useTheme } from '@mui/material'
 import { PageTitle } from '../../atoms/pageTitle/PageTitle'
 import { Contact } from '../../templates/Contact'
 import { gearList } from '../../../assets/gear/gearList'
 
 export function GearPage() {
+  const {
+      palette: {
+        series: { main: underlineColor },
+      },
+    } = useTheme()
+
   return (
     <>
       <PageTitle
         title="Gear / Gear for Rent"
+        titleUnderlineColor={underlineColor}
         fullWidth={true}
         sx={{ padding: '1rem 1rem' }}
       />
@@ -33,7 +40,7 @@ export function GearPage() {
 
       <Typography
         variant="body1"
-        sx={{ textAlign: 'center', marginTop: '1rem', paddingX: '1rem' }}
+        sx={{ textAlign: 'center', marginTop: '1rem', paddingX: '1rem', paddingBottom: '2rem' }}
       >
         A list of camera support options, grip gear, etc. is available upon
         request.
